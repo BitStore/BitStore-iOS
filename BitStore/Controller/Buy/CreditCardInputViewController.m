@@ -56,12 +56,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
 
-//    NSString* key = @"stripe key";
-//    if ([[Environment environment] isEqualToString:@"TEST"]) {
-//         key = @"stripe test key";
-//    }
-    NSString* key = nil;
-    NSAssert(key, @"Buy feature is deactivated");
+    NSString* key = [Keys stripeProductionKey];
+    if ([[Environment environment] isEqualToString:@"TEST"]) {
+         key = [Keys stripeTestKey];
+    }
     
     _stripeView = [[STPView alloc] initWithFrame:CGRectMake(15, 20, 290, 55) andKey:key];
     _stripeView.delegate = self;

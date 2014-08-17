@@ -19,7 +19,4 @@
 + (NSString *)registerPushUrl;
 + (NSString *)unregisterPushUrl;
 
-+ (NSString *)ringCaptchaAppKey;
-+ (NSString *)ringCaptchaAPIKey;
-
 @end

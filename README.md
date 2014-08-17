@@ -16,6 +16,11 @@ You will see three schemas:
 
 On the test server the stripe test servers will be used and only 0.0001 / 0.0002 / 0.0005 / 0.001 BTC will be transfered. Also the developer profile will be used for the APNs. Phone verification is skipped on the test server.
 
+In the file `Keys.m` you will have to add API keys for certain features to work. To prevent committing this file you might want to run this:
+
+	git update-index --assume-unchanged BitStore/Config/Keys.m
+	
+
 ### Server
 **Production** bitstoreapp.com (96.126.120.117)    
 **Test** test.bitstoreapp.com (198.58.122.87)

@@ -155,8 +155,7 @@
 
 - (void)setupAnalytics {
     NSString* url = [API analyticsUrl];
-    NSString* authToken = @"6ad579d388160736086a9190cc5ff133";
-    [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:url] siteID:@"2" authenticationToken:authToken];
+    [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:url] siteID:@"2" authenticationToken:[Keys analyticsKey]];
     [PiwikTracker sharedInstance].dispatchInterval = 30;
 }
 

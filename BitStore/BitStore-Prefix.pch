@@ -22,6 +22,7 @@
 #import "API.h"
 #import "Environment.h"
 #import "Settings.h"
+#import "Keys.h"
 
 #define l10n(key) NSLocalizedString(key, nil)
 

@@ -50,14 +50,4 @@
     }
 }
 
-+ (NSString *)ringCaptchaAppKey {
-#warning TODO implement a clever way to get the API keys
-    // ringCaptcha isn't used atm
-    return @"";
-}
-
-+ (NSString *)ringCaptchaAPIKey {
-    return @"";
-}
-
 @end

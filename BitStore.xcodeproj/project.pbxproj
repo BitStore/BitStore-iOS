@@ -30,6 +30,7 @@
 		9A073F3F1996EDCD007E0D0F /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F3E1996EDCD007E0D0F /* Order.m */; };
 		9A073F421996F044007E0D0F /* PhoneInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F411996F044007E0D0F /* PhoneInputViewController.m */; };
 		9A073F4819978042007E0D0F /* PhoneVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F4719978042007E0D0F /* PhoneVerificationViewController.m */; };
+		9A19022D19A0FAD7008D928B /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A19022C19A0FAD7008D928B /* Keys.m */; };
 		9A1DAEBB197BD5B600BB9DF7 /* JobHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DAEBA197BD5B600BB9DF7 /* JobHelper.m */; };
 		9A1DAEC1197BD72900BB9DF7 /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DAEC0197BD72900BB9DF7 /* Job.m */; };
 		9A1DAEC4197BD95300BB9DF7 /* PushHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DAEC3197BD95300BB9DF7 /* PushHelper.m */; };
@@ -172,6 +173,8 @@
 		9A073F411996F044007E0D0F /* PhoneInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneInputViewController.m; sourceTree = "<group>"; };
 		9A073F4619978042007E0D0F /* PhoneVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneVerificationViewController.h; sourceTree = "<group>"; };
 		9A073F4719978042007E0D0F /* PhoneVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneVerificationViewController.m; sourceTree = "<group>"; };
+		9A19022B19A0FAD7008D928B /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
+		9A19022C19A0FAD7008D928B /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
 		9A1DAEB9197BD5B600BB9DF7 /* JobHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobHelper.h; sourceTree = "<group>"; };
 		9A1DAEBA197BD5B600BB9DF7 /* JobHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobHelper.m; sourceTree = "<group>"; };
 		9A1DAEBF197BD72900BB9DF7 /* Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Job.h; sourceTree = "<group>"; };
@@ -832,6 +835,8 @@
 				9AB7EAEF19903DEA00B9A1BA /* API.m */,
 				9AB7EAF119903DFB00B9A1BA /* Environment.h */,
 				9AB7EAF219903DFB00B9A1BA /* Environment.m */,
+				9A19022B19A0FAD7008D928B /* Keys.h */,
+				9A19022C19A0FAD7008D928B /* Keys.m */,
 				9A528CE519A0D6B8007B3DF0 /* Settings.h */,
 				9A528CE619A0D6B8007B3DF0 /* Settings.m */,
 			);
@@ -1111,6 +1116,7 @@
 				9A67A7681950D70A001FCE32 /* ExchangeHelper.m in Sources */,
 				9AAD6243195CAC2C00A9675F /* PiwikTrackedViewController.m in Sources */,
 				9ABC07131983092500EC87A3 /* WeakRef.m in Sources */,
+				9A19022D19A0FAD7008D928B /* Keys.m in Sources */,
 				9A67A77F1950D70A001FCE32 /* Address.m in Sources */,
 				9AAD627B195CAE3700A9675F /* AFHTTPClient.m in Sources */,
 				9A67A7821950D70A001FCE32 /* ContactList.m in Sources */,
