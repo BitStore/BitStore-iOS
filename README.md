@@ -3,6 +3,10 @@ BitStore is a simple and fast native iOS Bitcoin wallet.
 It offers all the features you want but still provides an easy to use interface.   
 Private keys are generated on the device and stored securely in the Keychain.
 
+**AppStore:** [https://itunes.apple.com/us/app/bitstore/id890668158?ls=1&mt=8](https://itunes.apple.com/us/app/bitstore/id890668158?ls=1&mt=8)  
+**Website:**: [http://bitstoreapp.com](http://bitstoreapp.com)  
+**Twitter:**: [https://twitter.com/BitStoreApp](https://twitter.com/BitStoreApp)
+
 [![image](http://bitstoreapp.com/bitstore.png)](http://bitstoreapp.com)
 
 ## Installation
