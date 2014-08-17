@@ -10,6 +10,7 @@
 
 @interface Keys : NSObject
 
++ (NSString *)chainKey;
 + (NSString *)ringCaptchaAppKey;
 + (NSString *)ringCaptchaAPIKey;
 + (NSString *)analyticsKey;

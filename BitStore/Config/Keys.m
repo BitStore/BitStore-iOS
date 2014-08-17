@@ -10,6 +10,10 @@
 
 @implementation Keys
 
++ (NSString *)chainKey {
+    return @"";
+}
+
 + (NSString *)ringCaptchaAppKey {
     return @"";
 }
