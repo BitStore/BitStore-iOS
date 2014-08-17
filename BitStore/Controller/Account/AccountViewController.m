@@ -192,15 +192,7 @@
         UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchPulldown)];
         [labelOverlay addGestureRecognizer:tap];
         [_header addSubview:labelOverlay];
-    }
-    
-	
-	UIView* statusBarOverlap = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-	statusBarOverlap.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	statusBarOverlap.backgroundColor = [UIColor whiteColor];
-	statusBarOverlap.alpha = 0.97;
-	[self.view addSubview:statusBarOverlap];
-    
+    }    
 }
 
 - (void)openPulldownWithAnimateButton:(BOOL)animateButton {

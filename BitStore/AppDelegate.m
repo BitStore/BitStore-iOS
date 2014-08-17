@@ -119,9 +119,7 @@
 - (void)setupKeychain {
 //    [UserDefaults instance].buyDismissed = NO;
 //    [UserDefaults instance].buyShowed = NO;
-    
 //    [UserDefaults instance].addresses = nil;
-//    [Lockbox setArray:[NSArray arrayWithObject:@"5JrkqB91kGn6nLYncVN8LNLHNzk7zbcZQ45QYUR1nagKtkK6ukT"] forKey:@"bitstore_3"];
     
 	if ([[AddressHelper instance] defaultAddress] == nil) {
         
@@ -162,9 +160,6 @@
 - (void)setupWindow {
     AccountNavigationController* accountNavigationController = [[AccountNavigationController alloc] init];
     accountNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:accountNavigationController.title image:[UIImage imageNamed:@"male"] selectedImage:[UIImage imageNamed:@"male_selected"]];
-    
-//    SendNavigationController* sendNavigationController = [[SendNavigationController alloc] init];
-//    sendNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:sendNavigationController.title image:[UIImage imageNamed:@"send"] selectedImage:[UIImage imageNamed:@"send_selected"]];
     
     ContactsNavigationController* contactsNavigationController = [[ContactsNavigationController alloc] init];
     contactsNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:contactsNavigationController.title image:[UIImage imageNamed:@"contacts"] selectedImage:[UIImage imageNamed:@"contacts_selected"]];
