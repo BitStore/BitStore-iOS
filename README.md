@@ -1,6 +1,11 @@
+## BitStore
+BitStore is a simple and fast native iOS Bitcoin wallet.  
+It offers all the features you want but still provides an easy to use interface.   
+Private keys are generated on the device and stored securely in the Keychain.
+
+http://bitstoreapp.com/
+
 ## Installation
-### iOS
-	cd ios
 	pod install
 Open BitStore.xcworkspace.  
 You will see three schemas:
@@ -15,15 +20,6 @@ On the test server the stripe test servers will be used and only 0.0001 / 0.0002
 **Production** bitstoreapp.com (96.126.120.117)    
 **Test** test.bitstoreapp.com (198.58.122.87)
 
-- `server/public` is the server root.
-- `server/mktx.py` is called from the php api (`server/public/api`) to create a btc transaction.
-- `server/push` contains the push notification service.
-
-To launch the push service, execute run.sh. The push service will use the developer profile on the test server and the distribution profile on the production server.
-
-Deployment to the server is done via the git repo. Just do a pull on the server.  
-An installation guide for the server can be found inside the `server` directory.
-
 ## Code Style
 ### iOS
 - Method braces on same line
@@ -35,7 +31,7 @@ An installation guide for the server can be found inside the `server` directory.
 ## Concepts
 The idea is to use listeners on most UI elements. So if the currency changes, all labels update. If the address data changes, all views are updated. With tableviews we just reload the hole table. At the moment there's no problem doing that, as we don't have huge tables.
 
-Listeners don't have to be removed. As soon as the registered object becomes deallocated it will be removed. Like magic :)
+Listeners don't have to be removed. As soon as the registered object becomes deallocated it will be removed.
 
 **Address**
 
