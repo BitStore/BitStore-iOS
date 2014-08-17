@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0600"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "_ENV=&quot;&quot;&#10;echo &quot;#define ENV ${_ENV}&quot; &gt; ${PROJECT_DIR}/InfoPlist.h&#10;sed &apos;s#&lt;string&gt;com.dylanmarriott.BitStore[^&lt;]*&lt;/string&gt;#&lt;string&gt;com.dylanmarriott.BitStore&lt;/string&gt;#&apos; ${PROJECT_DIR}/BitStore/BitStore-Info.plist &gt; ${PROJECT_DIR}/BitStore/BitStore-Info.plist.out&#10;mv ${PROJECT_DIR}/BitStore/BitStore-Info.plist.out ${PROJECT_DIR}/BitStore/BitStore-Info.plist">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "03584666194F09A900521709"
+                     BuildableName = "BitStore.app"
+                     BlueprintName = "BitStore"
+                     ReferencedContainer = "container:BitStore.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "03584666194F09A900521709"
+               BuildableName = "BitStore.app"
+               BlueprintName = "BitStore"
+               ReferencedContainer = "container:BitStore.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "03AC8C6D199511BE00E901E2"
+               BuildableName = "BitStore Tests.xctest"
+               BlueprintName = "BitStore Tests"
+               ReferencedContainer = "container:BitStore.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "03584666194F09A900521709"
+            BuildableName = "BitStore.app"
+            BlueprintName = "BitStore"
+            ReferencedContainer = "container:BitStore.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "03584666194F09A900521709"
+            BuildableName = "BitStore.app"
+            BlueprintName = "BitStore"
+            ReferencedContainer = "container:BitStore.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "03584666194F09A900521709"
+            BuildableName = "BitStore.app"
+            BlueprintName = "BitStore"
+            ReferencedContainer = "container:BitStore.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

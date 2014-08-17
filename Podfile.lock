@@ -1,0 +1,35 @@
+PODS:
+  - CoreBitcoin (0.3.0):
+    - OpenSSL-Universal (= 1.0.1.h)
+  - FXBlurView (1.6.2)
+  - iRate (1.10.3)
+  - MBProgressHUD (0.8)
+  - NSDate+TimeAgo (1.0.3)
+  - OpenSSL-Universal (1.0.1.h)
+  - PaymentKit (1.0.5)
+  - Stripe (1.1.4):
+    - PaymentKit (~> 1.0.4)
+
+DEPENDENCIES:
+  - CoreBitcoin (from `https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec`)
+  - FXBlurView
+  - iRate
+  - MBProgressHUD
+  - NSDate+TimeAgo
+  - Stripe
+
+EXTERNAL SOURCES:
+  CoreBitcoin:
+    :podspec: https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec
+
+SPEC CHECKSUMS:
+  CoreBitcoin: 351ea65d3e4f3f6fd7f01303fb23c333fd714121
+  FXBlurView: 47496afc9160097fa34af35fc4b310bd85d65dca
+  iRate: 40ebea2bb1e88866cef7393bd0abeae232cc5d38
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+  NSDate+TimeAgo: f3533e0198fab05b716368b19f8c2185d53d6f3b
+  OpenSSL-Universal: 9c112508615ed33bb35f730eed820e93175a9dec
+  PaymentKit: 14b54835f57ae9e2bf5628140fcd67001740cba2
+  Stripe: a0ed1c0675a3c36f6e8d575820cfec1dc9335f53
+
+COCOAPODS: 0.33.1

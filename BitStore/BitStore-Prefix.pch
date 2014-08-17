@@ -1,0 +1,28 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <CoreBitcoin/CoreBitcoin.h>
+#import "PiwikTracker.h"
+#import "UIAlertView+BitStore.h"
+#import "NSString+Satoshi.h"
+#import "NSDate+TimeAgo.h"
+#import "Color.h"
+#import "MBProgressHUD.h"
+#import "API.h"
+#import "Environment.h"
+#import "Settings.h"
+
+#define l10n(key) NSLocalizedString(key, nil)
+
+#endif
