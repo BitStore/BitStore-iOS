@@ -130,60 +130,62 @@
 	
     NSMutableArray* transactions = [[NSMutableArray alloc] init];
     for (NSDictionary* tx in txs) {
-        Transaction* transaction = [[Transaction alloc] init];
-        transaction.hash = [tx objectForKey:@"hash"];
-        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-        if ([tx objectForKey:@"block_time"] == [NSNull null]) {
-            // tx is not yet in blockchain, chain.com just returns null here
-            // we have our own cache, where we store the date when it first appeared for us
-            // good enough i guess
-            NSMutableDictionary* cache = [UserDefaults instance].txcache;
-            NSDate* d = [cache objectForKey:transaction.hash];
-            if (d == nil) {
-                d = [[NSDate alloc] init];
-                [cache setObject:d forKey:transaction.hash];
+        if ([tx isKindOfClass:[NSDictionary class]]) {
+            Transaction* transaction = [[Transaction alloc] init];
+            transaction.hash = [tx objectForKey:@"hash"];
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+            if ([tx objectForKey:@"block_time"] == [NSNull null]) {
+                // tx is not yet in blockchain, chain.com just returns null here
+                // we have our own cache, where we store the date when it first appeared for us
+                // good enough i guess
+                NSMutableDictionary* cache = [UserDefaults instance].txcache;
+                NSDate* d = [cache objectForKey:transaction.hash];
+                if (d == nil) {
+                    d = [[NSDate alloc] init];
+                    [cache setObject:d forKey:transaction.hash];
+                    [UserDefaults instance].txcache = cache; // stores the cache again
+                }
+                transaction.date = d;
+            } else {
+                NSTimeInterval timeZoneOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT]; // You could also use the systemTimeZone method
+                NSTimeInterval gmtTimeInterval = [[dateFormatter dateFromString:[tx objectForKey:@"block_time"]] timeIntervalSinceReferenceDate] + timeZoneOffset;
+                transaction.date = [NSDate dateWithTimeIntervalSinceReferenceDate:gmtTimeInterval];
+                NSMutableDictionary* cache = [UserDefaults instance].txcache;
+                [cache removeObjectForKey:transaction.hash];
                 [UserDefaults instance].txcache = cache; // stores the cache again
             }
-            transaction.date = d;
-        } else {
-            NSTimeInterval timeZoneOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT]; // You could also use the systemTimeZone method
-            NSTimeInterval gmtTimeInterval = [[dateFormatter dateFromString:[tx objectForKey:@"block_time"]] timeIntervalSinceReferenceDate] + timeZoneOffset;
-            transaction.date = [NSDate dateWithTimeIntervalSinceReferenceDate:gmtTimeInterval];
-            NSMutableDictionary* cache = [UserDefaults instance].txcache;
-            [cache removeObjectForKey:transaction.hash];
-            [UserDefaults instance].txcache = cache; // stores the cache again
-        }
-       
-		transaction.confirmations = [[tx objectForKey:@"confirmations"] intValue];
-        NSDictionary* senderDict = [[tx objectForKey:@"inputs"] objectAtIndex:0];
-        transaction.sender = [[senderDict objectForKey:@"addresses"] objectAtIndex:0];
-        NSMutableArray* receivers = [[NSMutableArray alloc] init];
-        for (NSDictionary* receiverDict in [tx objectForKey:@"outputs"]) {
-            NSString* address = [[receiverDict objectForKey:@"addresses"] objectAtIndex:0];
-            if (![address isEqualToString:transaction.sender]) {
+            
+            transaction.confirmations = [[tx objectForKey:@"confirmations"] intValue];
+            NSDictionary* senderDict = [[tx objectForKey:@"inputs"] objectAtIndex:0];
+            transaction.sender = [[senderDict objectForKey:@"addresses"] objectAtIndex:0];
+            NSMutableArray* receivers = [[NSMutableArray alloc] init];
+            for (NSDictionary* receiverDict in [tx objectForKey:@"outputs"]) {
+                NSString* address = [[receiverDict objectForKey:@"addresses"] objectAtIndex:0];
+                if (![address isEqualToString:transaction.sender]) {
+                    Receiver* receiver = [[Receiver alloc] init];
+                    receiver.address = address;
+                    if ([transaction.sender isEqualToString:self.address] ||
+                        (![transaction.sender isEqualToString:self.address] && [address isEqualToString:self.address])) {
+                        // if you're the sender, add all outputs together
+                        // if you're not the sender, only add if you're the receiver
+                        receiver.amount += [[receiverDict objectForKey:@"value"] longValue];
+                    }
+                    [receivers addObject:receiver];
+                }
+            }
+            if (receivers.count == 0) {
+                NSDictionary* receiverDict = [[tx objectForKey:@"outputs"] objectAtIndex:0];
+                NSString* address = [[receiverDict objectForKey:@"addresses"] objectAtIndex:0];
                 Receiver* receiver = [[Receiver alloc] init];
                 receiver.address = address;
-				if ([transaction.sender isEqualToString:self.address] ||
-					(![transaction.sender isEqualToString:self.address] && [address isEqualToString:self.address])) {
-					// if you're the sender, add all outputs together
-					// if you're not the sender, only add if you're the receiver
-					receiver.amount += [[receiverDict objectForKey:@"value"] longValue];
-				}
+                receiver.amount += [[receiverDict objectForKey:@"value"] longValue];
                 [receivers addObject:receiver];
             }
+            transaction.receiver = receivers;
+            transaction.orgAddress = self;
+            [transactions addObject:transaction];
         }
-        if (receivers.count == 0) {
-            NSDictionary* receiverDict = [[tx objectForKey:@"outputs"] objectAtIndex:0];
-            NSString* address = [[receiverDict objectForKey:@"addresses"] objectAtIndex:0];
-            Receiver* receiver = [[Receiver alloc] init];
-            receiver.address = address;
-            receiver.amount += [[receiverDict objectForKey:@"value"] longValue];
-            [receivers addObject:receiver];
-        }
-        transaction.receiver = receivers;
-        transaction.orgAddress = self;
-        [transactions addObject:transaction];
     }
     self.transactions = transactions;
 }
