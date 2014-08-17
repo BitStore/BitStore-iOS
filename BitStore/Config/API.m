@@ -11,7 +11,7 @@
 @implementation API
 
 + (NSString *)settingsUrl {
-    return [NSString stringWithFormat:@"%@/settings.php", [self baseUrl]];
+    return [NSString stringWithFormat:@"%@/api/settings.php", [self baseUrl]];
 }
 
 + (NSString *)analyticsUrl {
@@ -19,34 +19,34 @@
 }
 
 + (NSString *)changeUnitUrl {
-    return [NSString stringWithFormat:@"%@/change_unit.php", [self baseUrl]];
+    return [NSString stringWithFormat:@"%@/api/change_unit.php", [self baseUrl]];
 }
 
 + (NSString *)createOrderUrl {
-    return [NSString stringWithFormat:@"%@/create_order.php", [self baseUrl]];
+    return [NSString stringWithFormat:@"%@/api/create_order.php", [self baseUrl]];
 }
 
 + (NSString *)createCustomerUrl {
-    return [NSString stringWithFormat:@"%@/create_customer.php", [self baseUrl]];
+    return [NSString stringWithFormat:@"%@/api/create_customer.php", [self baseUrl]];
 }
 
 + (NSString *)doOrderUrl {
-    return [NSString stringWithFormat:@"%@/do_order.php", [self baseUrl]];
+    return [NSString stringWithFormat:@"%@/api/do_order.php", [self baseUrl]];
 }
 
 + (NSString *)registerPushUrl {
-    return [NSString stringWithFormat:@"%@/register.php", [self baseUrl]];
+    return [NSString stringWithFormat:@"%@/api/register.php", [self baseUrl]];
 }
 
 + (NSString *)unregisterPushUrl {
-    return [NSString stringWithFormat:@"%@/unregister.php", [self baseUrl]];
+    return [NSString stringWithFormat:@"%@/api/unregister.php", [self baseUrl]];
 }
 
 + (NSString *)baseUrl {
     if ([[Environment environment] isEqualToString:@"TEST"]) {
-        return @"http://test.bitstoreapp.com/api";
+        return @"http://test.bitstoreapp.com";
     } else {
-        return @"https://bitstoreapp.com/api";
+        return @"https://bitstoreapp.com";
     }
 }
 
