@@ -10,6 +10,8 @@
 		03101B54198FCE6600E7FC5A /* Ringcaptcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03101B52198FCE6600E7FC5A /* Ringcaptcha.bundle */; };
 		03101B55198FCE6600E7FC5A /* Ringcaptcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03101B53198FCE6600E7FC5A /* Ringcaptcha.framework */; };
 		03101B57198FCE7700E7FC5A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03101B56198FCE7700E7FC5A /* CoreTelephony.framework */; };
+		035374AB19A224D800689E39 /* AppStart.m in Sources */ = {isa = PBXBuildFile; fileRef = 035374AA19A224D800689E39 /* AppStart.m */; };
+		035374AE19A2277400689E39 /* MainViewControllerPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 035374AD19A2277400689E39 /* MainViewControllerPhone.m */; };
 		0355FD1C1995383600F014D8 /* UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0355FD1B1995383600F014D8 /* UnitTest.m */; };
 		0358466B194F09A900521709 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0358466A194F09A900521709 /* Foundation.framework */; };
 		0358466D194F09A900521709 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0358466C194F09A900521709 /* CoreGraphics.framework */; };
@@ -138,6 +140,10 @@
 		03101B52198FCE6600E7FC5A /* Ringcaptcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Ringcaptcha.bundle; sourceTree = "<group>"; };
 		03101B53198FCE6600E7FC5A /* Ringcaptcha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ringcaptcha.framework; sourceTree = "<group>"; };
 		03101B56198FCE7700E7FC5A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		035374A919A224D800689E39 /* AppStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStart.h; sourceTree = "<group>"; };
+		035374AA19A224D800689E39 /* AppStart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStart.m; sourceTree = "<group>"; };
+		035374AC19A2277400689E39 /* MainViewControllerPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewControllerPhone.h; sourceTree = "<group>"; };
+		035374AD19A2277400689E39 /* MainViewControllerPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewControllerPhone.m; sourceTree = "<group>"; };
 		0355FD1B1995383600F014D8 /* UnitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitTest.m; sourceTree = "<group>"; };
 		03584667194F09A900521709 /* BitStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0358466A194F09A900521709 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -576,6 +582,10 @@
 				9A67A7051950D70A001FCE32 /* Scan */,
 				9A8D3C4A195E248C00E88A1C /* Settings */,
 				9A8D3C43195E246000E88A1C /* Shops */,
+				035374A919A224D800689E39 /* AppStart.h */,
+				035374AA19A224D800689E39 /* AppStart.m */,
+				035374AC19A2277400689E39 /* MainViewControllerPhone.h */,
+				035374AD19A2277400689E39 /* MainViewControllerPhone.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1098,6 +1108,7 @@
 				9A8D3C49195E247800E88A1C /* ShopsViewController.m in Sources */,
 				9AAD6247195CAC2C00A9675F /* PiwikTransactionBuilder.m in Sources */,
 				9A67A77A1950D70A001FCE32 /* qrinput.c in Sources */,
+				035374AE19A2277400689E39 /* MainViewControllerPhone.m in Sources */,
 				9A70263F195F3AB70033026C /* UIBAlertView.m in Sources */,
 				9A1DAEC4197BD95300BB9DF7 /* PushHelper.m in Sources */,
 				9AA466BC1972D82A00A7B562 /* Color.m in Sources */,
@@ -1134,6 +1145,7 @@
 				9A33C5351996E11F00312A88 /* BuyViewController.m in Sources */,
 				9A67A78B1950F8FA001FCE32 /* ContactDetailViewController.m in Sources */,
 				9A67A7751950D70A001FCE32 /* Lockbox.m in Sources */,
+				035374AB19A224D800689E39 /* AppStart.m in Sources */,
 				9A265EDD1965EE42005BE50A /* UIAlertView+BitStore.m in Sources */,
 				9A1DAEC8197C2C1C00BB9DF7 /* Unit.m in Sources */,
 				9A67A7591950D70A001FCE32 /* AccountNavigationController.m in Sources */,
