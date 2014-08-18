@@ -22,7 +22,7 @@
 - (id)init {
     self = [super initWithStyle:UITableViewStyleGrouped];
     self.title = l10n(@"change_currency");
-    _currencies = [NSArray arrayWithObjects:@"USD", @"EUR", @"CHF", @"AUD", @"BRL", @"CAD", @"CNY", @"GBP", @"HKD", @"MXN", @"NOK", @"RUB", @"SGD", nil];
+    _currencies = [NSArray arrayWithObjects:@"USD", @"EUR", @"CHF", @"AUD", @"BRL", @"CAD", @"CNY", @"DKK", @"GBP", @"HKD", @"MXN", @"NOK", @"RUB", @"SGD", nil];
     [[ExchangeHelper instance] addExchangeListener:self];
     return self;
 }
