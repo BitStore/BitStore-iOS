@@ -369,13 +369,13 @@ static double FEE = 10000;
     BTCKey* key = [[BTCKey alloc] initWithPrivateKey:privateKey];
     BTCBlockchainInfo* bci = [[BTCBlockchainInfo alloc] init];
     
-    if (key.publicKeyAddress == nil) {
+    if (key.uncompressedPublicKeyAddress == nil) {
         // public key not valid
         return nil;
     }
     
     NSError* error = nil;
-    NSArray* utxos = [bci unspentOutputsWithAddresses:@[ key.publicKeyAddress ] error:&error];
+    NSArray* utxos = [bci unspentOutputsWithAddresses:@[ key.uncompressedPublicKeyAddress ] error:&error];
     
     if (!utxos) {
         *errorOut = error;
@@ -419,7 +419,7 @@ static double FEE = 10000;
 
     // Add required outputs - payment and change
     BTCTransactionOutput* paymentOutput = [[BTCTransactionOutput alloc] initWithValue:amount address:destinationAddress];
-    BTCTransactionOutput* changeOutput = [[BTCTransactionOutput alloc] initWithValue:(spentCoins - (amount + fee)) address:key.publicKeyAddress];
+    BTCTransactionOutput* changeOutput = [[BTCTransactionOutput alloc] initWithValue:(spentCoins - (amount + fee)) address:key.uncompressedPublicKeyAddress];
     
     // Idea: deterministically-randomly choose which output goes first to improve privacy.
     [tx addOutput:paymentOutput];

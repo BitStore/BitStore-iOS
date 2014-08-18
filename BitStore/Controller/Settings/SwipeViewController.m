@@ -86,7 +86,7 @@
 
 - (void)checkBalance:(BTCKey *)key {
     RequestHelper* rh = [[RequestHelper alloc] init];
-    NSString* url = [NSString stringWithFormat:@"https://blockchain.info/q/addressbalance/%@", key.publicKeyAddress.base58String];
+    NSString* url = [NSString stringWithFormat:@"https://blockchain.info/q/addressbalance/%@", key.uncompressedPublicKeyAddress.base58String];
 	
 	[rh startRequestWithUrl:url completion:^(BOOL success, NSData* data) {
 		[_loadingAlert dismissWithClickedButtonIndex:0 animated:YES];
@@ -159,13 +159,13 @@
     BTCKey* key = [[BTCKey alloc] initWithPrivateKey:privateKey];
     BTCBlockchainInfo* bci = [[BTCBlockchainInfo alloc] init];
     
-    if (key.publicKeyAddress == nil) {
+    if (key.uncompressedPublicKeyAddress == nil) {
         // public key not valid
         return nil;
     }
     
     NSError* error = nil;
-    NSArray* utxos = [bci unspentOutputsWithAddresses:@[ key.publicKeyAddress ] error:&error];
+    NSArray* utxos = [bci unspentOutputsWithAddresses:@[ key.uncompressedPublicKeyAddress ] error:&error];
     
     if (!utxos) {
         *errorOut = error;

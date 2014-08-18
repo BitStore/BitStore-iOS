@@ -135,7 +135,7 @@
 - (void)fav:(id)sender {
     NSString* pk = [[Lockbox arrayForKey:@"bitstore_3"] objectAtIndex:[UserDefaults instance].defaultAddressIndex];
     BTCKey* k = [[BTCKey alloc] initWithPrivateKeyAddress:[BTCPrivateKeyAddress addressWithBase58String:pk]];
-    [self configurePush:k.publicKeyAddress.base58String];
+    [self configurePush:k.uncompressedPublicKeyAddress.base58String];
     [[AddressHelper instance] setDefaultAddress:_index];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -147,7 +147,7 @@
             if (_index == [UserDefaults instance].defaultAddressIndex) {
                 NSString* pk = [[Lockbox arrayForKey:@"bitstore_3"] objectAtIndex:_index];
                 BTCKey* k = [[BTCKey alloc] initWithPrivateKeyAddress:[BTCPrivateKeyAddress addressWithBase58String:pk]];
-                [self configurePush:k.publicKeyAddress.base58String];
+                [self configurePush:k.uncompressedPublicKeyAddress.base58String];
                 [[AddressHelper instance] setDefaultAddress:0];
             }
             

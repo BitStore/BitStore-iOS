@@ -69,7 +69,7 @@
     if (k != nil) {
         [Lockbox setArray:[[Lockbox arrayForKey:@"bitstore_3"] arrayByAddingObject:k.privateKeyAddress.base58String] forKey:@"bitstore_3"];
         Address* addr = [[Address alloc] init];
-        addr.address = k.publicKeyAddress.base58String;
+        addr.address = k.uncompressedPublicKeyAddress.base58String;
         [addr refresh];
         [[AddressHelper instance] addAddress:addr];
         [self updateValues];
@@ -83,7 +83,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
     BTCKey* key = [_keys objectAtIndex:indexPath.row];
-    NSString* text = key.publicKeyAddress.base58String;
+    NSString* text = key.uncompressedPublicKeyAddress.base58String;
     if (indexPath.row == [UserDefaults instance].defaultAddressIndex) {
         text = [NSString stringWithFormat:@"\u2606 %@", text];
     }

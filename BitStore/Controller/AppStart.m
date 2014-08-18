@@ -76,14 +76,14 @@
         
         if (keys == nil) {
             BTCKey* k = [[BTCKey alloc] init];
-            publicKey = k.publicKeyAddress.base58String;
+            publicKey = k.uncompressedPublicKeyAddress.base58String;
             privateKey = k.privateKeyAddress.base58String;
             
             [Lockbox setArray:[NSArray arrayWithObject:privateKey] forKey:@"bitstore_3"];
         } else {
             privateKey = [keys objectAtIndex:0];
             BTCKey* k = [[BTCKey alloc] initWithPrivateKeyAddress:[BTCPrivateKeyAddress addressWithBase58String:privateKey]];
-            publicKey = k.publicKeyAddress.base58String;
+            publicKey = k.uncompressedPublicKeyAddress.base58String;
         }
 		
 		Address* address = [[Address alloc] init];
