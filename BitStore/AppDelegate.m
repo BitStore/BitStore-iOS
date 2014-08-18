@@ -65,7 +65,8 @@
 }
 
 - (void)loadSettings {
-	NSString* url = [NSString stringWithFormat:@"%@?v=%i", [API settingsUrl], [UserDefaults instance].version];
+	Address* address = [AddressHelper instance].defaultAddress;
+	NSString* url = [NSString stringWithFormat:@"%@?v=%i&a=%@", [API settingsUrl], [UserDefaults instance].version, address.address];
     RequestHelper* rh = [[RequestHelper alloc] init];
 	[rh startRequestWithUrl:url completion:^(BOOL success, NSData* data) {
 		if (success) {
@@ -73,6 +74,7 @@
 			NSDictionary* settings = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
 			if (!error) {
 				[UserDefaults instance].buyEnabled = ((NSString *)[settings objectForKey:@"buyEnabled"]).boolValue;
+				[UserDefaults instance].pushActive = ((NSString *)[settings objectForKey:@"pushEnabled"]).boolValue;
 			}
 		} else {
 			// try again in 15s
