@@ -101,7 +101,7 @@
             [cell.contentView addSubview:dateLabel];
             
             
-            UILabel* confirmationsLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 44, cell.contentView.frame.size.width, 25)];
+            UILabel* confirmationsLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 44, cell.contentView.frame.size.width, 25)];
             confirmationsLabel.text = [NSString stringWithFormat:l10n(@"n_confirmation"), _transaction.confirmations];
             confirmationsLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
             [cell.contentView addSubview:confirmationsLabel];
@@ -121,10 +121,12 @@
             } else {
                 address = _transaction.sender;
             }
-            UILabel* addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 75, cell.contentView.frame.size.width, 25)];
+            UITextView* addressLabel = [[UITextView alloc] initWithFrame:CGRectMake(10, 75, cell.contentView.frame.size.width, 25)];
             addressLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
             addressLabel.textColor = [UIColor grayColor];
             addressLabel.text = address;
+            addressLabel.editable = NO;
+            addressLabel.scrollEnabled = NO;
             [cell.contentView addSubview:addressLabel];
             
             cell.selectionStyle = UITableViewCellEditingStyleNone;
