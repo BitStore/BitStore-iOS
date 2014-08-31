@@ -82,6 +82,10 @@
     _timer = nil;
 }
 
+- (long long)total {
+    return MIN(_total, 0);
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@: %@", self.label, self.address];
 }
