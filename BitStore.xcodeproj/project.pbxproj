@@ -120,6 +120,7 @@
 		9ABC072F198318D100EC87A3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABC072E198318D100EC87A3 /* SystemConfiguration.framework */; };
 		9ABC07311983191E00EC87A3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABC07301983191E00EC87A3 /* MobileCoreServices.framework */; };
 		9ABC073419831C8900EC87A3 /* ReceiveAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC073319831C8900EC87A3 /* ReceiveAmountViewController.m */; };
+		9AC4DF9619B35AEA0009F2BC /* balanced.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC4DF9019B35AEA0009F2BC /* balanced.a */; };
 		9ACA5B721969F037005C7BF8 /* AccountActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA5B711969F037005C7BF8 /* AccountActionButton.m */; };
 		9ADFAD57194F8116009427DF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADFAD56194F8116009427DF /* AVFoundation.framework */; };
 		9AFC4A14197F0F8400EAF46B /* KeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC4A13197F0F8400EAF46B /* KeysViewController.m */; };
@@ -363,6 +364,11 @@
 		9ABC073219831C8900EC87A3 /* ReceiveAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiveAmountViewController.h; sourceTree = "<group>"; };
 		9ABC073319831C8900EC87A3 /* ReceiveAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiveAmountViewController.m; sourceTree = "<group>"; };
 		9ABC073519832FD100EC87A3 /* ReceiveAmountDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiveAmountDelegate.h; sourceTree = "<group>"; };
+		9AC4DF9019B35AEA0009F2BC /* balanced.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = balanced.a; sourceTree = "<group>"; };
+		9AC4DF9219B35AEA0009F2BC /* Balanced.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balanced.h; sourceTree = "<group>"; };
+		9AC4DF9319B35AEA0009F2BC /* BPBankAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPBankAccount.h; sourceTree = "<group>"; };
+		9AC4DF9419B35AEA0009F2BC /* BPCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPCard.h; sourceTree = "<group>"; };
+		9AC4DF9519B35AEA0009F2BC /* BPUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPUtilities.h; sourceTree = "<group>"; };
 		9ACA5B701969F037005C7BF8 /* AccountActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountActionButton.h; sourceTree = "<group>"; };
 		9ACA5B711969F037005C7BF8 /* AccountActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountActionButton.m; sourceTree = "<group>"; };
 		9ADFAD56194F8116009427DF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -386,6 +392,7 @@
 				9ADFAD57194F8116009427DF /* AVFoundation.framework in Frameworks */,
 				03F2E9B1194F0FD7007BE9A6 /* Security.framework in Frameworks */,
 				0358466D194F09A900521709 /* CoreGraphics.framework in Frameworks */,
+				9AC4DF9619B35AEA0009F2BC /* balanced.a in Frameworks */,
 				0358466F194F09A900521709 /* UIKit.framework in Frameworks */,
 				0358466B194F09A900521709 /* Foundation.framework in Frameworks */,
 				A423E0B434094809ABF9EF1D /* libPods.a in Frameworks */,
@@ -669,6 +676,7 @@
 			isa = PBXGroup;
 			children = (
 				9AAD6267195CAE3700A9675F /* AFNetworking */,
+				9AC4DF8F19B35AEA0009F2BC /* Balanced */,
 				9AA6C4491986FAFA0035A430 /* HTAutocompleteTextField */,
 				9A67A72D1950D70A001FCE32 /* Lockbox */,
 				9A059628196202C60060739D /* LTHPasscodeViewController */,
@@ -886,6 +894,26 @@
 				9ABC072D1983175300EC87A3 /* AmountViewDelegate.h */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9AC4DF8F19B35AEA0009F2BC /* Balanced */ = {
+			isa = PBXGroup;
+			children = (
+				9AC4DF9019B35AEA0009F2BC /* balanced.a */,
+				9AC4DF9119B35AEA0009F2BC /* include */,
+			);
+			path = Balanced;
+			sourceTree = "<group>";
+		};
+		9AC4DF9119B35AEA0009F2BC /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9AC4DF9219B35AEA0009F2BC /* Balanced.h */,
+				9AC4DF9319B35AEA0009F2BC /* BPBankAccount.h */,
+				9AC4DF9419B35AEA0009F2BC /* BPCard.h */,
+				9AC4DF9519B35AEA0009F2BC /* BPUtilities.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1342,6 +1370,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BitStore/Libs",
+					"$(PROJECT_DIR)/BitStore/Libs/Balanced",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1389,6 +1418,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BitStore/Libs",
+					"$(PROJECT_DIR)/BitStore/Libs/Balanced",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
