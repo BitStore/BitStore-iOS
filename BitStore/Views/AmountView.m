@@ -143,6 +143,7 @@
 - (void)selectionChanged:(id)sender {
     [UserDefaults instance].defaultPayMode = _segmentedControl.selectedSegmentIndex;
     [self updateFields];
+    [_delegate amountValueChanged:_satoshi];
 }
 
 #pragma mark - UIView
