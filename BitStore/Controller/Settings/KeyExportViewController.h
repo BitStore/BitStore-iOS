@@ -10,6 +10,6 @@
 
 @interface KeyExportViewController : UIViewController
 
-- (id)initWithPrivateKey:(NSString *)privateKey index:(int)index showTrash:(BOOL)showTrash;
+- (id)initWithPrivateKey:(NSString *)privateKey index:(NSInteger)index showTrash:(BOOL)showTrash;
 
 @end

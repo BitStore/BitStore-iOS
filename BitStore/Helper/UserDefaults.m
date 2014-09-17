@@ -54,11 +54,11 @@ static UserDefaults* sharedInstance;
 }
 
 // Default Address Index
-- (int)defaultAddressIndex {
+- (NSInteger)defaultAddressIndex {
     return [_defaults integerForKey:@"defaultAddressIndex"];
 }
 
-- (void)setDefaultAddressIndex:(int)defaultAddressIndex {
+- (void)setDefaultAddressIndex:(NSInteger)defaultAddressIndex {
     [_defaults setInteger:defaultAddressIndex forKey:@"defaultAddressIndex"];
     [_defaults synchronize];
 }
@@ -73,11 +73,11 @@ static UserDefaults* sharedInstance;
 }
 
 // Version
-- (int)version {
+- (NSInteger)version {
     return [_defaults integerForKey:@"version"];
 }
 
-- (void)setVersion:(int)version {
+- (void)setVersion:(NSInteger)version {
     [_defaults setInteger:version forKey:@"version"];
     [_defaults synchronize];
 }
@@ -93,11 +93,11 @@ static UserDefaults* sharedInstance;
 }
 
 // DefaultPayMode
-- (int)defaultPayMode {
+- (NSInteger)defaultPayMode {
     return [_defaults integerForKey:@"defaultPayMode"];
 }
 
-- (void)setDefaultPayMode:(int)defaultPayMode {
+- (void)setDefaultPayMode:(NSInteger)defaultPayMode {
     [_defaults setInteger:defaultPayMode forKey:@"defaultPayMode"];
     [_defaults synchronize];
 }

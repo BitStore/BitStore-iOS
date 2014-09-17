@@ -67,11 +67,11 @@
     if (section == 0) {
         return @"About";
     } else if (section == 1) {
-        return [NSString stringWithFormat:@"Exchange (%i)", _exchangeListeners.count];
+        return [NSString stringWithFormat:@"Exchange (%lu)", (unsigned long)_exchangeListeners.count];
     } else if (section == 2) {
-        return [NSString stringWithFormat:@"Main Address (%i)", _mainAddressListeners.count];
+        return [NSString stringWithFormat:@"Main Address (%lu)", (unsigned long)_mainAddressListeners.count];
     } else if (section == 3) {
-        return [NSString stringWithFormat:@"Contact List (%i)", _contactListeners.count];
+        return [NSString stringWithFormat:@"Contact List (%lu)", (unsigned long)_contactListeners.count];
     } else if (section == 4) {
         return [NSString stringWithFormat:@"Contacts"];
     } else if (section == 5) {
@@ -116,7 +116,7 @@
         }
         display = [display substringToIndex:MIN(10, display.length)];
         NSArray* listeners = [a performSelector:@selector(listeners) withObject:nil];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@: %i", display, listeners.count];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@: %lu", display, (unsigned long)listeners.count];
     } else if (indexPath.section == 5) {
         if (indexPath.row == 0) {
             NSDictionary* oldKey = [Lockbox dictionaryForKey:@"bitstore" sync:YES];

@@ -28,7 +28,7 @@
 }
 
 + (void)migrate {
-    int version = [UserDefaults instance].version;
+    NSInteger version = [UserDefaults instance].version;
     if (version == 0) {
         // we changed some stuff in the user defaults from v1 (0) to v1.1 (1)
         [[UserDefaults instance] reset];
@@ -112,7 +112,7 @@
 
 + (void)loadSettings {
 	Address* address = [AddressHelper instance].defaultAddress;
-	NSString* url = [NSString stringWithFormat:@"%@?v=%i&a=%@", [API settingsUrl], [UserDefaults instance].version, address.address];
+	NSString* url = [NSString stringWithFormat:@"%@?v=%lu&a=%@", [API settingsUrl], [UserDefaults instance].version, address.address];
     RequestHelper* rh = [[RequestHelper alloc] init];
 	[rh startRequestWithUrl:url completion:^(BOOL success, NSData* data) {
 		if (success) {

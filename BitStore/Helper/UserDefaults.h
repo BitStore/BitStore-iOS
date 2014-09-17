@@ -16,11 +16,11 @@
 
 @property (nonatomic) Exchange* exchange;
 @property (nonatomic) NSArray* addresses; // Address
-@property (nonatomic) int defaultAddressIndex;
+@property (nonatomic) NSInteger defaultAddressIndex;
 @property (nonatomic) ContactList* contactList;
-@property (nonatomic) int version;
+@property (nonatomic) NSInteger version;
 @property (nonatomic) BOOL pushActive;
-@property (nonatomic) int defaultPayMode; // 0 = BTC, 1 = currency
+@property (nonatomic) NSInteger defaultPayMode; // 0 = BTC, 1 = currency
 @property (nonatomic) NSMutableDictionary* txcache;
 @property (nonatomic) NSArray* jobs;
 @property (nonatomic) NSString* userId;

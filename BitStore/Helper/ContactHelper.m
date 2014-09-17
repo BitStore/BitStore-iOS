@@ -57,7 +57,7 @@ static ContactHelper* sharedHelper;
     [self notifyListeners];
 }
 
-- (void)removeContactAtIndex:(int)index {
+- (void)removeContactAtIndex:(NSInteger)index {
     [_contactList.contacts removeObjectAtIndex:index];
     [self storeState];
     [self notifyListeners];

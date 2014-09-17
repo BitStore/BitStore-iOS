@@ -16,7 +16,7 @@
 + (AddressHelper *)instance;
 - (NSArray *)addresses;
 - (Address *)defaultAddress;
-- (void)setDefaultAddress:(int)index;
+- (void)setDefaultAddress:(NSInteger)index;
 
 - (void)addAddress:(Address *)address;
 - (void)removeAddress:(Address *)address;

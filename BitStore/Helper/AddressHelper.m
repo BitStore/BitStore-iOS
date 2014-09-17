@@ -54,7 +54,7 @@ static AddressHelper* sharedHelper;
     return [_addresses objectAtIndex:[UserDefaults instance].defaultAddressIndex];
 }
 
-- (void)setDefaultAddress:(int)index {
+- (void)setDefaultAddress:(NSInteger)index {
     [UserDefaults instance].defaultAddressIndex = index;
     [self notifyListeners];
 }

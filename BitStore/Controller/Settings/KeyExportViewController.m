@@ -21,13 +21,13 @@
 
 @implementation KeyExportViewController {
     NSString* _privateKey;
-    int _index;
+    NSInteger _index;
     BOOL _showTrash;
     BOOL _correct;
     FXBlurView* _blur1, *_blur2;
 }
 
-- (id)initWithPrivateKey:(NSString *)privateKey index:(int)index showTrash:(BOOL)showTrash {
+- (id)initWithPrivateKey:(NSString *)privateKey index:(NSInteger)index showTrash:(BOOL)showTrash {
     if (self = [super init]) {
 		_privateKey = privateKey;
 		_index = index;

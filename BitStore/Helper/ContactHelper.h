@@ -15,7 +15,7 @@
 - (NSArray *)contacts;
 - (ContactList *)contactList;
 - (void)addContact:(NSString *)name address:(NSString *)address;
-- (void)removeContactAtIndex:(int)index;
+- (void)removeContactAtIndex:(NSInteger)index;
 
 - (void)addContactListListener:(id<ContactListListener>)listener;
 
