@@ -83,7 +83,7 @@
 }
 
 - (long long)total {
-    return MIN(_total, 0);
+    return MAX(_total, 0);
 }
 
 - (NSString *)description {
@@ -92,7 +92,7 @@
 
 #pragma mark - Private
 - (void)updateMeta {
-    [self update:NO showError:NO];
+    [self update:YES showError:NO];
 }
 
 - (void)update:(BOOL)full showError:(BOOL)showError {
