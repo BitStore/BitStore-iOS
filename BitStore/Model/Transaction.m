@@ -14,6 +14,8 @@
     NSNumber* _total;
 }
 
+@synthesize hash;
+
 - (id)initWithCoder:(NSCoder *)decoder {
 	if (self = [super init]) {
 		self.orgAddress = [decoder decodeObjectForKey:@"orgAddress"];
