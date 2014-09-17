@@ -269,11 +269,15 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	[_passcodeTextField becomeFirstResponder];
+}
+
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    NSLog(@"layout %@", [self.view performSelector:@selector(recursiveDescription)]);
-    [_passcodeTextField becomeFirstResponder];
-
+	if (!_passcodeTextField.isFirstResponder) [_passcodeTextField becomeFirstResponder];
 }
 
 
@@ -433,7 +437,8 @@
     [_animatingView addSubview:_fourthDigitTextField];
 }
 
--(UITextField *)_makeDigitField{
+
+- (UITextField *)_makeDigitField{
     UITextField *field = [[UITextField alloc] initWithFrame:CGRectZero];
     field.backgroundColor = _passcodeBackgroundColor;
     field.textAlignment = NSTextAlignmentCenter;
@@ -501,18 +506,18 @@
 	
 	CGFloat yOffsetFromCenter = -self.view.frame.size.height * 0.24;
 	NSLayoutConstraint *enterPasscodeConstraintCenterX =
-    [NSLayoutConstraint constraintWithItem: _enterPasscodeLabel
-                                 attribute: NSLayoutAttributeCenterX
-                                 relatedBy: NSLayoutRelationEqual
-                                    toItem: self.view
-                                 attribute: NSLayoutAttributeCenterX
-                                multiplier: 1.0f
-                                  constant: 0.0f];
+	[NSLayoutConstraint constraintWithItem: _enterPasscodeLabel
+								 attribute: NSLayoutAttributeCenterX
+								 relatedBy: NSLayoutRelationEqual
+									toItem: _animatingView
+								 attribute: NSLayoutAttributeCenterX
+								multiplier: 1.0f
+								  constant: 0.0f];
 	NSLayoutConstraint *enterPasscodeConstraintCenterY =
     [NSLayoutConstraint constraintWithItem: _enterPasscodeLabel
                                  attribute: NSLayoutAttributeCenterY
                                  relatedBy: NSLayoutRelationEqual
-                                    toItem: self.view
+                                    toItem: _animatingView
                                  attribute: NSLayoutAttributeCenterY
                                 multiplier: 1.0f
                                   constant: yOffsetFromCenter];
@@ -524,7 +529,7 @@
         [NSLayoutConstraint constraintWithItem: _firstDigitTextField
                                      attribute: NSLayoutAttributeLeft
                                      relatedBy: NSLayoutRelationEqual
-                                        toItem: self.view
+                                        toItem: _animatingView
                                      attribute: NSLayoutAttributeCenterX
                                     multiplier: 1.0f
                                       constant: - _horizontalGap * 1.5f - 2.0f];
@@ -532,7 +537,7 @@
         [NSLayoutConstraint constraintWithItem: _secondDigitTextField
                                      attribute: NSLayoutAttributeLeft
                                      relatedBy: NSLayoutRelationEqual
-                                        toItem: self.view
+                                        toItem: _animatingView
                                      attribute: NSLayoutAttributeCenterX
                                     multiplier: 1.0f
                                       constant: - _horizontalGap * 2/3 - 2.0f];
@@ -540,7 +545,7 @@
         [NSLayoutConstraint constraintWithItem: _thirdDigitTextField
                                      attribute: NSLayoutAttributeLeft
                                      relatedBy: NSLayoutRelationEqual
-                                        toItem: self.view
+                                        toItem: _animatingView
                                      attribute: NSLayoutAttributeCenterX
                                     multiplier: 1.0f
                                       constant: _horizontalGap * 1/6 - 2.0f];
@@ -548,7 +553,7 @@
         [NSLayoutConstraint constraintWithItem: _fourthDigitTextField
                                      attribute: NSLayoutAttributeLeft
                                      relatedBy: NSLayoutRelationEqual
-                                        toItem: self.view
+                                        toItem: _animatingView
                                      attribute: NSLayoutAttributeCenterX
                                     multiplier: 1.0f
                                       constant: _horizontalGap - 2.0f];
@@ -677,7 +682,7 @@
     [NSLayoutConstraint constraintWithItem: _failedAttemptLabel
                                  attribute: NSLayoutAttributeCenterX
                                  relatedBy: NSLayoutRelationEqual
-                                    toItem: self.view
+                                    toItem: _animatingView
                                  attribute: NSLayoutAttributeCenterX
                                 multiplier: 1.0f
                                   constant: 0.0f];
@@ -728,7 +733,7 @@
 
 - (void)_prepareNavigationControllerWithController:(UIViewController *)viewController a:(BOOL)a {
 	self.navigationItem.leftBarButtonItem =
-	[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+	[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
 												  target:self
 												  action:@selector(_cancelAndDismissMe)];
 	
