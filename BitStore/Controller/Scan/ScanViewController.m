@@ -58,7 +58,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:@"Scan" name:nil value:nil];
+    [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:@"Scan" label:@"Scan"];
     [_captureSession startRunning];
 }
 

@@ -345,7 +345,7 @@ static double FEE = 10000;
         [_loadingAlert dismiss];
         [_address refresh];
         
-        [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:@"Send" name:nil value:nil];
+        [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:@"Send" label:@"Send"];
         
         UIBAlertView* successAlert = [[UIBAlertView alloc] initWithTitle:l10n(@"success") message:l10n(@"tx_success_msg") cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
         [successAlert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {

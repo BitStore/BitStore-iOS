@@ -82,7 +82,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:@"ChangedCurrency" name:nil value:nil];
+    [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:@"ChangedCurrency" label:@"ChangedCurrency"];
     [[ExchangeHelper instance] changeCurreny:[_currencies objectAtIndex:indexPath.row]];
     [self.navigationController popViewControllerAnimated:YES];
 }

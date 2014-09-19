@@ -91,23 +91,6 @@
 		9A8D3C53195E258600E88A1C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D3C52195E258600E88A1C /* SettingsViewController.m */; };
 		9AA466BC1972D82A00A7B562 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA466BB1972D82A00A7B562 /* Color.m */; };
 		9AA6C44C1986FAFA0035A430 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6C44B1986FAFA0035A430 /* HTAutocompleteTextField.m */; };
-		9AAD6242195CAC2C00A9675F /* PiwikLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6232195CAC2C00A9675F /* PiwikLocationManager.m */; };
-		9AAD6243195CAC2C00A9675F /* PiwikTrackedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6234195CAC2C00A9675F /* PiwikTrackedViewController.m */; };
-		9AAD6244195CAC2C00A9675F /* PiwikTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6237195CAC2C00A9675F /* PiwikTracker.m */; };
-		9AAD6245195CAC2C00A9675F /* piwiktracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6238195CAC2C00A9675F /* piwiktracker.xcdatamodeld */; };
-		9AAD6246195CAC2C00A9675F /* PiwikTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD623B195CAC2C00A9675F /* PiwikTransaction.m */; };
-		9AAD6247195CAC2C00A9675F /* PiwikTransactionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD623D195CAC2C00A9675F /* PiwikTransactionBuilder.m */; };
-		9AAD6248195CAC2C00A9675F /* PiwikTransactionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD623F195CAC2C00A9675F /* PiwikTransactionItem.m */; };
-		9AAD6249195CAC2C00A9675F /* PTEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6241195CAC2C00A9675F /* PTEventEntity.m */; };
-		9AAD627B195CAE3700A9675F /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6269195CAE3700A9675F /* AFHTTPClient.m */; };
-		9AAD627C195CAE3700A9675F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD626B195CAE3700A9675F /* AFHTTPRequestOperation.m */; };
-		9AAD627D195CAE3700A9675F /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD626D195CAE3700A9675F /* AFImageRequestOperation.m */; };
-		9AAD627E195CAE3700A9675F /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD626F195CAE3700A9675F /* AFJSONRequestOperation.m */; };
-		9AAD627F195CAE3700A9675F /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6271195CAE3700A9675F /* AFNetworkActivityIndicatorManager.m */; };
-		9AAD6280195CAE3700A9675F /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6274195CAE3700A9675F /* AFPropertyListRequestOperation.m */; };
-		9AAD6281195CAE3700A9675F /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6276195CAE3700A9675F /* AFURLConnectionOperation.m */; };
-		9AAD6282195CAE3700A9675F /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD6278195CAE3700A9675F /* AFXMLRequestOperation.m */; };
-		9AAD6283195CAE3700A9675F /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD627A195CAE3700A9675F /* UIImageView+AFNetworking.m */; };
 		9AB7EAF019903DEA00B9A1BA /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB7EAEF19903DEA00B9A1BA /* API.m */; };
 		9AB7EAF319903DFB00B9A1BA /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB7EAF219903DFB00B9A1BA /* Environment.m */; };
 		9ABC07131983092500EC87A3 /* WeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC07121983092500EC87A3 /* WeakRef.m */; };
@@ -304,41 +287,6 @@
 		9AA466BB1972D82A00A7B562 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		9AA6C44A1986FAFA0035A430 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
 		9AA6C44B1986FAFA0035A430 /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteTextField.m; sourceTree = "<group>"; };
-		9AAD6231195CAC2C00A9675F /* PiwikLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiwikLocationManager.h; sourceTree = "<group>"; };
-		9AAD6232195CAC2C00A9675F /* PiwikLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiwikLocationManager.m; sourceTree = "<group>"; };
-		9AAD6233195CAC2C00A9675F /* PiwikTrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiwikTrackedViewController.h; sourceTree = "<group>"; };
-		9AAD6234195CAC2C00A9675F /* PiwikTrackedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiwikTrackedViewController.m; sourceTree = "<group>"; };
-		9AAD6235195CAC2C00A9675F /* PiwikTracker-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PiwikTracker-Prefix.pch"; sourceTree = "<group>"; };
-		9AAD6236195CAC2C00A9675F /* PiwikTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiwikTracker.h; sourceTree = "<group>"; };
-		9AAD6237195CAC2C00A9675F /* PiwikTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiwikTracker.m; sourceTree = "<group>"; };
-		9AAD6239195CAC2C00A9675F /* piwiktracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = piwiktracker.xcdatamodel; sourceTree = "<group>"; };
-		9AAD623A195CAC2C00A9675F /* PiwikTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiwikTransaction.h; sourceTree = "<group>"; };
-		9AAD623B195CAC2C00A9675F /* PiwikTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiwikTransaction.m; sourceTree = "<group>"; };
-		9AAD623C195CAC2C00A9675F /* PiwikTransactionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiwikTransactionBuilder.h; sourceTree = "<group>"; };
-		9AAD623D195CAC2C00A9675F /* PiwikTransactionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiwikTransactionBuilder.m; sourceTree = "<group>"; };
-		9AAD623E195CAC2C00A9675F /* PiwikTransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiwikTransactionItem.h; sourceTree = "<group>"; };
-		9AAD623F195CAC2C00A9675F /* PiwikTransactionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiwikTransactionItem.m; sourceTree = "<group>"; };
-		9AAD6240195CAC2C00A9675F /* PTEventEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTEventEntity.h; sourceTree = "<group>"; };
-		9AAD6241195CAC2C00A9675F /* PTEventEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTEventEntity.m; sourceTree = "<group>"; };
-		9AAD6268195CAE3700A9675F /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
-		9AAD6269195CAE3700A9675F /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
-		9AAD626A195CAE3700A9675F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		9AAD626B195CAE3700A9675F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		9AAD626C195CAE3700A9675F /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
-		9AAD626D195CAE3700A9675F /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
-		9AAD626E195CAE3700A9675F /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
-		9AAD626F195CAE3700A9675F /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
-		9AAD6270195CAE3700A9675F /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		9AAD6271195CAE3700A9675F /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
-		9AAD6272195CAE3700A9675F /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		9AAD6273195CAE3700A9675F /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
-		9AAD6274195CAE3700A9675F /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
-		9AAD6275195CAE3700A9675F /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		9AAD6276195CAE3700A9675F /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		9AAD6277195CAE3700A9675F /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
-		9AAD6278195CAE3700A9675F /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
-		9AAD6279195CAE3700A9675F /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		9AAD627A195CAE3700A9675F /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		9AB7EAEE19903DEA00B9A1BA /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		9AB7EAEF19903DEA00B9A1BA /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		9AB7EAF119903DFB00B9A1BA /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
@@ -675,12 +623,10 @@
 		9A67A7201950D70A001FCE32 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				9AAD6267195CAE3700A9675F /* AFNetworking */,
 				9AC4DF8F19B35AEA0009F2BC /* Balanced */,
 				9AA6C4491986FAFA0035A430 /* HTAutocompleteTextField */,
 				9A67A72D1950D70A001FCE32 /* Lockbox */,
 				9A059628196202C60060739D /* LTHPasscodeViewController */,
-				9AAD6230195CAC2C00A9675F /* PiwikTracker */,
 				9A67A7301950D70A001FCE32 /* QR */,
 				03101B51198FCE6600E7FC5A /* Ringcaptcha */,
 				9A70263C195F3AB70033026C /* UIBAlertView */,
@@ -795,55 +741,6 @@
 				9AA6C44B1986FAFA0035A430 /* HTAutocompleteTextField.m */,
 			);
 			path = HTAutocompleteTextField;
-			sourceTree = "<group>";
-		};
-		9AAD6230195CAC2C00A9675F /* PiwikTracker */ = {
-			isa = PBXGroup;
-			children = (
-				9AAD6231195CAC2C00A9675F /* PiwikLocationManager.h */,
-				9AAD6232195CAC2C00A9675F /* PiwikLocationManager.m */,
-				9AAD6233195CAC2C00A9675F /* PiwikTrackedViewController.h */,
-				9AAD6234195CAC2C00A9675F /* PiwikTrackedViewController.m */,
-				9AAD6235195CAC2C00A9675F /* PiwikTracker-Prefix.pch */,
-				9AAD6236195CAC2C00A9675F /* PiwikTracker.h */,
-				9AAD6237195CAC2C00A9675F /* PiwikTracker.m */,
-				9AAD6238195CAC2C00A9675F /* piwiktracker.xcdatamodeld */,
-				9AAD623A195CAC2C00A9675F /* PiwikTransaction.h */,
-				9AAD623B195CAC2C00A9675F /* PiwikTransaction.m */,
-				9AAD623C195CAC2C00A9675F /* PiwikTransactionBuilder.h */,
-				9AAD623D195CAC2C00A9675F /* PiwikTransactionBuilder.m */,
-				9AAD623E195CAC2C00A9675F /* PiwikTransactionItem.h */,
-				9AAD623F195CAC2C00A9675F /* PiwikTransactionItem.m */,
-				9AAD6240195CAC2C00A9675F /* PTEventEntity.h */,
-				9AAD6241195CAC2C00A9675F /* PTEventEntity.m */,
-			);
-			path = PiwikTracker;
-			sourceTree = "<group>";
-		};
-		9AAD6267195CAE3700A9675F /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				9AAD6268195CAE3700A9675F /* AFHTTPClient.h */,
-				9AAD6269195CAE3700A9675F /* AFHTTPClient.m */,
-				9AAD626A195CAE3700A9675F /* AFHTTPRequestOperation.h */,
-				9AAD626B195CAE3700A9675F /* AFHTTPRequestOperation.m */,
-				9AAD626C195CAE3700A9675F /* AFImageRequestOperation.h */,
-				9AAD626D195CAE3700A9675F /* AFImageRequestOperation.m */,
-				9AAD626E195CAE3700A9675F /* AFJSONRequestOperation.h */,
-				9AAD626F195CAE3700A9675F /* AFJSONRequestOperation.m */,
-				9AAD6270195CAE3700A9675F /* AFNetworkActivityIndicatorManager.h */,
-				9AAD6271195CAE3700A9675F /* AFNetworkActivityIndicatorManager.m */,
-				9AAD6272195CAE3700A9675F /* AFNetworking.h */,
-				9AAD6273195CAE3700A9675F /* AFPropertyListRequestOperation.h */,
-				9AAD6274195CAE3700A9675F /* AFPropertyListRequestOperation.m */,
-				9AAD6275195CAE3700A9675F /* AFURLConnectionOperation.h */,
-				9AAD6276195CAE3700A9675F /* AFURLConnectionOperation.m */,
-				9AAD6277195CAE3700A9675F /* AFXMLRequestOperation.h */,
-				9AAD6278195CAE3700A9675F /* AFXMLRequestOperation.m */,
-				9AAD6279195CAE3700A9675F /* UIImageView+AFNetworking.h */,
-				9AAD627A195CAE3700A9675F /* UIImageView+AFNetworking.m */,
-			);
-			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 		9AB7EAED19903DEA00B9A1BA /* Config */ = {
@@ -1098,23 +995,18 @@
 			files = (
 				9A702638195F26ED0033026C /* KeyExportViewController.m in Sources */,
 				9A1DAEBB197BD5B600BB9DF7 /* JobHelper.m in Sources */,
-				9AAD627C195CAE3700A9675F /* AFHTTPRequestOperation.m in Sources */,
 				9A67A7851950D70A001FCE32 /* Transaction.m in Sources */,
-				9AAD6249195CAC2C00A9675F /* PTEventEntity.m in Sources */,
 				9ABC07271983171000EC87A3 /* SendNavigationController.m in Sources */,
 				9A33C53219956FD100312A88 /* URI.m in Sources */,
 				9A67A7581950D70A001FCE32 /* TransactionCell.m in Sources */,
 				9A073F421996F044007E0D0F /* PhoneInputViewController.m in Sources */,
 				9A67A75C1950D70A001FCE32 /* AddContactViewController.m in Sources */,
 				9A70263B195F2F960033026C /* SwipeViewController.m in Sources */,
-				9AAD6283195CAE3700A9675F /* UIImageView+AFNetworking.m in Sources */,
-				9AAD6248195CAC2C00A9675F /* PiwikTransactionItem.m in Sources */,
 				9A073F3F1996EDCD007E0D0F /* Order.m in Sources */,
 				9A67A7841950D70A001FCE32 /* Receiver.m in Sources */,
 				9A702653196098BF0033026C /* MessageHelper.m in Sources */,
 				9A65236F196F630C00AD5EFB /* AddressHelper.m in Sources */,
 				9A05962D196202C60060739D /* LTHKeychainUtils.m in Sources */,
-				9AAD6281195CAE3700A9675F /* AFURLConnectionOperation.m in Sources */,
 				9A289CD819843C2C002B9C11 /* CreditCardInputViewController.m in Sources */,
 				9A67A75B1950D70A001FCE32 /* TransactionDetailViewController.m in Sources */,
 				9AB7EAF019903DEA00B9A1BA /* API.m in Sources */,
@@ -1126,7 +1018,6 @@
 				9A8D3C53195E258600E88A1C /* SettingsViewController.m in Sources */,
 				9A1DAEC1197BD72900BB9DF7 /* Job.m in Sources */,
 				9A8D3C50195E248C00E88A1C /* ChangeCurrencyViewController.m in Sources */,
-				9AAD6282195CAE3700A9675F /* AFXMLRequestOperation.m in Sources */,
 				9A67A77B1950D70A001FCE32 /* qrspec.c in Sources */,
 				9ACA5B721969F037005C7BF8 /* AccountActionButton.m in Sources */,
 				9ABC07241983171000EC87A3 /* ReceiveNavigationController.m in Sources */,
@@ -1134,7 +1025,6 @@
 				9A67A75D1950D70A001FCE32 /* ChooseContactsViewController.m in Sources */,
 				9ABC07281983171000EC87A3 /* SendViewController.m in Sources */,
 				9A8D3C49195E247800E88A1C /* ShopsViewController.m in Sources */,
-				9AAD6247195CAC2C00A9675F /* PiwikTransactionBuilder.m in Sources */,
 				9A67A77A1950D70A001FCE32 /* qrinput.c in Sources */,
 				035374AE19A2277400689E39 /* MainViewControllerPhone.m in Sources */,
 				9A70263F195F3AB70033026C /* UIBAlertView.m in Sources */,
@@ -1143,31 +1033,23 @@
 				9A65236C196F5CF500AD5EFB /* DebugViewController.m in Sources */,
 				9A265EDA1965EE03005BE50A /* NSString+Satoshi.m in Sources */,
 				9A289CDB19843D84002B9C11 /* BuyNavigationController.m in Sources */,
-				9AAD6242195CAC2C00A9675F /* PiwikLocationManager.m in Sources */,
 				9AA6C44C1986FAFA0035A430 /* HTAutocompleteTextField.m in Sources */,
-				9AAD627F195CAE3700A9675F /* AFNetworkActivityIndicatorManager.m in Sources */,
 				9A67A7771950D70A001FCE32 /* mask.c in Sources */,
 				9ABC07251983171000EC87A3 /* ReceiveViewController.m in Sources */,
 				9A1DAECE197C6B6400BB9DF7 /* ScanNavigationController.m in Sources */,
 				9A67A7831950D70A001FCE32 /* Exchange.m in Sources */,
-				9AAD6244195CAC2C00A9675F /* PiwikTracker.m in Sources */,
 				9A67A7791950D70A001FCE32 /* qrencode.c in Sources */,
 				9A67A7681950D70A001FCE32 /* ExchangeHelper.m in Sources */,
-				9AAD6243195CAC2C00A9675F /* PiwikTrackedViewController.m in Sources */,
 				9ABC07131983092500EC87A3 /* WeakRef.m in Sources */,
 				9A19022D19A0FAD7008D928B /* Keys.m in Sources */,
 				9A67A77F1950D70A001FCE32 /* Address.m in Sources */,
-				9AAD627B195CAE3700A9675F /* AFHTTPClient.m in Sources */,
 				9A67A7821950D70A001FCE32 /* ContactList.m in Sources */,
 				9A1DAECB197C305400BB9DF7 /* ChangeUnitViewController.m in Sources */,
 				9AFC4A14197F0F8400EAF46B /* KeysViewController.m in Sources */,
 				9A67A75E1950D70A001FCE32 /* ContactsNavigationController.m in Sources */,
-				9AAD627D195CAE3700A9675F /* AFImageRequestOperation.m in Sources */,
 				9A67A76C1950D70A001FCE32 /* UserDefaults.m in Sources */,
 				9A528CE719A0D6B8007B3DF0 /* Settings.m in Sources */,
-				9AAD627E195CAE3700A9675F /* AFJSONRequestOperation.m in Sources */,
 				9ABC073419831C8900EC87A3 /* ReceiveAmountViewController.m in Sources */,
-				9AAD6245195CAC2C00A9675F /* piwiktracker.xcdatamodeld in Sources */,
 				9A67A7621950D70A001FCE32 /* ScanViewController.m in Sources */,
 				9AB7EAF319903DFB00B9A1BA /* Environment.m in Sources */,
 				9A33C5351996E11F00312A88 /* BuyViewController.m in Sources */,
@@ -1180,7 +1062,6 @@
 				9A67A77C1950D70A001FCE32 /* rscode.c in Sources */,
 				9A073F4819978042007E0D0F /* PhoneVerificationViewController.m in Sources */,
 				9A67A7781950D70A001FCE32 /* qrenc.c in Sources */,
-				9AAD6280195CAE3700A9675F /* AFPropertyListRequestOperation.m in Sources */,
 				9A67A7691950D70A001FCE32 /* QRHelper.m in Sources */,
 				9A67A77D1950D70A001FCE32 /* split.c in Sources */,
 				9A67A75A1950D70A001FCE32 /* AccountViewController.m in Sources */,
@@ -1188,7 +1069,6 @@
 				9A67A75F1950D70A001FCE32 /* ContactsViewController.m in Sources */,
 				9A67A76A1950D70A001FCE32 /* RequestHelper.m in Sources */,
 				9A67A7561950D70A001FCE32 /* AppDelegate.m in Sources */,
-				9AAD6246195CAC2C00A9675F /* PiwikTransaction.m in Sources */,
 				9A05962E196202C60060739D /* LTHPasscodeViewController.m in Sources */,
 				9ABC071619830FB800EC87A3 /* Listeners.m in Sources */,
 			);
@@ -1525,19 +1405,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9AAD6238195CAC2C00A9675F /* piwiktracker.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9AAD6239195CAC2C00A9675F /* piwiktracker.xcdatamodel */,
-			);
-			currentVersion = 9AAD6239195CAC2C00A9675F /* piwiktracker.xcdatamodel */;
-			path = piwiktracker.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0358465F194F09A900521709 /* Project object */;
 }

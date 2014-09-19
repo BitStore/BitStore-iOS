@@ -80,7 +80,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Unit* unit = [_units objectAtIndex:indexPath.row];
-    [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:[NSString stringWithFormat:@"ChangedUnit_%@", [unit displayName]] name:nil value:nil];
+    [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:[NSString stringWithFormat:@"ChangedUnit_%@", [unit displayName]] label:@"ChangeUnit"];
     [[ExchangeHelper instance] changeUnit:unit];
     NSString* url = [NSString stringWithFormat:@"%@?a=%@&u=%@", [API changeUnitUrl], [AddressHelper instance].defaultAddress.address, unit.technicalName];
     Job* job = [[Job alloc] initWithUrl:url];

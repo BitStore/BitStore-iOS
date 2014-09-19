@@ -164,7 +164,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 2 && indexPath.row == 0) {
-        [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:@"AddContactFromTX" name:nil value:nil];
+        [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:@"AddContactFromTX" label:@"AddContactFromTX"];
         AddContactViewController* vc = [[AddContactViewController alloc] initWithAddress:_address];
         [self.navigationController pushViewController:vc animated:YES];
     }
