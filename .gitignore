@@ -20,6 +20,3 @@ InfoPlist.h
 
 #CocoaPods
 Pods
-
-#BitStore
-BitStore/Config/Keys.m
