@@ -1,4 +1,6 @@
 # BitStore
+[![Build Status](https://travis-ci.org/BitStore/BitStore-iOS.svg)](https://travis-ci.org/BitStore/BitStore-iOS)
+
 BitStore is a simple and fast native iOS Bitcoin wallet.  
 It offers all the features you want but still provides an easy to use interface.   
 Private keys are generated on the device and stored securely in the Keychain.
