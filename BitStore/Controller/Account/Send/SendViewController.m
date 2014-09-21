@@ -226,16 +226,6 @@ static double FEE = 10000;
     [self presentViewController:_scanViewController animated:YES completion:nil];
 }
 
-- (void)amountValueChanged:(BTCSatoshi)satoshi {
-    _satoshi = satoshi;
-    [self updateFields];
-}
-
-- (void)scannedAddress:(NSString *)address amount:(NSString *)amount {
-    [_scanViewController dismissViewControllerAnimated:YES completion:nil];
-    [self setAddress:address amount:amount];
-}
-
 - (void)setAddress:(NSString *)address amount:(NSString *)amount {
     [self setAddressText:[[ContactHelper instance].contactList displayTextForAddress:address]];
     if (amount) {
@@ -261,11 +251,13 @@ static double FEE = 10000;
     [self textField:_addressField shouldChangeCharactersInRange:range replacementString:address];
 }
 
+#pragma mark - ExchangeListener
 - (void)exchangeChanged:(Exchange *)exchange {
     _exchange = exchange;
     [self updateFields];
 }
 
+#pragma mark - AddressListener
 - (void)addressChanged:(Address *)address {
     _address = address;
     
@@ -290,6 +282,19 @@ static double FEE = 10000;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - AmountViewDelegate
+- (void)amountValueChanged:(BTCSatoshi)satoshi {
+    _satoshi = satoshi;
+    [self updateFields];
+}
+
+#pragma mark - ScanDelegate
+- (void)scannedAddress:(NSString *)address amount:(NSString *)amount {
+    [_scanViewController dismissViewControllerAnimated:YES completion:nil];
+    [self setAddress:address amount:amount];
+}
+
+#pragma mark - LTHPasscodeViewControllerDelegate
 - (void)maxNumberOfFailedAttemptsReached {
     [[LTHPasscodeViewController sharedUser] dismissViewControllerAnimated:YES completion:^() {
         [[LTHPasscodeViewController sharedUser] reset];
@@ -301,6 +306,7 @@ static double FEE = 10000;
     [self startSend];
 }
 
+#pragma mark - Send TX
 - (void)startSend {
     _loadingAlert = [[UIAlertView alloc] init];
     _loadingAlert.title = l10n(@"please_wait");
@@ -468,7 +474,7 @@ static double FEE = 10000;
     return tx;
 }
 
-
+#pragma mark -
 - (void)dealloc {
     [_amountView removeFromSuperview];
     _amountView = nil;
