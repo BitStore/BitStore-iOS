@@ -1,4 +1,5 @@
 language: objective-c
+xcode_sdk: iphonesimulator
 xcode_project: BitStore.xcworkspace
 xcode_scheme: Tests
 script: xcodebuild -workspace BitStore.xcworkspace -scheme BitStore
