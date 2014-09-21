@@ -15,10 +15,12 @@
 #import "AppDelegate.h"
 #import "RequestHelper.h"
 #import "MainViewControllerPhone.h"
+#import "Keys.h"
 
 @implementation AppStart
 
 + (void)start {
+    NSAssert([Keys chainKey].length > 0, @"Missing API keys!");
     [self migrate];
     [self setupStorage];
     [self setupKeychain];
