@@ -13,13 +13,13 @@
 #import "ChangeCurrencyViewController.h"
 #import "KeysViewController.h"
 #import "SwipeViewController.h"
-#import "LTHPasscodeViewController.h"
+#import <DMPasscode/DMPasscode.h>
 #import "UserDefaults.h"
 #import "PushHelper.h"
 #import "Unit.h"
 #import "ChangeUnitViewController.h"
 
-@interface SettingsViewController () <ExchangeListener, LTHPasscodeViewControllerDelegate>
+@interface SettingsViewController () <ExchangeListener>
 @end
 
 @implementation SettingsViewController {
@@ -101,7 +101,7 @@
         [_passcodeToggle addTarget:self action:@selector(passcodeToggle) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:_passcodeToggle];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        if ([LTHPasscodeViewController doesPasscodeExist]) {
+        if ([DMPasscode isPasscodeSet]) {
             [_passcodeToggle setOn:YES];
         }
     } else if (indexPath.section == 1 && indexPath.row == 0) {
@@ -134,12 +134,12 @@
 }
 
 - (void)passcodeToggle {
-    [LTHPasscodeViewController sharedUser].delegate = self;
-	[LTHPasscodeViewController sharedUser].maxNumberOfAllowedFailedAttempts = 3;
     if (_passcodeToggle.isOn) {
-        [[LTHPasscodeViewController sharedUser] showForEnablingPasscodeInViewController:self asModal:YES];
+        [DMPasscode setupPasscodeInViewController:self completion:^(BOOL success) {
+            [_passcodeToggle setOn:success];
+        }];
     } else {
-        [[LTHPasscodeViewController sharedUser] showForDisablingPasscodeInViewController:self asModal:YES];
+        [DMPasscode removePasscode];
     }
 }
 
@@ -150,26 +150,6 @@
     } else {
         [[UIApplication sharedApplication] unregisterForRemoteNotifications];
         [PushHelper unregister];
-    }
-}
-
-
-- (void)passcodeViewControllerWillClose {
-    if ([LTHPasscodeViewController doesPasscodeExist]) {
-        [_passcodeToggle setOn:YES];
-    } else {
-        [_passcodeToggle setOn:NO];
-    }
-}
-
-- (void)maxNumberOfFailedAttemptsReached {
-    [[LTHPasscodeViewController sharedUser] dismissViewControllerAnimated:YES completion:^() {
-        [[LTHPasscodeViewController sharedUser] reset];
-    }];
-    if ([LTHPasscodeViewController doesPasscodeExist]) {
-        [_passcodeToggle setOn:YES];
-    } else {
-        [_passcodeToggle setOn:NO];
     }
 }
 

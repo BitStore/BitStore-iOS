@@ -15,7 +15,7 @@
 #import "AddressListener.h"
 #import "Address.h"
 #import "Lockbox.h"
-#import "LTHPasscodeViewController.h"
+#import <DMPasscode/DMPasscode.h>
 #import "UIBAlertView.h"
 #import "ContactList.h"
 #import "ContactHelper.h"
@@ -28,7 +28,7 @@
 #import "AmountViewDelegate.h"
 #import "HTAutocompleteTextField.h"
 
-@interface SendViewController () <ScanDelegate, ExchangeListener, AddressListener, LTHPasscodeViewControllerDelegate, AmountViewDelegate, UITextFieldDelegate, HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate>
+@interface SendViewController () <ScanDelegate, ExchangeListener, AddressListener, AmountViewDelegate, UITextFieldDelegate, HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate>
 @end
 
 static double FEE = 10000;
@@ -269,10 +269,14 @@ static double FEE = 10000;
 }
 
 - (void)send:(id)sender {
-    [LTHPasscodeViewController sharedUser].delegate = self;
-    [LTHPasscodeViewController sharedUser].maxNumberOfAllowedFailedAttempts = 3;
-    if ([LTHPasscodeViewController doesPasscodeExist]) {
-        [[LTHPasscodeViewController sharedUser] showLockScreen:self animated:NO];
+    if ([DMPasscode isPasscodeSet]) {
+        [DMPasscode showPasscodeInViewController:self completion:^(BOOL success) {
+            if (success) {
+                [self startSend];
+            } else {
+                [self cancel:self];
+            }
+        }];
     } else {
         [self startSend];
     }
@@ -292,18 +296,6 @@ static double FEE = 10000;
 - (void)scannedAddress:(NSString *)address amount:(NSString *)amount {
     [_scanViewController dismissViewControllerAnimated:YES completion:nil];
     [self setAddress:address amount:amount];
-}
-
-#pragma mark - LTHPasscodeViewControllerDelegate
-- (void)maxNumberOfFailedAttemptsReached {
-    [[LTHPasscodeViewController sharedUser] dismissViewControllerAnimated:YES completion:^() {
-        [[LTHPasscodeViewController sharedUser] reset];
-    }];
-    [self cancel:self];
-}
-
-- (void)passcodeWasEnteredSuccessfully {
-    [self startSend];
 }
 
 #pragma mark - Send TX

@@ -8,7 +8,7 @@
 
 #import "KeyExportViewController.h"
 #import "QRHelper.h"
-#import "LTHPasscodeViewController.h"
+#import <DMPasscode/DMPasscode.h>
 #import "FXBlurView.h"
 #import "UserDefaults.h"
 #import "UIBAlertView.h"
@@ -16,14 +16,10 @@
 #import "PushHelper.h"
 #import "AddressHelper.h"
 
-@interface KeyExportViewController () <LTHPasscodeViewControllerDelegate>
-@end
-
 @implementation KeyExportViewController {
     NSString* _privateKey;
     NSInteger _index;
     BOOL _showTrash;
-    BOOL _correct;
     FXBlurView* _blur1, *_blur2;
 }
 
@@ -40,16 +36,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    _correct = NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    [LTHPasscodeViewController sharedUser].delegate = self;
-    [LTHPasscodeViewController sharedUser].maxNumberOfAllowedFailedAttempts = 3;
-    if ([LTHPasscodeViewController doesPasscodeExist]) {
-        [[LTHPasscodeViewController sharedUser] showLockScreen:self animated:NO];
+    if ([DMPasscode isPasscodeSet]) {
+        [DMPasscode showPasscodeInViewController:self completion:^(BOOL success) {
+            if (success) {
+                [self showView];
+            } else {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
     } else {
-        [self showView:NO];
+        [self showView];
     }
 }
 
@@ -58,26 +55,7 @@
     [[PiwikTracker sharedInstance] sendViews:@"PrivKeyExport", nil];
 }
 
-- (void)maxNumberOfFailedAttemptsReached {
-    [[LTHPasscodeViewController sharedUser] dismissViewControllerAnimated:YES completion:^() {
-        [[LTHPasscodeViewController sharedUser] reset];
-    }];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)passcodeWasEnteredSuccessfully {
-    _correct = YES;
-    [self showView:YES];
-}
-
-- (void)passcodeViewControllerWillClose {
-    if (!_correct) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-}
-
-- (void)showView:(BOOL)fromLockScreen {
-    
+- (void)showView {
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     [self.view addGestureRecognizer:tap];
     
@@ -85,7 +63,6 @@
     if (_index == [UserDefaults instance].defaultAddressIndex) {
         showFav = NO;
     }
-    
     
     UIBarButtonItem* trashItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(trash:)];
     UIBarButtonItem* favItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"fav"] style:UIBarButtonItemStyleBordered target:self action:@selector(fav:)];

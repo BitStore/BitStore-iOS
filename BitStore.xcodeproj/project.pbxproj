@@ -27,8 +27,6 @@
 		03CC546A197007F7000196ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03CC5459197007F7000196ED /* InfoPlist.strings */; };
 		03F2E9B1194F0FD7007BE9A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F2E9B0194F0FD7007BE9A6 /* Security.framework */; };
 		3362B7A08C86427D8B01F912 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA31FE505D94F7097170EA0 /* libPods.a */; };
-		9A05962D196202C60060739D /* LTHKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A05962A196202C60060739D /* LTHKeychainUtils.m */; };
-		9A05962E196202C60060739D /* LTHPasscodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A05962C196202C60060739D /* LTHPasscodeViewController.m */; };
 		9A073F3F1996EDCD007E0D0F /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F3E1996EDCD007E0D0F /* Order.m */; };
 		9A073F421996F044007E0D0F /* PhoneInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F411996F044007E0D0F /* PhoneInputViewController.m */; };
 		9A073F4819978042007E0D0F /* PhoneVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F4719978042007E0D0F /* PhoneVerificationViewController.m */; };
@@ -152,10 +150,6 @@
 		03CC5464197007F7000196ED /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LTHPasscodeViewController.strings; sourceTree = "<group>"; };
 		03CC5466197007F7000196ED /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LTHPasscodeViewController.strings"; sourceTree = "<group>"; };
 		03F2E9B0194F0FD7007BE9A6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		9A059629196202C60060739D /* LTHKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTHKeychainUtils.h; sourceTree = "<group>"; };
-		9A05962A196202C60060739D /* LTHKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTHKeychainUtils.m; sourceTree = "<group>"; };
-		9A05962B196202C60060739D /* LTHPasscodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTHPasscodeViewController.h; sourceTree = "<group>"; };
-		9A05962C196202C60060739D /* LTHPasscodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTHPasscodeViewController.m; sourceTree = "<group>"; };
 		9A073F3D1996EDCD007E0D0F /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		9A073F3E1996EDCD007E0D0F /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		9A073F401996F044007E0D0F /* PhoneInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneInputViewController.h; sourceTree = "<group>"; };
@@ -431,17 +425,6 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
-		9A059628196202C60060739D /* LTHPasscodeViewController */ = {
-			isa = PBXGroup;
-			children = (
-				9A059629196202C60060739D /* LTHKeychainUtils.h */,
-				9A05962A196202C60060739D /* LTHKeychainUtils.m */,
-				9A05962B196202C60060739D /* LTHPasscodeViewController.h */,
-				9A05962C196202C60060739D /* LTHPasscodeViewController.m */,
-			);
-			path = LTHPasscodeViewController;
-			sourceTree = "<group>";
-		};
 		9A265ED71965EE03005BE50A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,7 +601,6 @@
 			children = (
 				9AA6C4491986FAFA0035A430 /* HTAutocompleteTextField */,
 				9A67A72D1950D70A001FCE32 /* Lockbox */,
-				9A059628196202C60060739D /* LTHPasscodeViewController */,
 				9A67A7301950D70A001FCE32 /* QR */,
 				03101B51198FCE6600E7FC5A /* Ringcaptcha */,
 				9A70263C195F3AB70033026C /* UIBAlertView */,
@@ -978,7 +960,6 @@
 				9A67A7841950D70A001FCE32 /* Receiver.m in Sources */,
 				9A702653196098BF0033026C /* MessageHelper.m in Sources */,
 				9A65236F196F630C00AD5EFB /* AddressHelper.m in Sources */,
-				9A05962D196202C60060739D /* LTHKeychainUtils.m in Sources */,
 				9A289CD819843C2C002B9C11 /* CreditCardInputViewController.m in Sources */,
 				9A67A75B1950D70A001FCE32 /* TransactionDetailViewController.m in Sources */,
 				9AB7EAF019903DEA00B9A1BA /* API.m in Sources */,
@@ -1041,7 +1022,6 @@
 				9A67A75F1950D70A001FCE32 /* ContactsViewController.m in Sources */,
 				9A67A76A1950D70A001FCE32 /* RequestHelper.m in Sources */,
 				9A67A7561950D70A001FCE32 /* AppDelegate.m in Sources */,
-				9A05962E196202C60060739D /* LTHPasscodeViewController.m in Sources */,
 				9ABC071619830FB800EC87A3 /* Listeners.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
