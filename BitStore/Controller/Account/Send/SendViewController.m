@@ -273,8 +273,6 @@ static double FEE = 10000;
         [DMPasscode showPasscodeInViewController:self completion:^(BOOL success) {
             if (success) {
                 [self startSend];
-            } else {
-                [self cancel:self];
             }
         }];
     } else {
