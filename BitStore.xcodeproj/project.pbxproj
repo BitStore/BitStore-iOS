@@ -1125,6 +1125,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/BitStore/Libs/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1145,6 +1146,7 @@
 					"Libs/openssl/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/BitStore/Libs/**";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -1170,6 +1172,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/BitStore/Libs/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1183,6 +1186,7 @@
 					"Libs/openssl/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/BitStore/Libs/**";
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1199,22 +1203,12 @@
 				BUNDLE_NAME = com.dylanmarriott.BitStore;
 				CODE_SIGN_ENTITLEMENTS = BitStore/BitStore.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BitStore/Libs",
-					"$(PROJECT_DIR)/BitStore/Libs/Ringcaptcha",
-				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BitStore/BitStore-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BitStore/BitStore-Info.plist";
 				INFOPLIST_PREFIX_HEADER = InfoPlist.h;
 				INFOPLIST_PREPROCESS = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BitStore/Libs",
-					"$(PROJECT_DIR)/BitStore/Libs/Balanced",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lcrypto",
@@ -1247,22 +1241,12 @@
 				CODE_SIGN_ENTITLEMENTS = BitStore/BitStore.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BitStore/Libs",
-					"$(PROJECT_DIR)/BitStore/Libs/Ringcaptcha",
-				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BitStore/BitStore-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BitStore/BitStore-Info.plist";
 				INFOPLIST_PREFIX_HEADER = InfoPlist.h;
 				INFOPLIST_PREPROCESS = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BitStore/Libs",
-					"$(PROJECT_DIR)/BitStore/Libs/Balanced",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lcrypto",
