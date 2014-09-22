@@ -2,4 +2,4 @@ language: objective-c
 xcode_sdk: iphonesimulator7.1
 xcode_project: BitStore.xcworkspace
 xcode_scheme: Tests
-script: xcodebuild -workspace BitStore.xcworkspace -scheme BitStore
+script: xcodebuild -workspace BitStore.xcworkspace -scheme BitStore -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
