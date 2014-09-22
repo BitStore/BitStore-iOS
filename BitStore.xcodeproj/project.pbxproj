@@ -87,6 +87,7 @@
 		9A8D3C49195E247800E88A1C /* ShopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D3C48195E247800E88A1C /* ShopsViewController.m */; };
 		9A8D3C50195E248C00E88A1C /* ChangeCurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D3C4E195E248C00E88A1C /* ChangeCurrencyViewController.m */; };
 		9A8D3C53195E258600E88A1C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D3C52195E258600E88A1C /* SettingsViewController.m */; };
+		9A97A0BD19D058530023C9AD /* piwiktracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A97A0BB19D058530023C9AD /* piwiktracker.xcdatamodeld */; };
 		9AA466BC1972D82A00A7B562 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA466BB1972D82A00A7B562 /* Color.m */; };
 		9AA6C44C1986FAFA0035A430 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6C44B1986FAFA0035A430 /* HTAutocompleteTextField.m */; };
 		9AB7EAF019903DEA00B9A1BA /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB7EAEF19903DEA00B9A1BA /* API.m */; };
@@ -276,6 +277,7 @@
 		9A8D3C4E195E248C00E88A1C /* ChangeCurrencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeCurrencyViewController.m; sourceTree = "<group>"; };
 		9A8D3C51195E258600E88A1C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		9A8D3C52195E258600E88A1C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		9A97A0BC19D058530023C9AD /* piwiktracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = piwiktracker.xcdatamodel; sourceTree = "<group>"; };
 		9AA466BA1972D82A00A7B562 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		9AA466BB1972D82A00A7B562 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		9AA6C44A1986FAFA0035A430 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 				9A67A6EA1950D70A001FCE32 /* BitStore-Prefix.pch */,
 				9A67A7421950D70A001FCE32 /* main.m */,
 				9A67A71F1950D70A001FCE32 /* Images.xcassets */,
+				9A97A0BB19D058530023C9AD /* piwiktracker.xcdatamodeld */,
 			);
 			path = BitStore;
 			sourceTree = "<group>";
@@ -985,6 +988,7 @@
 				9AA466BC1972D82A00A7B562 /* Color.m in Sources */,
 				9A65236C196F5CF500AD5EFB /* DebugViewController.m in Sources */,
 				9A265EDA1965EE03005BE50A /* NSString+Satoshi.m in Sources */,
+				9A97A0BD19D058530023C9AD /* piwiktracker.xcdatamodeld in Sources */,
 				9A289CDB19843D84002B9C11 /* BuyNavigationController.m in Sources */,
 				9AA6C44C1986FAFA0035A430 /* HTAutocompleteTextField.m in Sources */,
 				9A67A7771950D70A001FCE32 /* mask.c in Sources */,
@@ -1356,6 +1360,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9A97A0BB19D058530023C9AD /* piwiktracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9A97A0BC19D058530023C9AD /* piwiktracker.xcdatamodel */,
+			);
+			currentVersion = 9A97A0BC19D058530023C9AD /* piwiktracker.xcdatamodel */;
+			path = piwiktracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0358465F194F09A900521709 /* Project object */;
 }
