@@ -98,6 +98,13 @@ static int QR_WIDTH = 240;
     [self.view addSubview:_amountLabel];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    _ws.delegate = nil;
+    [_ws close];
+    _ws = nil;
+}
+
 - (void)actionAdd:(id)sender {
     ReceiveAmountViewController* vc = [[ReceiveAmountViewController alloc] initWithDelegate:self amount:_satoshi];
     [self.navigationController pushViewController:vc animated:YES];
@@ -137,6 +144,14 @@ static int QR_WIDTH = 240;
     [webSocket send:cmd];
 }
 
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
+    NSLog(@"websocked fail: %@", error);
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
+    NSLog(@"websocked did close");
+}
+
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(NSString *)message {
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
     NSArray* outputs = [[json objectForKey:@"x"]  objectForKey:@"out"];
@@ -153,11 +168,6 @@ static int QR_WIDTH = 240;
             [self close:self];
         }];
     }
-}
-
-- (void)dealloc {
-    [_ws close];
-    _ws = nil;
 }
 
 @end
