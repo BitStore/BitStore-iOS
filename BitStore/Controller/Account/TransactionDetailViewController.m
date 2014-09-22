@@ -170,11 +170,13 @@
     }
 }
 
+#pragma mark - ContactListListener
 - (void)contactListChanged:(ContactList *)contactList {
     _contactList = contactList;
     [self.tableView reloadData];
 }
 
+#pragma mark - ExchangeListener
 - (void)exchangeChanged:(Exchange *)exchange {
     _exchange = exchange;
     [self.tableView reloadData];

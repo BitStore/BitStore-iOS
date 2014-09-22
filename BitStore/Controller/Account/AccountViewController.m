@@ -265,19 +265,21 @@
     [_address refresh];
 }
 
-#pragma mark - Listeners
+#pragma mark - AddressListener
 - (void)addressChanged:(Address *)address {
 	_address = address;
     [_refreshControl endRefreshing];
 	[self updateValues];
 }
 
+#pragma mark - AddressHelperListener
 - (void)defaultAddressChanged:(Address *)address {
     _address = address;
     [_address addAddressListener:self];
 	[self updateValues];    
 }
 
+#pragma mark - ExchangeListener
 - (void)exchangeChanged:(Exchange *)exchange {
 	_exchange = exchange;
 	[self updateValues];
