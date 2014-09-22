@@ -35,15 +35,17 @@ static int QR_WIDTH = 240;
     UIButton* _addButton;
     UILabel* _amountLabel;  
     UIImageView* _qrCode;
+    
+    SRWebSocket* _ws;
 }
 
 - (id)init {
     if (self = [super init]) {
 	    self.title = l10n(@"receive");
         _address = [AddressHelper instance].defaultAddress;
-        SRWebSocket* ws = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:@"wss://ws.blockchain.info/inv"]];
-        ws.delegate = self;
-        [ws open];
+        _ws = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:@"wss://ws.blockchain.info/inv"]];
+        _ws.delegate = self;
+        [_ws open];
         [[ExchangeHelper instance] addExchangeListener:self];
 	}
     return self;
@@ -105,28 +107,6 @@ static int QR_WIDTH = 240;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-//- (void)addressChanged:(Address *)address {
-//    _address = address;
-//	if (_address.transactions.count > 0) {
-//		if (_address.total != _lastBalance) {
-//			[_address stopUpdate];
-//            NSString* amount = [_exchange.unit valueForSatoshi:(_address.total - _lastBalance)];
-//			
-//			if (!_secStop) {
-//                if (_satoshi == 0 || _satoshi == (_address.total - _lastBalance)) {
-//                    UIBAlertView* successAlert = [[UIBAlertView alloc] initWithTitle:l10n(@"success") message:[NSString stringWithFormat:l10n(@"push_message"), amount] cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
-//                    [successAlert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
-//                        [self close:self];
-//                    }];
-//                    _secStop = YES;
-//                }
-//			} else {
-//				[_address stopUpdate];
-//			}
-//		}
-//	}
-//}
-
 #pragma mark - ExchangeListener
 - (void)exchangeChanged:(Exchange *)exchange {
     _exchange = exchange;
@@ -153,14 +133,31 @@ static int QR_WIDTH = 240;
 
 #pragma mark - SRWebSocketDelegate
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
-    NSLog(@"websocket open");
-    //NSString* cmd = [NSString stringWithFormat:@"{\"op\":\"addr_sub\", \"addr\":\"%@\"}", _address.address];
-    NSString* cmd = @"{\"op\":\"unconfirmed_sub\"}";
+    NSString* cmd = [NSString stringWithFormat:@"{\"op\":\"addr_sub\", \"addr\":\"%@\"}", _address.address];
     [webSocket send:cmd];
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-    NSLog(@"did receive data: %@", message);
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(NSString *)message {
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    NSArray* outputs = [[json objectForKey:@"x"]  objectForKey:@"out"];
+    BTCSatoshi total = 0;
+    for (NSDictionary* output in outputs) {
+        if ([[output objectForKey:@"addr"] isEqualToString:_address.address]) {
+            total += [[output objectForKey:@"value"] longValue];
+        }
+    }
+    if (_satoshi == 0 || _satoshi == total) {
+        NSString* amount = [_exchange.unit valueForSatoshi:total];
+        UIBAlertView* successAlert = [[UIBAlertView alloc] initWithTitle:l10n(@"success") message:[NSString stringWithFormat:l10n(@"push_message"), amount] cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
+        [successAlert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
+            [self close:self];
+        }];
+    }
+}
+
+- (void)dealloc {
+    [_ws close];
+    _ws = nil;
 }
 
 @end
