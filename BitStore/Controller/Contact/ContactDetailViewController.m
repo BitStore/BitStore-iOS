@@ -19,6 +19,7 @@
 #import "ExchangeHelper.h"
 #import "ExchangeListener.h"
 #import "Unit.h"
+#import "SendNavigationController.h"
 
 @interface ContactDetailViewController () <AddressListener, AddressHelperListener, ExchangeListener, UITableViewDataSource, UITableViewDelegate>
 @end
@@ -45,6 +46,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:l10n(@"send") style:UIBarButtonItemStylePlain target:self action:@selector(actionSend:)];
+    
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     _tableView.tableFooterView = [[UIView alloc] init];
     _tableView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
@@ -54,18 +57,14 @@
 	_tableView.contentOffset = CGPointMake(0, -80);
     _tableView.scrollIndicatorInsets = UIEdgeInsetsMake(80, 0, 0, 0);
     [self.view addSubview:_tableView];
-    
     _refreshControl = [[UIRefreshControl alloc]init];
     [_tableView addSubview:_refreshControl];
     [_refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     
-    
     UIView* header = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 80)];
     header.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95];
-    
     UIView* background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 80)];
 	[header addSubview:background];
-	
 	UIView* foreground = [[UIView alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width - 10, 80 - 10)];
 	[header addSubview:foreground];
 
@@ -81,14 +80,17 @@
     _totalLabel.textColor = [Color mainTintColor];
     [foreground addSubview:_totalLabel];
     
-    
     UIView* divider = [[UIView alloc] initWithFrame:CGRectMake(0, 80, header.frame.size.width, 0.5)];
     divider.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
     [header addSubview:divider];
-    
     [self.view addSubview:header];
     
     [self updateValues];
+}
+
+- (void)actionSend:(id)sender {
+    SendNavigationController* vc = [[SendNavigationController alloc] initWithAddress:_address.address amount:nil];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
