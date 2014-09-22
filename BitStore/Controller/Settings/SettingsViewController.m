@@ -139,7 +139,13 @@
             [_passcodeToggle setOn:success];
         }];
     } else {
-        [DMPasscode removePasscode];
+        [DMPasscode showPasscodeInViewController:self completion:^(BOOL success) {
+            if (success) {
+                [DMPasscode removePasscode];
+            } else {
+                [_passcodeToggle setOn:YES];
+            }
+        }];
     }
 }
 
