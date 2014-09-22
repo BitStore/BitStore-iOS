@@ -8,7 +8,6 @@
 
 #import "ReceiveViewController.h"
 #import "Address.h"
-#import "AddressListener.h"
 #import "QRHelper.h"
 #import "Transaction.h"
 #import "UIBAlertView.h"
@@ -21,32 +20,31 @@
 #import "Unit.h"
 #import "ReceiveAmountViewController.h"
 #import "ReceiveAmountDelegate.h"
+#import <SocketRocket/SRWebSocket.h>
 
 static int QR_WIDTH = 240;
 
-@interface ReceiveViewController () <AddressListener, ExchangeListener, ReceiveAmountDelegate>
+@interface ReceiveViewController () <ExchangeListener, ReceiveAmountDelegate, SRWebSocketDelegate>
 @end
 
 @implementation ReceiveViewController {
     Address* _address;
     Exchange* _exchange;
-    BTCSatoshi _lastBalance;
-	BOOL _secStop; // this is in case the stopUpdate call didn't work
     BTCSatoshi _satoshi;
     
     UIButton* _addButton;
-    UILabel* _amountLabel;
+    UILabel* _amountLabel;  
     UIImageView* _qrCode;
 }
 
 - (id)init {
     if (self = [super init]) {
 	    self.title = l10n(@"receive");
-		Address* a = [AddressHelper instance].defaultAddress;
-		_lastBalance = a.total;
-		[a addAddressListener:self];
-		[a startUpdate:2]; // check every two seconds
-		[[ExchangeHelper instance] addExchangeListener:self];
+        _address = [AddressHelper instance].defaultAddress;
+        SRWebSocket* ws = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:@"wss://ws.blockchain.info/inv"]];
+        ws.delegate = self;
+        [ws open];
+        [[ExchangeHelper instance] addExchangeListener:self];
 	}
     return self;
 }
@@ -103,32 +101,38 @@ static int QR_WIDTH = 240;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)addressChanged:(Address *)address {
-    _address = address;
-	if (_address.transactions.count > 0) {
-		if (_address.total != _lastBalance) {
-			[_address stopUpdate];
-            NSString* amount = [_exchange.unit valueForSatoshi:(_address.total - _lastBalance)];
-			
-			if (!_secStop) {
-                if (_satoshi == 0 || _satoshi == (_address.total - _lastBalance)) {
-                    UIBAlertView* successAlert = [[UIBAlertView alloc] initWithTitle:l10n(@"success") message:[NSString stringWithFormat:l10n(@"push_message"), amount] cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
-                    [successAlert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
-                        [self close:self];
-                    }];
-                    _secStop = YES;
-                }
-			} else {
-				[_address stopUpdate];
-			}
-		}
-	}
+- (void)close:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+//- (void)addressChanged:(Address *)address {
+//    _address = address;
+//	if (_address.transactions.count > 0) {
+//		if (_address.total != _lastBalance) {
+//			[_address stopUpdate];
+//            NSString* amount = [_exchange.unit valueForSatoshi:(_address.total - _lastBalance)];
+//			
+//			if (!_secStop) {
+//                if (_satoshi == 0 || _satoshi == (_address.total - _lastBalance)) {
+//                    UIBAlertView* successAlert = [[UIBAlertView alloc] initWithTitle:l10n(@"success") message:[NSString stringWithFormat:l10n(@"push_message"), amount] cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
+//                    [successAlert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
+//                        [self close:self];
+//                    }];
+//                    _secStop = YES;
+//                }
+//			} else {
+//				[_address stopUpdate];
+//			}
+//		}
+//	}
+//}
+
+#pragma mark - ExchangeListener
 - (void)exchangeChanged:(Exchange *)exchange {
     _exchange = exchange;
 }
 
+#pragma mark - ReceiveAmountDelegate
 - (void)amountSelected:(BTCSatoshi)satoshi {
     _satoshi = satoshi;
     _addButton.hidden = _satoshi > 0;
@@ -147,8 +151,16 @@ static int QR_WIDTH = 240;
     _qrCode.image = qrCodeImage;
 }
 
-- (void)close:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+#pragma mark - SRWebSocketDelegate
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket {
+    NSLog(@"websocket open");
+    //NSString* cmd = [NSString stringWithFormat:@"{\"op\":\"addr_sub\", \"addr\":\"%@\"}", _address.address];
+    NSString* cmd = @"{\"op\":\"unconfirmed_sub\"}";
+    [webSocket send:cmd];
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
+    NSLog(@"did receive data: %@", message);
 }
 
 @end
