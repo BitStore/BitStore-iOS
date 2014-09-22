@@ -96,12 +96,6 @@ static int QR_WIDTH = 240;
     [_amountLabel addGestureRecognizer:tap];
     _amountLabel.userInteractionEnabled = YES;
     [self.view addSubview:_amountLabel];
-    
-    
-    UIActivityIndicatorView* indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.frame = CGRectMake(self.view.frame.size.width / 2 - 16, self.view.frame.size.height - 125, 32, 32);
-    [indicator startAnimating];
-    [self.view addSubview:indicator];
 }
 
 - (void)actionAdd:(id)sender {
@@ -117,14 +111,15 @@ static int QR_WIDTH = 240;
             NSString* amount = [_exchange.unit valueForSatoshi:(_address.total - _lastBalance)];
 			
 			if (!_secStop) {
-				UIBAlertView* successAlert = [[UIBAlertView alloc] initWithTitle:l10n(@"success") message:[NSString stringWithFormat:l10n(@"push_message"), amount] cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
-				[successAlert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
-					[self close:self];
-				}];
-				_secStop = YES;
+                if (_satoshi == 0 || _satoshi == (_address.total - _lastBalance)) {
+                    UIBAlertView* successAlert = [[UIBAlertView alloc] initWithTitle:l10n(@"success") message:[NSString stringWithFormat:l10n(@"push_message"), amount] cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
+                    [successAlert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
+                        [self close:self];
+                    }];
+                    _secStop = YES;
+                }
 			} else {
 				[_address stopUpdate];
-				NSLog(@"trying to stop again");
 			}
 		}
 	}
