@@ -191,7 +191,7 @@ static double FEE = 10000;
     }
 
     BTCAddress* addr = [BTCAddress addressWithBase58String:[self address]];
-    if (!error && addr != nil && _satoshi > 0) {
+    if (!error && addr != nil && [addr isPublicAddress] && _satoshi > 0) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
     } else {
         self.navigationItem.rightBarButtonItem.enabled = NO;

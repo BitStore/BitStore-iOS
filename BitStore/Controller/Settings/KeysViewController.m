@@ -65,14 +65,18 @@
 
 - (void)scannedAddress:(NSString *)address amount:(NSString *)amount {
     [_scanViewController dismissViewControllerAnimated:YES completion:nil];
-    BTCKey* k = [[BTCKey alloc] initWithPrivateKeyAddress:[BTCPrivateKeyAddress addressWithBase58String:address]];
-    if (k != nil) {
-        [Lockbox setArray:[[Lockbox arrayForKey:@"bitstore_3"] arrayByAddingObject:k.privateKeyAddress.base58String] forKey:@"bitstore_3"];
-        Address* addr = [[Address alloc] init];
-        addr.address = k.uncompressedPublicKeyAddress.base58String;
-        [addr refresh];
-        [[AddressHelper instance] addAddress:addr];
-        [self updateValues];
+    BTCAddress* btcaddr = [BTCAddress addressWithBase58String:address];
+    BTCKey* k;
+    if ([btcaddr isPrivateAddress]) {
+        k = [[BTCKey alloc] initWithPrivateKeyAddress:(BTCPrivateKeyAddress *)btcaddr];
+        if (k != nil) {
+            [Lockbox setArray:[[Lockbox arrayForKey:@"bitstore_3"] arrayByAddingObject:k.privateKeyAddress.base58String] forKey:@"bitstore_3"];
+            Address* addr = [[Address alloc] init];
+            addr.address = k.uncompressedPublicKeyAddress.base58String;
+            [addr refresh];
+            [[AddressHelper instance] addAddress:addr];
+            [self updateValues];
+        }
     }
 }
 

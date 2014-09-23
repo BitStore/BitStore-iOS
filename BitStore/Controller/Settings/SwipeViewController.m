@@ -64,7 +64,15 @@
     BTCPrivateKeyAddress* addr = [BTCPrivateKeyAddress addressWithBase58String:address];
     [self stopScan];
     
-    if (addr == nil) {
+    if (addr != nil && [addr isPrivateAddress]) {
+        BTCKey* key = [[BTCKey alloc] initWithPrivateKeyAddress:addr];
+        
+        _loadingAlert = [[UIAlertView alloc] init];
+        _loadingAlert.title = l10n(@"please_wait");
+        [_loadingAlert show];
+        
+        [self performSelector:@selector(checkBalance:) withObject:key afterDelay:0.01];
+    } else {
         UIBAlertView* av = [[UIBAlertView alloc] initWithTitle:l10n(@"error") message:l10n(@"not_a_key") cancelButtonTitle:l10n(@"cancel") otherButtonTitles:l10n(@"retry"), nil];
         [av showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
             if (didCancel) {
@@ -73,14 +81,6 @@
                 [self startScan];
             }
         }];
-    } else {
-        BTCKey* key = [[BTCKey alloc] initWithPrivateKeyAddress:addr];
-        
-        _loadingAlert = [[UIAlertView alloc] init];
-        _loadingAlert.title = l10n(@"please_wait");
-        [_loadingAlert show];
-        
-        [self performSelector:@selector(checkBalance:) withObject:key afterDelay:0.01];
     }
 }
 

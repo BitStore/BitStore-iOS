@@ -99,7 +99,7 @@
     }
 
     BTCAddress* addr = [BTCAddress addressWithBase58String:_addressField.text];
-    if (addr != nil && _nameField.text.length > 0 && !exists) {
+    if (addr != nil && [addr isPublicAddress] && _nameField.text.length > 0 && !exists) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
     } else {
         self.navigationItem.rightBarButtonItem.enabled = NO;

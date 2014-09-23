@@ -23,6 +23,7 @@
 #import "Environment.h"
 #import "Settings.h"
 #import "Keys.h"
+#import "BTCAddress+BitStore.h"
 
 #define l10n(key) NSLocalizedString(key, nil)
 

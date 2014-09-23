@@ -87,6 +87,7 @@
 		9A8D3C49195E247800E88A1C /* ShopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D3C48195E247800E88A1C /* ShopsViewController.m */; };
 		9A8D3C50195E248C00E88A1C /* ChangeCurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D3C4E195E248C00E88A1C /* ChangeCurrencyViewController.m */; };
 		9A8D3C53195E258600E88A1C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D3C52195E258600E88A1C /* SettingsViewController.m */; };
+		9A91EF7D19D1D1B00011D982 /* BTCAddress+BitStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A91EF7C19D1D1B00011D982 /* BTCAddress+BitStore.m */; };
 		9A97A0BD19D058530023C9AD /* piwiktracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A97A0BB19D058530023C9AD /* piwiktracker.xcdatamodeld */; };
 		9A97A0C319D05BBF0023C9AD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A0C219D05BBF0023C9AD /* libicucore.dylib */; };
 		9A97A0C519D05C820023C9AD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A0C419D05C820023C9AD /* CFNetwork.framework */; };
@@ -279,6 +280,8 @@
 		9A8D3C4E195E248C00E88A1C /* ChangeCurrencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeCurrencyViewController.m; sourceTree = "<group>"; };
 		9A8D3C51195E258600E88A1C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		9A8D3C52195E258600E88A1C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		9A91EF7B19D1D1B00011D982 /* BTCAddress+BitStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BTCAddress+BitStore.h"; sourceTree = "<group>"; };
+		9A91EF7C19D1D1B00011D982 /* BTCAddress+BitStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BTCAddress+BitStore.m"; sourceTree = "<group>"; };
 		9A97A0BC19D058530023C9AD /* piwiktracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = piwiktracker.xcdatamodel; sourceTree = "<group>"; };
 		9A97A0C219D05BBF0023C9AD /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		9A97A0C419D05C820023C9AD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -438,6 +441,8 @@
 		9A265ED71965EE03005BE50A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9A91EF7B19D1D1B00011D982 /* BTCAddress+BitStore.h */,
+				9A91EF7C19D1D1B00011D982 /* BTCAddress+BitStore.m */,
 				9AA466BA1972D82A00A7B562 /* Color.h */,
 				9AA466BB1972D82A00A7B562 /* Color.m */,
 				9AF0C4F5196B3A0200F62DB5 /* iOSFix.h */,
@@ -968,6 +973,7 @@
 				9A67A75C1950D70A001FCE32 /* AddContactViewController.m in Sources */,
 				9A70263B195F2F960033026C /* SwipeViewController.m in Sources */,
 				9A073F3F1996EDCD007E0D0F /* Order.m in Sources */,
+				9A91EF7D19D1D1B00011D982 /* BTCAddress+BitStore.m in Sources */,
 				9A67A7841950D70A001FCE32 /* Receiver.m in Sources */,
 				9A702653196098BF0033026C /* MessageHelper.m in Sources */,
 				9A65236F196F630C00AD5EFB /* AddressHelper.m in Sources */,
