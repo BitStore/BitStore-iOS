@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ScanDelegate.h"
 #import "URI.h"
+#import "UIBAlertView.h"
 
 @interface ScanViewController () <AVCaptureMetadataOutputObjectsDelegate>
 @end
@@ -33,19 +34,29 @@
         AVCaptureDeviceInput* videoInput = [AVCaptureDeviceInput deviceInputWithDevice:videoCaptureDevice error:&error];
         if (videoInput) {
             [_captureSession addInput:videoInput];
+            AVCaptureMetadataOutput* metadataOutput = [[AVCaptureMetadataOutput alloc] init];
+            [_captureSession addOutput:metadataOutput];
+            [metadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+            [metadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+            
+            AVCaptureVideoPreviewLayer* previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
+            previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+            previewLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+            [self.view.layer addSublayer:previewLayer];
         } else {
-            NSLog(@"Error: %@", error);
+            // camera access failed
+            UIBAlertView* av = [[UIBAlertView alloc] initWithTitle:@"Camera error" message:@"Unable to access the camera. Please enable camera access for BitStore inside the privacy settings." cancelButtonTitle:l10n(@"okay") otherButtonTitles:@"Open Settings", nil];
+            [av showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
+                if (!didCancel) {
+                    BOOL canOpenSettings = (&UIApplicationOpenSettingsURLString != NULL);
+                    if (canOpenSettings) {
+                        NSURL* url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                        [[UIApplication sharedApplication] openURL:url];
+                    }
+                }
+            }];
+            [self performSelector:@selector(close:) withObject:self afterDelay:0.01];
         }
-        
-        AVCaptureMetadataOutput* metadataOutput = [[AVCaptureMetadataOutput alloc] init];
-        [_captureSession addOutput:metadataOutput];
-        [metadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-        [metadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
-        
-        AVCaptureVideoPreviewLayer* previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
-        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        previewLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-        [self.view.layer addSublayer:previewLayer];
     } else {
         self.view.backgroundColor = [UIColor darkGrayColor];
     }
