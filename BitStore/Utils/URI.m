@@ -18,15 +18,15 @@
             _address = [query substringToIndex:queryStart.location];
             
             NSRange amountStart = [query rangeOfString:@"amount="];
-            NSString* amountAndMore = [query substringFromIndex:amountStart.location + 7];
-            
-            NSRange additionalQueryStart = [amountAndMore rangeOfString:@"&"];
-            if (additionalQueryStart.length > 0) {
-                // more parms in query, cut of
-                amountAndMore = [amountAndMore substringToIndex:additionalQueryStart.location];
+            if (amountStart.length > 0) {
+                NSString* amountAndMore = [query substringFromIndex:amountStart.location + 7];
+                NSRange additionalQueryStart = [amountAndMore rangeOfString:@"&"];
+                if (additionalQueryStart.length > 0) {
+                    // more parms in query, cut of
+                    amountAndMore = [amountAndMore substringToIndex:additionalQueryStart.location];
+                }
+                _amount = amountAndMore;
             }
-            
-            _amount = amountAndMore;
         }
     }
     return self;
