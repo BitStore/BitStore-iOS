@@ -47,6 +47,7 @@
             // camera access failed
             UIBAlertView* av = [[UIBAlertView alloc] initWithTitle:@"Camera error" message:@"Unable to access the camera. Please enable camera access for BitStore inside the privacy settings." cancelButtonTitle:l10n(@"okay") otherButtonTitles:@"Open Settings", nil];
             [av showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
+#ifdef __IPHONE_8_0
                 if (!didCancel) {
                     BOOL canOpenSettings = (&UIApplicationOpenSettingsURLString != NULL);
                     if (canOpenSettings) {
@@ -54,6 +55,7 @@
                         [[UIApplication sharedApplication] openURL:url];
                     }
                 }
+#endif
             }];
             [self performSelector:@selector(close:) withObject:self afterDelay:0.01];
         }
