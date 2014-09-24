@@ -83,10 +83,6 @@ static double FEE = 10000;
     [[PiwikTracker sharedInstance] sendViews:@"Send", nil];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [_addressField becomeFirstResponder];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
@@ -110,7 +106,6 @@ static double FEE = 10000;
         _addressField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _addressField.returnKeyType = UIReturnKeyNext;
         _addressField.borderStyle = UITextBorderStyleRoundedRect;
-        [_addressField becomeFirstResponder];
         [cell.contentView addSubview:_addressField];
 
         UIButton* scanButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 44, 14, 32, 32)];
@@ -135,6 +130,12 @@ static double FEE = 10000;
         
         if (_initAddress && _addressField.text.length == 0 && _amountView.amountField.text.length == 0) {
             [self setAddress:_initAddress amount:_initAmount];
+        }
+        
+        if (_initAddress) {
+            [_amountView becomeFirstResponder];
+        } else {
+            [_addressField becomeFirstResponder];
         }
     }
     return cell;
