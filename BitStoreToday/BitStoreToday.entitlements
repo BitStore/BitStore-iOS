@@ -4,9 +4,5 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array/>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>$(AppIdentifierPrefix)com.dylanmarriott.BitStore</string>
-	</array>
 </dict>
 </plist>

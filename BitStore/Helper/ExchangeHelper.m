@@ -12,6 +12,7 @@
 #import "ExchangeListener.h"
 #import "RequestHelper.h"
 #import "Listeners.h"
+#import "SharedUser.h"
 
 @implementation ExchangeHelper {
 	Listeners* _listeners;
@@ -49,6 +50,12 @@ static int DELAY = 300;
 - (void)changeCurreny:(NSString *)currency {
     _exchange.currency = currency;
     _exchange.complete = NO;
+    
+    // update shared user
+    SharedUser* user = [UserDefaults instance].sharedUser;
+    user.todayCurrency = currency;
+    [UserDefaults instance].sharedUser = user;
+    
     [self storeState];
     [self notifyListeners];
 }

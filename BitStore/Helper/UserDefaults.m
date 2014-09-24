@@ -10,6 +10,7 @@
 #import "Exchange.h"
 #import "Address.h"
 #import "ContactList.h"
+#import "SharedUser.h"
 
 @implementation UserDefaults {
     NSUserDefaults* _defaults;
@@ -170,12 +171,20 @@ static UserDefaults* sharedInstance;
     [_defaults synchronize];
 }
 
+// SharedUser
+- (SharedUser *)sharedUser {
+    return (SharedUser *)[self codableObjectForKey:@"sharedUser"];
+}
+
+- (void)setSharedUser:(SharedUser *)sharedUser {
+    [self setCodableObject:sharedUser forKey:@"sharedUser"];
+}
+
 #pragma mark -
 - (void)reset {
 	NSString* domain = [[NSBundle mainBundle] bundleIdentifier];
 	[_defaults removePersistentDomainForName:domain];
 }
-
 
 #pragma mark - Private
 - (void)setCodableObject:(id<NSCoding>)object forKey:(NSString *)key {

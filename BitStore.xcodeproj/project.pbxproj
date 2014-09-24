@@ -39,7 +39,6 @@
 		9A1DAECE197C6B6400BB9DF7 /* ScanNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DAECD197C6B6400BB9DF7 /* ScanNavigationController.m */; };
 		9A265EDA1965EE03005BE50A /* NSString+Satoshi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A265ED91965EE03005BE50A /* NSString+Satoshi.m */; };
 		9A265EDD1965EE42005BE50A /* UIAlertView+BitStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A265EDC1965EE42005BE50A /* UIAlertView+BitStore.m */; };
-		9A289CD819843C2C002B9C11 /* CreditCardInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A289CD719843C2C002B9C11 /* CreditCardInputViewController.m */; };
 		9A289CDB19843D84002B9C11 /* BuyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A289CDA19843D84002B9C11 /* BuyNavigationController.m */; };
 		9A33C53219956FD100312A88 /* URI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C53119956FD100312A88 /* URI.m */; };
 		9A33C5351996E11F00312A88 /* BuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C5341996E11F00312A88 /* BuyViewController.m */; };
@@ -91,8 +90,17 @@
 		9A97A0BD19D058530023C9AD /* piwiktracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A97A0BB19D058530023C9AD /* piwiktracker.xcdatamodeld */; };
 		9A97A0C319D05BBF0023C9AD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A0C219D05BBF0023C9AD /* libicucore.dylib */; };
 		9A97A0C519D05C820023C9AD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A0C419D05C820023C9AD /* CFNetwork.framework */; };
+		9A9D587D19D0D0AF00EA940A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9D587C19D0D0AF00EA940A /* Images.xcassets */; };
+		9A9D588019D1F63200EA940A /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A19022C19A0FAD7008D928B /* Keys.m */; };
+		9A9D588319D1F73800EA940A /* SharedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588219D1F73800EA940A /* SharedUser.m */; };
+		9A9D588419D1F8F200EA940A /* SharedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588219D1F73800EA940A /* SharedUser.m */; };
+		9A9D588519D20FA700EA940A /* AccountActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA5B711969F037005C7BF8 /* AccountActionButton.m */; };
 		9AA466BC1972D82A00A7B562 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA466BB1972D82A00A7B562 /* Color.m */; };
 		9AA6C44C1986FAFA0035A430 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6C44B1986FAFA0035A430 /* HTAutocompleteTextField.m */; };
+		9AAAC41E19D092FE00994EB6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAAC41D19D092FE00994EB6 /* NotificationCenter.framework */; };
+		9AAAC42419D092FE00994EB6 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAC42319D092FE00994EB6 /* TodayViewController.m */; };
+		9AAAC42919D092FE00994EB6 /* BitStoreToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9AAAC41C19D092FE00994EB6 /* BitStoreToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9AAAC43119D0C97400994EB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AAAC43019D0C97400994EB6 /* MainInterface.storyboard */; };
 		9AB7EAF019903DEA00B9A1BA /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB7EAEF19903DEA00B9A1BA /* API.m */; };
 		9AB7EAF319903DFB00B9A1BA /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB7EAF219903DFB00B9A1BA /* Environment.m */; };
 		9ABC07131983092500EC87A3 /* WeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC07121983092500EC87A3 /* WeakRef.m */; };
@@ -119,7 +127,35 @@
 			remoteGlobalIDString = 03584666194F09A900521709;
 			remoteInfo = BitStore;
 		};
+		9AAAC42719D092FE00994EB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0358465F194F09A900521709 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AAAC41B19D092FD00994EB6;
+			remoteInfo = BitStoreToday;
+		};
+		9AAAC42A19D092FE00994EB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0358465F194F09A900521709 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AAAC41B19D092FD00994EB6;
+			remoteInfo = BitStoreToday;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9AAAC42F19D092FE00994EB6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9AAAC42919D092FE00994EB6 /* BitStoreToday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		03101B52198FCE6600E7FC5A /* Ringcaptcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Ringcaptcha.bundle; sourceTree = "<group>"; };
@@ -285,10 +321,20 @@
 		9A97A0BC19D058530023C9AD /* piwiktracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = piwiktracker.xcdatamodel; sourceTree = "<group>"; };
 		9A97A0C219D05BBF0023C9AD /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		9A97A0C419D05C820023C9AD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9A9D587C19D0D0AF00EA940A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9A9D587E19D1778600EA940A /* BitStoreToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BitStoreToday.entitlements; sourceTree = "<group>"; };
+		9A9D588119D1F73800EA940A /* SharedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedUser.h; sourceTree = "<group>"; };
+		9A9D588219D1F73800EA940A /* SharedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedUser.m; sourceTree = "<group>"; };
 		9AA466BA1972D82A00A7B562 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		9AA466BB1972D82A00A7B562 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		9AA6C44A1986FAFA0035A430 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
 		9AA6C44B1986FAFA0035A430 /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteTextField.m; sourceTree = "<group>"; };
+		9AAAC41C19D092FE00994EB6 /* BitStoreToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BitStoreToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AAAC41D19D092FE00994EB6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		9AAAC42119D092FE00994EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AAAC42219D092FE00994EB6 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		9AAAC42319D092FE00994EB6 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		9AAAC43019D0C97400994EB6 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		9AB7EAEE19903DEA00B9A1BA /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		9AB7EAEF19903DEA00B9A1BA /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		9AB7EAF119903DFB00B9A1BA /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
@@ -356,6 +402,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9AAAC41919D092FD00994EB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AAAC41E19D092FE00994EB6 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -373,6 +427,7 @@
 			children = (
 				9A67A6E61950D70A001FCE32 /* BitStore */,
 				03AC8C72199511BE00E901E2 /* BitStore Tests */,
+				9AAAC41F19D092FE00994EB6 /* BitStoreToday */,
 				03584669194F09A900521709 /* Frameworks */,
 				03584668194F09A900521709 /* Products */,
 				D89753AD070744B88F462628 /* Pods.xcconfig */,
@@ -384,6 +439,7 @@
 			children = (
 				03584667194F09A900521709 /* BitStore.app */,
 				03AC8C6E199511BE00E901E2 /* BitStore Tests.xctest */,
+				9AAAC41C19D092FE00994EB6 /* BitStoreToday.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -404,6 +460,7 @@
 				0358466E194F09A900521709 /* UIKit.framework */,
 				03584683194F09A900521709 /* XCTest.framework */,
 				DBA31FE505D94F7097170EA0 /* libPods.a */,
+				9AAAC41D19D092FE00994EB6 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -675,6 +732,8 @@
 				9A073F3E1996EDCD007E0D0F /* Order.m */,
 				9A67A7521950D70A001FCE32 /* Receiver.h */,
 				9A67A7531950D70A001FCE32 /* Receiver.m */,
+				9A9D588119D1F73800EA940A /* SharedUser.h */,
+				9A9D588219D1F73800EA940A /* SharedUser.m */,
 				9A67A7541950D70A001FCE32 /* Transaction.h */,
 				9A67A7551950D70A001FCE32 /* Transaction.m */,
 				9A1DAEC6197C2C1C00BB9DF7 /* Unit.h */,
@@ -731,6 +790,27 @@
 				9AA6C44B1986FAFA0035A430 /* HTAutocompleteTextField.m */,
 			);
 			path = HTAutocompleteTextField;
+			sourceTree = "<group>";
+		};
+		9AAAC41F19D092FE00994EB6 /* BitStoreToday */ = {
+			isa = PBXGroup;
+			children = (
+				9A9D587E19D1778600EA940A /* BitStoreToday.entitlements */,
+				9AAAC42219D092FE00994EB6 /* TodayViewController.h */,
+				9AAAC42319D092FE00994EB6 /* TodayViewController.m */,
+				9AAAC43019D0C97400994EB6 /* MainInterface.storyboard */,
+				9AAAC42019D092FE00994EB6 /* Supporting Files */,
+			);
+			path = BitStoreToday;
+			sourceTree = "<group>";
+		};
+		9AAAC42019D092FE00994EB6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9AAAC42119D092FE00994EB6 /* Info.plist */,
+				9A9D587C19D0D0AF00EA940A /* Images.xcassets */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		9AB7EAED19903DEA00B9A1BA /* Config */ = {
@@ -795,10 +875,13 @@
 				03584664194F09A900521709 /* Frameworks */,
 				03584665194F09A900521709 /* Resources */,
 				33BD41E0C8F747BD96F14957 /* Copy Pods Resources */,
+				9AAAC42F19D092FE00994EB6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9AAAC42819D092FE00994EB6 /* PBXTargetDependency */,
+				9AAAC42B19D092FE00994EB6 /* PBXTargetDependency */,
 			);
 			name = BitStore;
 			productName = BitManager;
@@ -825,6 +908,23 @@
 			productReference = 03AC8C6E199511BE00E901E2 /* BitStore Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		9AAAC41B19D092FD00994EB6 /* BitStoreToday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AAAC42E19D092FE00994EB6 /* Build configuration list for PBXNativeTarget "BitStoreToday" */;
+			buildPhases = (
+				9AAAC41819D092FD00994EB6 /* Sources */,
+				9AAAC41919D092FD00994EB6 /* Frameworks */,
+				9AAAC41A19D092FD00994EB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BitStoreToday;
+			productName = BitStoreToday;
+			productReference = 9AAAC41C19D092FE00994EB6 /* BitStoreToday.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -837,6 +937,9 @@
 					03584666194F09A900521709 = {
 						DevelopmentTeam = 5EFBK52YD3;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -844,6 +947,15 @@
 					};
 					03AC8C6D199511BE00E901E2 = {
 						TestTargetID = 03584666194F09A900521709;
+					};
+					9AAAC41B19D092FD00994EB6 = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 5EFBK52YD3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -867,6 +979,7 @@
 			targets = (
 				03584666194F09A900521709 /* BitStore */,
 				03AC8C6D199511BE00E901E2 /* BitStore Tests */,
+				9AAAC41B19D092FD00994EB6 /* BitStoreToday */,
 			);
 		};
 /* End PBXProject section */
@@ -890,6 +1003,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				03AC8C77199511BE00E901E2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AAAC41A19D092FD00994EB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AAAC43119D0C97400994EB6 /* MainInterface.storyboard in Resources */,
+				9A9D587D19D0D0AF00EA940A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -977,7 +1099,6 @@
 				9A67A7841950D70A001FCE32 /* Receiver.m in Sources */,
 				9A702653196098BF0033026C /* MessageHelper.m in Sources */,
 				9A65236F196F630C00AD5EFB /* AddressHelper.m in Sources */,
-				9A289CD819843C2C002B9C11 /* CreditCardInputViewController.m in Sources */,
 				9A67A75B1950D70A001FCE32 /* TransactionDetailViewController.m in Sources */,
 				9AB7EAF019903DEA00B9A1BA /* API.m in Sources */,
 				9ABC072C1983174100EC87A3 /* AmountView.m in Sources */,
@@ -1016,6 +1137,7 @@
 				9A67A77F1950D70A001FCE32 /* Address.m in Sources */,
 				9A67A7821950D70A001FCE32 /* ContactList.m in Sources */,
 				9A1DAECB197C305400BB9DF7 /* ChangeUnitViewController.m in Sources */,
+				9A9D588319D1F73800EA940A /* SharedUser.m in Sources */,
 				9AFC4A14197F0F8400EAF46B /* KeysViewController.m in Sources */,
 				9A67A75E1950D70A001FCE32 /* ContactsNavigationController.m in Sources */,
 				9A67A76C1950D70A001FCE32 /* UserDefaults.m in Sources */,
@@ -1052,6 +1174,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9AAAC41819D092FD00994EB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A9D588019D1F63200EA940A /* Keys.m in Sources */,
+				9AAAC42419D092FE00994EB6 /* TodayViewController.m in Sources */,
+				9A9D588419D1F8F200EA940A /* SharedUser.m in Sources */,
+				9A9D588519D20FA700EA940A /* AccountActionButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1059,6 +1192,16 @@
 			isa = PBXTargetDependency;
 			target = 03584666194F09A900521709 /* BitStore */;
 			targetProxy = 03AC8C7B199511BE00E901E2 /* PBXContainerItemProxy */;
+		};
+		9AAAC42819D092FE00994EB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9AAAC41B19D092FD00994EB6 /* BitStoreToday */;
+			targetProxy = 9AAAC42719D092FE00994EB6 /* PBXContainerItemProxy */;
+		};
+		9AAAC42B19D092FE00994EB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9AAAC41B19D092FD00994EB6 /* BitStoreToday */;
+			targetProxy = 9AAAC42A19D092FE00994EB6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1208,6 +1351,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_NAME = com.dylanmarriott.BitStore;
 				CODE_SIGN_ENTITLEMENTS = BitStore/BitStore.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1327,6 +1471,46 @@
 			};
 			name = Release;
 		};
+		9AAAC42C19D092FE00994EB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = BitStoreToday/BitStoreToday.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BitStoreToday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9AAAC42D19D092FE00994EB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = BitStoreToday/BitStoreToday.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = BitStoreToday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1353,6 +1537,15 @@
 			buildConfigurations = (
 				03AC8C7D199511BE00E901E2 /* Debug */,
 				03AC8C7E199511BE00E901E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AAAC42E19D092FE00994EB6 /* Build configuration list for PBXNativeTarget "BitStoreToday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AAAC42C19D092FE00994EB6 /* Debug */,
+				9AAAC42D19D092FE00994EB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -50,8 +50,8 @@
 }
 
 - (void)next:(id)sender {
-    CreditCardInputViewController* vc = [[CreditCardInputViewController alloc] initWithOrder:[[Order alloc] initWithOrderId:_orderId amount:[self amount] price:_price]];
-    [self.navigationController pushViewController:vc animated:YES];
+//    CreditCardInputViewController* vc = [[CreditCardInputViewController alloc] initWithOrder:[[Order alloc] initWithOrderId:_orderId amount:[self amount] price:_price]];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)cancel:(id)sender {
