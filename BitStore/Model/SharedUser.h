@@ -10,8 +10,7 @@
 
 @interface SharedUser : NSObject <NSCoding>
 
-@property (nonatomic) NSNumber* todayCurrency;
-@property (nonatomic) NSString* cachedPrice;
-- (void)save;
+@property (nonatomic) NSString* todayCurrency;
+@property (nonatomic) NSNumber* cachedPrice;
 
 @end
