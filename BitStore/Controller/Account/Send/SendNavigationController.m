@@ -12,12 +12,7 @@
 @implementation SendNavigationController
 
 - (id)init {
-    if (self = [super init]) {
-	    SendViewController* vc = [[SendViewController alloc] init];
-		self.title = vc.title;
-		[self pushViewController:vc animated:NO];
-	}
-    return self;
+    return [self initWithAddress:nil amount:nil];
 }
 
 - (id)initWithAddress:(NSString *)address amount:(NSString *)amount {

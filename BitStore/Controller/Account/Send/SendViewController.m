@@ -49,17 +49,15 @@ static double FEE = 10000;
 }
 
 - (id)init {
+    return [self initWithAddress:nil amount:nil];
+}
+
+- (id)initWithAddress:(NSString *)address amount:(NSString *)amount {
     if (self = [super initWithStyle:UITableViewStyleGrouped]) {
         self.title = l10n(@"send");
         Address* a = [AddressHelper instance].defaultAddress;
         [a addAddressListener:self];
         [[ExchangeHelper instance] addExchangeListener:self];
-    }
-    return self;
-}
-
-- (id)initWithAddress:(NSString *)address amount:(NSString *)amount {
-    if (self = [self init]) {
         _initAddress = address;
         _initAmount = amount;
     }
