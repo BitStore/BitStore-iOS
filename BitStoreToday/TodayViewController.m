@@ -50,6 +50,7 @@
     [sendButton setSelectedTintColor:buttonSelectedColor];
     CGSize sendSize = [sendTitle sizeWithAttributes:@{NSFontAttributeName:sendButton.titleLabel.font}];
     sendButton.frame = CGRectMake(self.view.bounds.size.width - sendSize.width - 30, 7, sendSize.width, 50);
+    [sendButton addTarget:self action:@selector(actionSend:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sendButton];
     
     
@@ -60,7 +61,18 @@
     [receiveButton setSelectedTintColor:buttonSelectedColor];
     CGSize receiveSize = [receiveTitle sizeWithAttributes:@{NSFontAttributeName:receiveButton.titleLabel.font}];
     receiveButton.frame = CGRectMake(self.view.bounds.size.width - receiveSize.width - sendSize.width - 60, 12, receiveSize.width, 50);
+    [receiveButton addTarget:self action:@selector(actionReceive:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:receiveButton];
+}
+
+- (void)actionSend:(id)sender {
+    NSURL* url = [[NSURL alloc] initWithScheme:@"bitstore" host:nil path:@"/send"];
+    [self.extensionContext openURL:url completionHandler:nil];
+}
+
+- (void)actionReceive:(id)sender {
+    NSURL* url = [[NSURL alloc] initWithScheme:@"bitstore" host:nil path:@"/receive"];
+    [self.extensionContext openURL:url completionHandler:nil];
 }
 
 - (void)updatePriceLabel {

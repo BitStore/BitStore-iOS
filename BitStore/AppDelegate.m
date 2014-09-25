@@ -13,6 +13,7 @@
 #import "Address.h"
 #import "URI.h"
 #import "SendNavigationController.h"
+#import "ReceiveNavigationController.h"
 #import "AppStart.h"
 
 @implementation AppDelegate
@@ -48,10 +49,24 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    URI* uri = [[URI alloc] initWithString:url.description];
-    SendNavigationController* vc = [[SendNavigationController alloc] initWithAddress:uri.address amount:uri.amount];
-    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
-	return YES;
+    BOOL opened = NO;
+    if ([url.scheme isEqualToString:@"bitcoin"]) {
+        URI* uri = [[URI alloc] initWithString:url.description];
+        SendNavigationController* vc = [[SendNavigationController alloc] initWithAddress:uri.address amount:uri.amount];
+        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        opened = YES;
+    } else if ([url.scheme isEqualToString:@"bitstore"]) {
+        if ([url.lastPathComponent isEqualToString:@"send"]) {
+            SendNavigationController* vc = [[SendNavigationController alloc] init];
+            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+            opened = YES;
+        } else if ([url.lastPathComponent isEqualToString:@"receive"]) {
+            ReceiveNavigationController* vc = [[ReceiveNavigationController alloc] init];
+            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+            opened = YES;
+        }
+    }
+	return opened;
 }
 
 @end

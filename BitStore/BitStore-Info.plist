@@ -28,6 +28,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>bitcoin</string>
+				<string>bitstore</string>
 			</array>
 		</dict>
 	</array>
