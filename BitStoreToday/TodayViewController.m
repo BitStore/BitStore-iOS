@@ -21,38 +21,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.preferredContentSize = CGSizeMake(200, 65);
+    self.preferredContentSize = CGSizeMake(200, 64);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    UILabel* description = [[UILabel alloc] initWithFrame:CGRectMake(0, 18, 200, 30)];
+    UILabel* description = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     description.text = @"Current price:";
     description.font = [UIFont systemFontOfSize:13];
     description.textColor = [UIColor colorWithWhite:0.5 alpha:1.0];
     [self.view addSubview:description];
     
-    _priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 45, 200, 30)];
+    _priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 27, 200, 30)];
     _priceLabel.textColor = [UIColor whiteColor];
     _priceLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:24];
     [self updatePriceLabel];
     [self.view addSubview:_priceLabel];
     
     
+    UIColor* buttonTintColor = [UIColor whiteColor];
+    UIColor* buttonSelectedColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+    
     NSString* sendTitle = NSLocalizedString(@"send", nil);
     AccountActionButton* sendButton = [[AccountActionButton alloc] initWithTitle:sendTitle image:[UIImage imageNamed:@"send"] selectedImage:[UIImage imageNamed:@"send_selected"]];
     sendButton.padding = 5;
+    [sendButton setTintColor:buttonTintColor];
+    [sendButton setSelectedTintColor:buttonSelectedColor];
     CGSize sendSize = [sendTitle sizeWithAttributes:@{NSFontAttributeName:sendButton.titleLabel.font}];
-    sendButton.frame = CGRectMake(self.view.bounds.size.width - sendSize.width - 30, 25, sendSize.width, 50);
+    sendButton.frame = CGRectMake(self.view.bounds.size.width - sendSize.width - 30, 7, sendSize.width, 50);
     [self.view addSubview:sendButton];
     
     
     NSString* receiveTitle = NSLocalizedString(@"receive", nil);
     AccountActionButton* receiveButton = [[AccountActionButton alloc] initWithTitle:receiveTitle image:[UIImage imageNamed:@"receive"] selectedImage:[UIImage imageNamed:@"receive_selected"]];
-    receiveButton.padding = 5;
+    receiveButton.padding = 10;
+    [receiveButton setTintColor:buttonTintColor];
+    [receiveButton setSelectedTintColor:buttonSelectedColor];
     CGSize receiveSize = [receiveTitle sizeWithAttributes:@{NSFontAttributeName:receiveButton.titleLabel.font}];
-    receiveButton.frame = CGRectMake(self.view.bounds.size.width - receiveSize.width - sendSize.width - 60, 34, receiveSize.width, 50);
+    receiveButton.frame = CGRectMake(self.view.bounds.size.width - receiveSize.width - sendSize.width - 60, 12, receiveSize.width, 50);
     [self.view addSubview:receiveButton];
 }
 
@@ -88,6 +95,11 @@
                                }
                                completionHandler(NCUpdateResultFailed);
                            }];
+}
+
+- (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets {
+    UIEdgeInsets newInsets = UIEdgeInsetsMake(18, defaultMarginInsets.left - 0, 18, defaultMarginInsets.right);
+    return newInsets;
 }
 
 - (NSUserDefaults *)userDefaults {
