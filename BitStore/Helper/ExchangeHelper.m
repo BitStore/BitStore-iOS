@@ -54,6 +54,7 @@ static int DELAY = 300;
     // update shared user
     SharedUser* user = [UserDefaults instance].sharedUser;
     user.todayCurrency = currency;
+    user.cachedPrice = nil;
     [UserDefaults instance].sharedUser = user;
     
     [self storeState];
