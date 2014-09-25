@@ -92,8 +92,9 @@
 		9A9D588019D1F63200EA940A /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A19022C19A0FAD7008D928B /* Keys.m */; };
 		9A9D588319D1F73800EA940A /* SharedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588219D1F73800EA940A /* SharedUser.m */; };
 		9A9D588419D1F8F200EA940A /* SharedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588219D1F73800EA940A /* SharedUser.m */; };
-		9A9D588519D20FA700EA940A /* AccountActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA5B711969F037005C7BF8 /* AccountActionButton.m */; };
 		9A9D588819D484C900EA940A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A9D588A19D484C900EA940A /* Localizable.strings */; };
+		9A9D588E19D4867400EA940A /* AccountActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588D19D4867400EA940A /* AccountActionButton.m */; };
+		9A9D588F19D4867700EA940A /* AccountActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588D19D4867400EA940A /* AccountActionButton.m */; };
 		9AA466BC1972D82A00A7B562 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA466BB1972D82A00A7B562 /* Color.m */; };
 		9AA6C44C1986FAFA0035A430 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6C44B1986FAFA0035A430 /* HTAutocompleteTextField.m */; };
 		9AAAC41E19D092FE00994EB6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAAC41D19D092FE00994EB6 /* NotificationCenter.framework */; };
@@ -112,7 +113,6 @@
 		9ABC072F198318D100EC87A3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABC072E198318D100EC87A3 /* SystemConfiguration.framework */; };
 		9ABC07311983191E00EC87A3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABC07301983191E00EC87A3 /* MobileCoreServices.framework */; };
 		9ABC073419831C8900EC87A3 /* ReceiveAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC073319831C8900EC87A3 /* ReceiveAmountViewController.m */; };
-		9ACA5B721969F037005C7BF8 /* AccountActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA5B711969F037005C7BF8 /* AccountActionButton.m */; };
 		9ADFAD57194F8116009427DF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADFAD56194F8116009427DF /* AVFoundation.framework */; };
 		9AFC4A14197F0F8400EAF46B /* KeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC4A13197F0F8400EAF46B /* KeysViewController.m */; };
 		A423E0B434094809ABF9EF1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA31FE505D94F7097170EA0 /* libPods.a */; };
@@ -318,6 +318,8 @@
 		9A9D588219D1F73800EA940A /* SharedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedUser.m; sourceTree = "<group>"; };
 		9A9D588919D484C900EA940A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9A9D588B19D484CE00EA940A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9A9D588C19D4867400EA940A /* AccountActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountActionButton.h; sourceTree = "<group>"; };
+		9A9D588D19D4867400EA940A /* AccountActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountActionButton.m; sourceTree = "<group>"; };
 		9AA466BA1972D82A00A7B562 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		9AA466BB1972D82A00A7B562 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		9AA6C44A1986FAFA0035A430 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
@@ -353,8 +355,6 @@
 		9ABC073219831C8900EC87A3 /* ReceiveAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiveAmountViewController.h; sourceTree = "<group>"; };
 		9ABC073319831C8900EC87A3 /* ReceiveAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiveAmountViewController.m; sourceTree = "<group>"; };
 		9ABC073519832FD100EC87A3 /* ReceiveAmountDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiveAmountDelegate.h; sourceTree = "<group>"; };
-		9ACA5B701969F037005C7BF8 /* AccountActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountActionButton.h; sourceTree = "<group>"; };
-		9ACA5B711969F037005C7BF8 /* AccountActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountActionButton.m; sourceTree = "<group>"; };
 		9ADFAD56194F8116009427DF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9AF0C4F5196B3A0200F62DB5 /* iOSFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSFix.h; sourceTree = "<group>"; };
 		9AF0C4F6196B3C3400F62DB5 /* BitStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BitStore.entitlements; sourceTree = "<group>"; };
@@ -590,8 +590,6 @@
 			children = (
 				9ABC07171983171000EC87A3 /* Receive */,
 				9ABC071C1983171000EC87A3 /* Send */,
-				9ACA5B701969F037005C7BF8 /* AccountActionButton.h */,
-				9ACA5B711969F037005C7BF8 /* AccountActionButton.m */,
 				9A67A6F01950D70A001FCE32 /* AccountNavigationController.h */,
 				9A67A6F11950D70A001FCE32 /* AccountNavigationController.m */,
 				9A67A6F21950D70A001FCE32 /* AccountViewController.h */,
@@ -848,6 +846,8 @@
 		9ABC07291983173300EC87A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9A9D588C19D4867400EA940A /* AccountActionButton.h */,
+				9A9D588D19D4867400EA940A /* AccountActionButton.m */,
 				9ABC072A1983174100EC87A3 /* AmountView.h */,
 				9ABC072B1983174100EC87A3 /* AmountView.m */,
 				9ABC072D1983175300EC87A3 /* AmountViewDelegate.h */,
@@ -1101,7 +1101,6 @@
 				9A1DAEC1197BD72900BB9DF7 /* Job.m in Sources */,
 				9A8D3C50195E248C00E88A1C /* ChangeCurrencyViewController.m in Sources */,
 				9A67A77B1950D70A001FCE32 /* qrspec.c in Sources */,
-				9ACA5B721969F037005C7BF8 /* AccountActionButton.m in Sources */,
 				9ABC07241983171000EC87A3 /* ReceiveNavigationController.m in Sources */,
 				9A67A7761950D70A001FCE32 /* bitstream.c in Sources */,
 				9A67A75D1950D70A001FCE32 /* ChooseContactsViewController.m in Sources */,
@@ -1152,6 +1151,7 @@
 				9A8D3C46195E246D00E88A1C /* ShopsNavigationController.m in Sources */,
 				9A67A75F1950D70A001FCE32 /* ContactsViewController.m in Sources */,
 				9A67A76A1950D70A001FCE32 /* RequestHelper.m in Sources */,
+				9A9D588E19D4867400EA940A /* AccountActionButton.m in Sources */,
 				9A67A7561950D70A001FCE32 /* AppDelegate.m in Sources */,
 				9ABC071619830FB800EC87A3 /* Listeners.m in Sources */,
 			);
@@ -1172,7 +1172,7 @@
 				9A9D588019D1F63200EA940A /* Keys.m in Sources */,
 				9AAAC42419D092FE00994EB6 /* TodayViewController.m in Sources */,
 				9A9D588419D1F8F200EA940A /* SharedUser.m in Sources */,
-				9A9D588519D20FA700EA940A /* AccountActionButton.m in Sources */,
+				9A9D588F19D4867700EA940A /* AccountActionButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

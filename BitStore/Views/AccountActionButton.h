@@ -13,6 +13,8 @@
 @property (nonatomic) CGFloat padding;
 
 - (id)initWithTitle:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage;
+- (void)setTintColor:(UIColor *)tintColor;
+- (void)setSelectedTintColor:(UIColor *)selectedTintColor;
 
 - (id)init UNAVAILABLE_ATTRIBUTE;
 - (id)initWithCoder:(NSCoder *)aDecoder UNAVAILABLE_ATTRIBUTE;

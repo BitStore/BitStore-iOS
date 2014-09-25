@@ -17,13 +17,21 @@
 		[self setImage:selected forState:UIControlStateHighlighted];
 		[self setImage:selected forState:UIControlStateSelected];
 		[self setTitle:title forState:UIControlStateNormal];
-		self.tintColor = [UIColor colorWithWhite:0.6 alpha:1.0];
-		[self setTitleColor:self.tintColor forState:UIControlStateNormal];
-		[self setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-		[self setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
+        [self setTintColor:[UIColor colorWithWhite:0.6 alpha:1.0]];
+        [self setSelectedTintColor:[UIColor colorWithWhite:0.5 alpha:1.0]];
 		self.titleLabel.font = [UIFont systemFontOfSize:12];
     }
     return self;
+}
+
+- (void)setTintColor:(UIColor *)tintColor {
+    [super setTintColor:tintColor];
+    [self setTitleColor:tintColor forState:UIControlStateNormal];
+}
+
+- (void)setSelectedTintColor:(UIColor *)selectedTintColor {
+    [self setTitleColor:selectedTintColor forState:UIControlStateHighlighted];
+    [self setTitleColor:selectedTintColor forState:UIControlStateSelected];
 }
 
 - (void)layoutSubviews {
