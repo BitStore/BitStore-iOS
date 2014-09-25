@@ -40,7 +40,7 @@
     [self.view addSubview:_priceLabel];
     
     
-    NSString* sendTitle = @"Send";
+    NSString* sendTitle = NSLocalizedString(@"send", nil);
     AccountActionButton* sendButton = [[AccountActionButton alloc] initWithTitle:sendTitle image:[UIImage imageNamed:@"send"] selectedImage:[UIImage imageNamed:@"send_selected"]];
     sendButton.padding = 5;
     CGSize sendSize = [sendTitle sizeWithAttributes:@{NSFontAttributeName:sendButton.titleLabel.font}];
@@ -48,7 +48,7 @@
     [self.view addSubview:sendButton];
     
     
-    NSString* receiveTitle = @"Receive";
+    NSString* receiveTitle = NSLocalizedString(@"receive", nil);
     AccountActionButton* receiveButton = [[AccountActionButton alloc] initWithTitle:receiveTitle image:[UIImage imageNamed:@"receive"] selectedImage:[UIImage imageNamed:@"receive_selected"]];
     receiveButton.padding = 5;
     CGSize receiveSize = [receiveTitle sizeWithAttributes:@{NSFontAttributeName:receiveButton.titleLabel.font}];
