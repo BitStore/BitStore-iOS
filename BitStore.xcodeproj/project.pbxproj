@@ -95,6 +95,7 @@
 		9A9D588819D484C900EA940A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A9D588A19D484C900EA940A /* Localizable.strings */; };
 		9A9D588E19D4867400EA940A /* AccountActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588D19D4867400EA940A /* AccountActionButton.m */; };
 		9A9D588F19D4867700EA940A /* AccountActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588D19D4867400EA940A /* AccountActionButton.m */; };
+		9A9D589219D4BDD200EA940A /* CircleIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D589119D4BDD200EA940A /* CircleIndicator.m */; };
 		9AA466BC1972D82A00A7B562 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA466BB1972D82A00A7B562 /* Color.m */; };
 		9AA6C44C1986FAFA0035A430 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6C44B1986FAFA0035A430 /* HTAutocompleteTextField.m */; };
 		9AAAC41E19D092FE00994EB6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAAC41D19D092FE00994EB6 /* NotificationCenter.framework */; };
@@ -320,6 +321,8 @@
 		9A9D588B19D484CE00EA940A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9A9D588C19D4867400EA940A /* AccountActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountActionButton.h; sourceTree = "<group>"; };
 		9A9D588D19D4867400EA940A /* AccountActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountActionButton.m; sourceTree = "<group>"; };
+		9A9D589019D4BDD200EA940A /* CircleIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleIndicator.h; sourceTree = "<group>"; };
+		9A9D589119D4BDD200EA940A /* CircleIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleIndicator.m; sourceTree = "<group>"; };
 		9AA466BA1972D82A00A7B562 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		9AA466BB1972D82A00A7B562 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		9AA6C44A1986FAFA0035A430 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
@@ -851,6 +854,8 @@
 				9ABC072A1983174100EC87A3 /* AmountView.h */,
 				9ABC072B1983174100EC87A3 /* AmountView.m */,
 				9ABC072D1983175300EC87A3 /* AmountViewDelegate.h */,
+				9A9D589019D4BDD200EA940A /* CircleIndicator.h */,
+				9A9D589119D4BDD200EA940A /* CircleIndicator.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1127,6 +1132,7 @@
 				9A67A77F1950D70A001FCE32 /* Address.m in Sources */,
 				9A67A7821950D70A001FCE32 /* ContactList.m in Sources */,
 				9A1DAECB197C305400BB9DF7 /* ChangeUnitViewController.m in Sources */,
+				9A9D589219D4BDD200EA940A /* CircleIndicator.m in Sources */,
 				9A9D588319D1F73800EA940A /* SharedUser.m in Sources */,
 				9AFC4A14197F0F8400EAF46B /* KeysViewController.m in Sources */,
 				9A67A75E1950D70A001FCE32 /* ContactsNavigationController.m in Sources */,

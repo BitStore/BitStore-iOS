@@ -15,6 +15,7 @@
 #import "ContactHelper.h"
 #import "ContactListListener.h"
 #import "Unit.h"
+#import "CircleIndicator.h"
 
 @interface TransactionCell () <ExchangeListener, ContactListListener>
 @end
@@ -26,6 +27,7 @@
     UILabel* _personLabel;
     UILabel* _valueLabel;
     UILabel* _dateLabel;
+    CircleIndicator* _circleIndicator;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -44,7 +46,13 @@
     _dateLabel.font = [UIFont systemFontOfSize:11];
     _dateLabel.textAlignment = NSTextAlignmentRight;
     _dateLabel.textColor = [UIColor colorWithWhite:0.65 alpha:1.0];
+    _dateLabel.hidden = YES;
     [self addSubview:_dateLabel];
+    
+    _circleIndicator = [[CircleIndicator alloc] initWithCircles:6];
+    _circleIndicator.frame = CGRectMake(self.frame.size.width - 90, 30, 80, 20);
+    _circleIndicator.hidden = YES;
+    [self addSubview:_circleIndicator];
     
     [[ExchangeHelper instance] addExchangeListener:self];
     [[ContactHelper instance] addContactListListener:self];
@@ -83,8 +91,12 @@
     _personLabel.text = [_contactList displayTextForAddress:address];
     _valueLabel.text = [_exchange.unit valueForSatoshi:_transaction.total];
     if (_transaction.confirmations < 6) {
-        _dateLabel.text = @"Pending";
+        _circleIndicator.hidden = NO;
+        _dateLabel.hidden = YES;
+        [_circleIndicator setFilledCircles:_transaction.confirmations];
     } else {
+        _circleIndicator.hidden = YES;
+        _dateLabel.hidden = NO;
         _dateLabel.text = _transaction.date.dateTimeAgo;
     }
 }
