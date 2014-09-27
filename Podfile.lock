@@ -14,16 +14,17 @@ PODS:
 
 DEPENDENCIES:
   - CoreBitcoin (from `https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec`)
-  - DMPasscode
-  - FXBlurView
-  - iRate
-  - MBProgressHUD
-  - NSDate+TimeAgo
-  - PiwikTracker
-  - SocketRocket
+  - DMPasscode (= 1.0.4)
+  - FXBlurView (= 1.6.2)
+  - iRate (= 1.10.3)
+  - MBProgressHUD (= 0.9)
+  - NSDate+TimeAgo (= 1.0.3)
+  - PiwikTracker (= 2.5.1)
+  - SocketRocket (= 0.3.1-beta2)
 
 EXTERNAL SOURCES:
   CoreBitcoin:
+    :commit: 2f86fc1
     :podspec: https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec
 
 SPEC CHECKSUMS:
