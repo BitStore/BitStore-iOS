@@ -50,7 +50,7 @@
     [self addSubview:_dateLabel];
     
     _circleIndicator = [[CircleIndicator alloc] initWithCircles:6];
-    _circleIndicator.frame = CGRectMake(self.frame.size.width - 90, 30, 80, 20);
+    _circleIndicator.frame = CGRectMake(self.frame.size.width - 80, 30, 70, 20);
     _circleIndicator.hidden = YES;
     [self addSubview:_circleIndicator];
     
