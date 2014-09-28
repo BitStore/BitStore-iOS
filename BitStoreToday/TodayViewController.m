@@ -120,7 +120,12 @@
 
 - (SharedUser *)user {
     NSData* data = [[self userDefaults] objectForKey:@"sharedUser"];
-    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    SharedUser* user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (!user) {
+        user = [[SharedUser alloc] init];
+        [self saveUser:user];
+    }
+    return user;
 }
 
 - (void)saveUser:(SharedUser *)user {
