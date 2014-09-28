@@ -28,7 +28,7 @@
     [super viewWillAppear:animated];
     
     UILabel* description = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
-    description.text = @"Current price:";
+    description.text = NSLocalizedString(@"current_price", nil);
     description.font = [UIFont systemFontOfSize:13];
     description.textColor = [UIColor colorWithWhite:0.5 alpha:1.0];
     [self.view addSubview:description];
@@ -80,7 +80,7 @@
     if (user.cachedPrice) {
         _priceLabel.text = [NSString stringWithFormat:@"%.0f %@", [user.cachedPrice floatValue], user.todayCurrency];
     } else {
-        _priceLabel.text = @"Loading...";
+        _priceLabel.text = NSLocalizedString(@"loading", nil);
     }
 }
 
