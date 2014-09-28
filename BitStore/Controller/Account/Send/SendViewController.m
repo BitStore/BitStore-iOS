@@ -18,6 +18,7 @@
 #import <DMPasscode/DMPasscode.h>
 #import "UIBAlertView.h"
 #import "ContactList.h"
+#import "ContactListListener.h"
 #import "ContactHelper.h"
 #import "AccountActionButton.h"
 #import <QuartzCore/QuartzCore.h>
@@ -30,7 +31,7 @@
 #import "ChooseContactsViewController.h"
 #import "ChooseContactDelegate.h"
 
-@interface SendViewController () <ScanDelegate, ExchangeListener, AddressListener, AmountViewDelegate, UITextFieldDelegate, HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate, ChooseContactDelegate>
+@interface SendViewController () <ScanDelegate, ExchangeListener, AddressListener, AmountViewDelegate, UITextFieldDelegate, HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate, ChooseContactDelegate, ContactListListener>
 @end
 
 static double FEE = 10000;
@@ -38,6 +39,7 @@ static double FEE = 10000;
 @implementation SendViewController {
     HTAutocompleteTextField* _addressField;
     AmountView* _amountView;
+    UIButton* _contactButton;
     UILabel* _infoLabel;
     ChooseContactsViewController* _chooseContactsViewController;
     ScanNavigationController* _scanViewController;
@@ -57,12 +59,13 @@ static double FEE = 10000;
 
 - (id)initWithAddress:(NSString *)address amount:(NSString *)amount {
     if (self = [super initWithStyle:UITableViewStyleGrouped]) {
+        _initAddress = address;
+        _initAmount = amount;
         self.title = l10n(@"send");
         Address* a = [AddressHelper instance].defaultAddress;
         [a addAddressListener:self];
         [[ExchangeHelper instance] addExchangeListener:self];
-        _initAddress = address;
-        _initAmount = amount;
+        [[ContactHelper instance] addContactListListener:self];
     }
     return self;
 }
@@ -114,10 +117,10 @@ static double FEE = 10000;
         [scanButton addTarget:self action:@selector(scan:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:scanButton];
         
-        UIButton* contactButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 82, 14, 32, 32)];
-        [contactButton setImage:[UIImage imageNamed:@"user"] forState:UIControlStateNormal];
-        [contactButton addTarget:self action:@selector(chooseContact:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.contentView addSubview:contactButton];
+        _contactButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 82, 14, 32, 32)];
+        [_contactButton setImage:[UIImage imageNamed:@"user"] forState:UIControlStateNormal];
+        [_contactButton addTarget:self action:@selector(chooseContact:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:_contactButton];
         
         _amountView = [[AmountView alloc] initWithDelegate:self frame:CGRectMake(0, 58, self.view.frame.size.width, 60)];
         _amountView.amountField.returnKeyType = UIReturnKeyNext;
@@ -196,6 +199,8 @@ static double FEE = 10000;
     } else {
         [self setDefaultInfo];
     }
+    
+    _contactButton.enabled = [ContactHelper instance].contacts.count > 0;
 
     BTCAddress* addr = [BTCAddress addressWithBase58String:[self address]];
     if (!error && addr != nil && [addr isPublicAddress] && _satoshi > 0) {
@@ -315,6 +320,11 @@ static double FEE = 10000;
     [_chooseContactsViewController.navigationController popViewControllerAnimated:YES];
     [self setAddressText:contact.address];
     [_amountView becomeFirstResponder];
+}
+
+#pragma mark - ContactListListener
+- (void)contactListChanged:(ContactList *)contactList {
+    [self updateFields];
 }
 
 
