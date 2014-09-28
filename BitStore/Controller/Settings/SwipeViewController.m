@@ -81,7 +81,7 @@
         UIBAlertView* av = [[UIBAlertView alloc] initWithTitle:l10n(@"error") message:l10n(@"not_a_key") cancelButtonTitle:l10n(@"cancel") otherButtonTitles:l10n(@"retry"), nil];
         [av showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
             if (didCancel) {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self close:self];
             } else {
                 [self startScan];
             }
@@ -101,7 +101,7 @@
 				UIBAlertView* av = [[UIBAlertView alloc] initWithTitle:l10n(@"swipe_key_title") message:[NSString stringWithFormat:l10n(@"swipe_key_message"), (double)balance / 100000000] cancelButtonTitle:l10n(@"cancel") otherButtonTitles:l10n(@"yes"), nil];
 				[av showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
 					if (didCancel) {
-						[self.navigationController popViewControllerAnimated:YES];
+						[self close:self];
 					} else {
 						[self doTransaction:key];
 					}
@@ -109,14 +109,14 @@
 			} else {
 				UIBAlertView* av = [[UIBAlertView alloc] initWithTitle:l10n(@"error") message:l10n(@"not_enough_funds") cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
 				[av showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
-					[self.navigationController popViewControllerAnimated:YES];
+					[self close:self];
 				}];
 			}
 		} else {
 			UIBAlertView* av = [[UIBAlertView alloc] initWithTitle:l10n(@"error") message:l10n(@"could_not_fetch_balance") cancelButtonTitle:l10n(@"cancel") otherButtonTitles:l10n(@"retry"), nil];
 			[av showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
 				if (didCancel) {
-					[self.navigationController popViewControllerAnimated:YES];
+					[self close:self];
 				} else {
 					[self checkBalance:key];
 				}
@@ -147,12 +147,12 @@
         
         UIBAlertView* av = [[UIBAlertView alloc] initWithTitle:l10n(@"success") message:l10n(@"swipe_success") cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
         [av showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [self close:self];
         }];
     } else {
         UIBAlertView* av = [[UIBAlertView alloc] initWithTitle:l10n(@"error") message:l10n(@"swipe_failed") cancelButtonTitle:l10n(@"okay") otherButtonTitles:nil];
         [av showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [self close:self];
         }];
     }
 }
