@@ -27,8 +27,10 @@
 #import "AmountView.h"
 #import "AmountViewDelegate.h"
 #import "HTAutocompleteTextField.h"
+#import "ChooseContactsViewController.h"
+#import "ChooseContactDelegate.h"
 
-@interface SendViewController () <ScanDelegate, ExchangeListener, AddressListener, AmountViewDelegate, UITextFieldDelegate, HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate>
+@interface SendViewController () <ScanDelegate, ExchangeListener, AddressListener, AmountViewDelegate, UITextFieldDelegate, HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate, ChooseContactDelegate>
 @end
 
 static double FEE = 10000;
@@ -37,6 +39,7 @@ static double FEE = 10000;
     HTAutocompleteTextField* _addressField;
     AmountView* _amountView;
     UILabel* _infoLabel;
+    ChooseContactsViewController* _chooseContactsViewController;
     ScanNavigationController* _scanViewController;
     Exchange* _exchange;
     Address* _address;
@@ -93,7 +96,7 @@ static double FEE = 10000;
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row == 0) {
-        _addressField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(16, 16, self.view.frame.size.width - 70, 30)];
+        _addressField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(16, 16, self.view.frame.size.width - 108, 30)];
         _addressField.placeholder = l10n(@"contact_or_btc_address");
         _addressField.autocompleteDataSource = self;
         _addressField.autoCompleteTextFieldDelegate = self;
@@ -110,6 +113,11 @@ static double FEE = 10000;
         [scanButton setImage:[UIImage imageNamed:@"scan"] forState:UIControlStateNormal];
         [scanButton addTarget:self action:@selector(scan:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:scanButton];
+        
+        UIButton* contactButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 82, 14, 32, 32)];
+        [contactButton setImage:[UIImage imageNamed:@"user"] forState:UIControlStateNormal];
+        [contactButton addTarget:self action:@selector(chooseContact:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:contactButton];
         
         _amountView = [[AmountView alloc] initWithDelegate:self frame:CGRectMake(0, 58, self.view.frame.size.width, 60)];
         _amountView.amountField.returnKeyType = UIReturnKeyNext;
@@ -225,6 +233,12 @@ static double FEE = 10000;
     [self presentViewController:_scanViewController animated:YES completion:nil];
 }
 
+- (void)chooseContact:(id)sender {
+    _chooseContactsViewController = [[ChooseContactsViewController alloc] init];
+    _chooseContactsViewController.delegate = self;
+    [self.navigationController pushViewController:_chooseContactsViewController animated:YES];
+}
+
 - (void)setAddress:(NSString *)address amount:(NSString *)amount {
     [self setAddressText:[[ContactHelper instance].contactList displayTextForAddress:address]];
     if (amount) {
@@ -293,7 +307,16 @@ static double FEE = 10000;
 - (void)scannedAddress:(NSString *)address amount:(NSString *)amount {
     [_scanViewController dismissViewControllerAnimated:YES completion:nil];
     [self setAddress:address amount:amount];
+    [_amountView becomeFirstResponder];
 }
+
+#pragma mark - ChooseContactDelegate
+- (void)choseContact:(Address *)contact {
+    [_chooseContactsViewController.navigationController popViewControllerAnimated:YES];
+    [self setAddressText:contact.address];
+    [_amountView becomeFirstResponder];
+}
+
 
 #pragma mark - Send TX
 - (void)startSend {
