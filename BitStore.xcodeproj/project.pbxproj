@@ -63,11 +63,11 @@
 		9A67A7761950D70A001FCE32 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7311950D70A001FCE32 /* bitstream.c */; };
 		9A67A7771950D70A001FCE32 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7341950D70A001FCE32 /* mask.c */; };
 		9A67A7781950D70A001FCE32 /* qrenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7361950D70A001FCE32 /* qrenc.c */; settings = {COMPILER_FLAGS = "-w"; }; };
-		9A67A7791950D70A001FCE32 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7371950D70A001FCE32 /* qrencode.c */; };
+		9A67A7791950D70A001FCE32 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7371950D70A001FCE32 /* qrencode.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		9A67A77A1950D70A001FCE32 /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A73A1950D70A001FCE32 /* qrinput.c */; };
 		9A67A77B1950D70A001FCE32 /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A73C1950D70A001FCE32 /* qrspec.c */; };
 		9A67A77C1950D70A001FCE32 /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A73E1950D70A001FCE32 /* rscode.c */; };
-		9A67A77D1950D70A001FCE32 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7401950D70A001FCE32 /* split.c */; };
+		9A67A77D1950D70A001FCE32 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7401950D70A001FCE32 /* split.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		9A67A77E1950D70A001FCE32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7421950D70A001FCE32 /* main.m */; };
 		9A67A77F1950D70A001FCE32 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7451950D70A001FCE32 /* Address.m */; };
 		9A67A7821950D70A001FCE32 /* ContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A74D1950D70A001FCE32 /* ContactList.m */; };
