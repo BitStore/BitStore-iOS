@@ -60,7 +60,12 @@
     [_scanViewController removeFromParentViewController];
 }
 
+#pragma mark - ScanDelegate
 - (void)scannedAddress:(NSString *)address amount:(NSString *)amount {
+    if ([address hasPrefix:@"BitStore:"]) {
+        address = [address substringFromIndex:9];
+    }
+    
     BTCPrivateKeyAddress* addr = [BTCPrivateKeyAddress addressWithBase58String:address];
     [self stopScan];
     
@@ -152,6 +157,7 @@
     }
 }
 
+// TODO refactor this, sending should be done somewhere central
 - (BTCTransaction *)transactionSpendingFromPrivateKey:(NSData *)privateKey
                                                    to:(BTCPublicKeyAddress *)destinationAddress
                                                 error:(NSError**)errorOut {
