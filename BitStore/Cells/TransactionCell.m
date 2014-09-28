@@ -101,4 +101,10 @@
     }
 }
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    // hack to avoid the background reset the UITableView does on all subviews
+    [super setHighlighted:highlighted animated:animated];
+    [_circleIndicator setHighlighted:highlighted animated:animated];
+}
+
 @end

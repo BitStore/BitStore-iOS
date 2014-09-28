@@ -12,6 +12,7 @@ static CGFloat circleRadius = 4;
 
 @implementation CircleIndicator {
     NSMutableArray* _circleViews;
+    int _filledCircles;
 }
 
 - (id)initWithCircles:(int)numberOfCircles {
@@ -33,12 +34,20 @@ static CGFloat circleRadius = 4;
 - (void)setFilledCircles:(int)filledCircles {
     NSAssert(filledCircles <= _circleViews.count, @"Can't fill more circles than provided.");
     NSAssert(filledCircles >= 0, @"Can't fill < 0 circles.");
-    
-    for (int i = 0; i < filledCircles; i++) {
+    _filledCircles = filledCircles;
+    [self updateViews];
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [self updateViews]; // table view cell fix
+}
+
+- (void)updateViews {
+    for (int i = 0; i < _filledCircles; i++) {
         UIView* circle = [_circleViews objectAtIndex:_circleViews.count - i - 1];
         circle.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
     }
-    for (int i = filledCircles; i < _circleViews.count; i++) {
+    for (int i = _filledCircles; i < _circleViews.count; i++) {
         UIView* circle = [_circleViews objectAtIndex:_circleViews.count - i - 1];
         circle.backgroundColor = [UIColor clearColor];
     }
@@ -52,5 +61,7 @@ static CGFloat circleRadius = 4;
         circle.frame = CGRectMake(i * (space + circleRadius * 2), self.bounds.size.height / 2 - circleRadius, circleRadius * 2, circleRadius * 2);
     }
 }
+
+
 
 @end

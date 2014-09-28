@@ -12,6 +12,7 @@
 
 - (id)initWithCircles:(int)numberOfCircles;
 - (void)setFilledCircles:(int)filledCircles;
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
 
 - (id)init UNAVAILABLE_ATTRIBUTE;
 - (instancetype)initWithFrame:(CGRect)frame UNAVAILABLE_ATTRIBUTE;
