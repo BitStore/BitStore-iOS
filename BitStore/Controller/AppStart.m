@@ -119,7 +119,7 @@
 
 + (void)loadSettings {
 	Address* address = [AddressHelper instance].defaultAddress;
-	NSString* url = [NSString stringWithFormat:@"%@?v=%lu&a=%@", [API settingsUrl], [UserDefaults instance].version, address.address];
+	NSString* url = [NSString stringWithFormat:@"%@?v=%li&a=%@", [API settingsUrl], (long)[UserDefaults instance].version, address.address];
     RequestHelper* rh = [[RequestHelper alloc] init];
 	[rh startRequestWithUrl:url completion:^(BOOL success, NSData* data) {
 		if (success) {

@@ -21,7 +21,7 @@ static NSArray* units;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
 	if (self = [super init]) {
-		self.type = [aDecoder decodeIntegerForKey:@"type"];
+		self.type = (int)[aDecoder decodeIntegerForKey:@"type"];
 	}
 	return self;
 }
