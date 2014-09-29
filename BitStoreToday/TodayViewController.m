@@ -49,7 +49,6 @@
     [sendButton setTintColor:buttonTintColor];
     [sendButton setSelectedTintColor:buttonSelectedColor];
     CGSize sendSize = [sendTitle sizeWithAttributes:@{NSFontAttributeName:sendButton.titleLabel.font}];
-    sendButton.frame = CGRectMake(self.view.bounds.size.width - sendSize.width - 30, 7, sendSize.width, 50);
     [sendButton addTarget:self action:@selector(actionSend:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sendButton];
     
@@ -60,9 +59,14 @@
     [receiveButton setTintColor:buttonTintColor];
     [receiveButton setSelectedTintColor:buttonSelectedColor];
     CGSize receiveSize = [receiveTitle sizeWithAttributes:@{NSFontAttributeName:receiveButton.titleLabel.font}];
-    receiveButton.frame = CGRectMake(self.view.bounds.size.width - receiveSize.width - sendSize.width - 60, 12, receiveSize.width, 50);
     [receiveButton addTarget:self action:@selector(actionReceive:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:receiveButton];
+    
+    
+    CGFloat width = sendSize.width + receiveSize.width;
+    CGFloat padding = (180 - width) / 3;
+    sendButton.frame = CGRectMake(self.view.bounds.size.width - sendSize.width - padding, 7, sendSize.width, 50);
+    receiveButton.frame = CGRectMake(self.view.bounds.size.width - receiveSize.width - sendSize.width - padding * 2, 12, receiveSize.width, 50);
 }
 
 - (void)actionSend:(id)sender {
