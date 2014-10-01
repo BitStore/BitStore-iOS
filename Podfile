@@ -1,6 +1,7 @@
 platform :ios, '7.0'
 inhibit_all_warnings!
 link_with 'BitStore', 'BitStore Tests'
+source 'https://github.com/CocoaPods/Specs.git'
 # ----
 pod 'CoreBitcoin', :podspec => 'https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec', :commit => '2f86fc1'
 pod 'DMPasscode', '1.0.4'
