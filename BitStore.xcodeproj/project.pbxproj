@@ -1345,8 +1345,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_NAME = com.dylanmarriott.BitStore;
 				CODE_SIGN_ENTITLEMENTS = BitStore/BitStore.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dylan Marriott (W5F5B94GXS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dylan Marriott (W5F5B94GXS)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BitStore/BitStore-Prefix.pch";
@@ -1371,7 +1371,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = BitStore;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bee4a859-9af2-4a1c-a294-fe0bee76faf1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
