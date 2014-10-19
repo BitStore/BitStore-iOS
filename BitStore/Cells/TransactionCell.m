@@ -50,7 +50,6 @@
     [self addSubview:_dateLabel];
     
     _circleIndicator = [[CircleIndicator alloc] initWithCircles:6];
-    _circleIndicator.frame = CGRectMake(self.frame.size.width - 80, 30, 70, 20);
     _circleIndicator.hidden = YES;
     [self addSubview:_circleIndicator];
     
@@ -106,6 +105,7 @@
     _personLabel.frame = CGRectMake(10, 0, self.frame.size.width - 145, 55);
     _valueLabel.frame = CGRectMake(self.frame.size.width - 135, 8, 125, 20);
     _dateLabel.frame = CGRectMake(self.frame.size.width - 135, 28, 125, 20);
+    _circleIndicator.frame = CGRectMake(self.frame.size.width - 80, 30, 70, 20);
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
