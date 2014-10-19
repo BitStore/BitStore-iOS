@@ -52,10 +52,9 @@ static int DELAY = 300;
     _exchange.complete = NO;
     
     // update shared user
-    SharedUser* user = [UserDefaults instance].sharedUser;
+    SharedUser* user = [[SharedUser alloc] init];
     user.todayCurrency = currency;
     user.cachedPrice = nil;
-    [UserDefaults instance].sharedUser = user;
     
     [self storeState];
     [self notifyListeners];

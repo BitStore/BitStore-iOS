@@ -10,7 +10,6 @@
 #import "Exchange.h"
 #import "Address.h"
 #import "ContactList.h"
-#import "SharedUser.h"
 
 @implementation UserDefaults {
     NSUserDefaults* _defaults;
@@ -169,15 +168,6 @@ static UserDefaults* sharedInstance;
 - (void)setCustomerId:(NSString *)customerId {
     [_defaults setObject:customerId forKey:@"customerId"];
     [_defaults synchronize];
-}
-
-// SharedUser
-- (SharedUser *)sharedUser {
-    return (SharedUser *)[self codableObjectForKey:@"sharedUser"];
-}
-
-- (void)setSharedUser:(SharedUser *)sharedUser {
-    [self setCodableObject:sharedUser forKey:@"sharedUser"];
 }
 
 #pragma mark -

@@ -16,11 +16,13 @@
 @end
 
 @implementation TodayViewController {
+    SharedUser* _user;
     UILabel* _priceLabel;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _user = [[SharedUser alloc] init];
     self.preferredContentSize = CGSizeMake(200, 64);
 }
 
@@ -80,16 +82,15 @@
 }
 
 - (void)updatePriceLabel {
-    SharedUser* user = [self user];
-    if (user.cachedPrice) {
-        _priceLabel.text = [NSString stringWithFormat:@"%.0f %@", [user.cachedPrice floatValue], user.todayCurrency];
+    if (_user.cachedPrice) {
+        _priceLabel.text = [NSString stringWithFormat:@"%.0f %@", [_user.cachedPrice floatValue], _user.todayCurrency];
     } else {
         _priceLabel.text = NSLocalizedString(@"loading", nil);
     }
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
-    NSString* url = [NSString stringWithFormat:@"https://api.bitcoinaverage.com/ticker/global/%@", [self user].todayCurrency];
+    NSString* url = [NSString stringWithFormat:@"https://api.bitcoinaverage.com/ticker/global/%@", _user.todayCurrency];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response,
@@ -100,9 +101,7 @@
                                    NSError* jsonError;
                                    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
                                    if (!jsonError) {
-                                       SharedUser* user = [self user];
-                                       user.cachedPrice = [json objectForKey:@"last"];
-                                       [self saveUser:user];
+                                       _user.cachedPrice = [json objectForKey:@"last"];
                                        [self updatePriceLabel];
                                        completionHandler(NCUpdateResultNewData);
                                    } else {
@@ -116,26 +115,6 @@
 - (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets {
     UIEdgeInsets newInsets = UIEdgeInsetsMake(18, defaultMarginInsets.left - 0, 18, defaultMarginInsets.right);
     return newInsets;
-}
-
-- (NSUserDefaults *)userDefaults {
-    return [[NSUserDefaults alloc]initWithSuiteName:@"com.dylanmarriott.BitStore"];
-}
-
-- (SharedUser *)user {
-    NSData* data = [[self userDefaults] objectForKey:@"sharedUser"];
-    SharedUser* user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    if (!user) {
-        user = [[SharedUser alloc] init];
-        [self saveUser:user];
-    }
-    return user;
-}
-
-- (void)saveUser:(SharedUser *)user {
-    NSData* encoded = [NSKeyedArchiver archivedDataWithRootObject:user];
-    [[self userDefaults] setObject:encoded forKey:@"sharedUser"];
-    [[self userDefaults] synchronize];
 }
 
 @end

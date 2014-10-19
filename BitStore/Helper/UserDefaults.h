@@ -11,7 +11,6 @@
 @class Exchange;
 @class Address;
 @class ContactList;
-@class SharedUser;
 
 @interface UserDefaults : NSObject
 
@@ -29,7 +28,6 @@
 @property (nonatomic) BOOL buyShowed;
 @property (nonatomic) BOOL buyDismissed;
 @property (nonatomic) NSString* customerId;
-@property (nonatomic) SharedUser* sharedUser;
 
 + (UserDefaults *)instance;
 - (void)reset;

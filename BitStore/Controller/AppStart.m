@@ -63,10 +63,6 @@
     if ([UserDefaults instance].userId == nil) {
         [UserDefaults instance].userId = [[NSUUID UUID] UUIDString];
     }
-    
-    if ([UserDefaults instance].sharedUser == nil) {
-        [UserDefaults instance].sharedUser = [[SharedUser alloc] init];
-    }
 }
 
 + (void)setupKeychain {

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SharedUser : NSObject <NSCoding>
+@interface SharedUser : NSObject
 
 @property (nonatomic) NSString* todayCurrency;
 @property (nonatomic) NSNumber* cachedPrice;
