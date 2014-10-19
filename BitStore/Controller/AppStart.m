@@ -17,6 +17,7 @@
 #import "MainViewControllerPhone.h"
 #import "Keys.h"
 #import "SharedUser.h"
+#import "SDStatusBarManager.h"
 
 @implementation AppStart
 
@@ -28,6 +29,10 @@
     [self setupRate];
     [self setupAnalytics];
 	[self setupViewController];
+    
+#ifdef DEBUG
+    [[SDStatusBarManager sharedInstance] enableOverrides];
+#endif
 }
 
 + (void)migrate {
