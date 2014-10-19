@@ -17,6 +17,3 @@ DerivedData
 *.hmap
 *.xccheckout
 InfoPlist.h
-
-#CocoaPods
-Pods
