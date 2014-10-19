@@ -33,16 +33,16 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
-    _personLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 170, 55)];
+    _personLabel = [[UILabel alloc] init];
     _personLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     [self addSubview:_personLabel];
     
-    _valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 210, 8, 200, 20)];
+    _valueLabel = [[UILabel alloc] init];
     _valueLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     _valueLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:_valueLabel];
     
-    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 210, 28, 200, 20)];
+    _dateLabel = [[UILabel alloc] init];
     _dateLabel.font = [UIFont systemFontOfSize:11];
     _dateLabel.textAlignment = NSTextAlignmentRight;
     _dateLabel.textColor = [UIColor colorWithWhite:0.65 alpha:1.0];
@@ -99,6 +99,13 @@
         _dateLabel.hidden = NO;
         _dateLabel.text = _transaction.date.dateTimeAgo;
     }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _personLabel.frame = CGRectMake(10, 0, self.frame.size.width - 145, 55);
+    _valueLabel.frame = CGRectMake(self.frame.size.width - 135, 8, 125, 20);
+    _dateLabel.frame = CGRectMake(self.frame.size.width - 135, 28, 125, 20);
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
