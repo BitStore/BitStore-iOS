@@ -27,6 +27,8 @@
                 }
                 _amount = amountAndMore;
             }
+        } else {
+            _address = query;
         }
     }
     return self;
