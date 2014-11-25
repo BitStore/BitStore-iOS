@@ -24,6 +24,7 @@
 		03CC5467197007F7000196ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03CC5453197007F7000196ED /* Localizable.strings */; };
 		03CC546A197007F7000196ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03CC5459197007F7000196ED /* InfoPlist.strings */; };
 		03F2E9B1194F0FD7007BE9A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F2E9B0194F0FD7007BE9A6 /* Security.framework */; };
+		10EF295C7B97C067A5F9AA8E /* libPods-BitStoreToday.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E560198C58F7245C708F984 /* libPods-BitStoreToday.a */; };
 		3362B7A08C86427D8B01F912 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA31FE505D94F7097170EA0 /* libPods.a */; };
 		9A073F3F1996EDCD007E0D0F /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F3E1996EDCD007E0D0F /* Order.m */; };
 		9A073F421996F044007E0D0F /* PhoneInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F411996F044007E0D0F /* PhoneInputViewController.m */; };
@@ -182,6 +183,8 @@
 		03CC545A197007F7000196ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03CC545B197007F7000196ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		03F2E9B0194F0FD7007BE9A6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4F605E649F9D6F0AE44F3F2A /* Pods-BitStoreToday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitStoreToday.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitStoreToday/Pods-BitStoreToday.release.xcconfig"; sourceTree = "<group>"; };
+		5E560198C58F7245C708F984 /* libPods-BitStoreToday.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BitStoreToday.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F78A1D3EDCC16BCB360933 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9A073F3D1996EDCD007E0D0F /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		9A073F3E1996EDCD007E0D0F /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
@@ -364,6 +367,7 @@
 		9AF0C4F6196B3C3400F62DB5 /* BitStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BitStore.entitlements; sourceTree = "<group>"; };
 		9AFC4A12197F0F8400EAF46B /* KeysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeysViewController.h; sourceTree = "<group>"; };
 		9AFC4A13197F0F8400EAF46B /* KeysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeysViewController.m; sourceTree = "<group>"; };
+		B326FAD56937F7A2BDF389C5 /* Pods-BitStoreToday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitStoreToday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitStoreToday/Pods-BitStoreToday.debug.xcconfig"; sourceTree = "<group>"; };
 		DBA31FE505D94F7097170EA0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37D8540456F2C742C2538E9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -404,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AAAC41E19D092FE00994EB6 /* NotificationCenter.framework in Frameworks */,
+				10EF295C7B97C067A5F9AA8E /* libPods-BitStoreToday.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +463,7 @@
 				03584683194F09A900521709 /* XCTest.framework */,
 				DBA31FE505D94F7097170EA0 /* libPods.a */,
 				9AAAC41D19D092FE00994EB6 /* NotificationCenter.framework */,
+				5E560198C58F7245C708F984 /* libPods-BitStoreToday.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -495,6 +501,8 @@
 			children = (
 				97F78A1D3EDCC16BCB360933 /* Pods.debug.xcconfig */,
 				F37D8540456F2C742C2538E9 /* Pods.release.xcconfig */,
+				B326FAD56937F7A2BDF389C5 /* Pods-BitStoreToday.debug.xcconfig */,
+				4F605E649F9D6F0AE44F3F2A /* Pods-BitStoreToday.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -919,9 +927,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9AAAC42E19D092FE00994EB6 /* Build configuration list for PBXNativeTarget "BitStoreToday" */;
 			buildPhases = (
+				B16192D7911A779E5FD35FBB /* Check Pods Manifest.lock */,
 				9AAAC41819D092FD00994EB6 /* Sources */,
 				9AAAC41919D092FD00994EB6 /* Frameworks */,
 				9AAAC41A19D092FD00994EB6 /* Resources */,
+				F14AC00112EC350B20BDC32A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1039,6 +1049,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B16192D7911A779E5FD35FBB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		B9FE9F63172E4A6EA43BA228 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1082,6 +1107,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F14AC00112EC350B20BDC32A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BitStoreToday/Pods-BitStoreToday-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1469,6 +1509,7 @@
 		};
 		9AAAC42C19D092FE00994EB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B326FAD56937F7A2BDF389C5 /* Pods-BitStoreToday.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = BitStoreToday/BitStoreToday.entitlements;
@@ -1491,6 +1532,7 @@
 		};
 		9AAAC42D19D092FE00994EB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F605E649F9D6F0AE44F3F2A /* Pods-BitStoreToday.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = BitStoreToday/BitStoreToday.entitlements;
