@@ -1,15 +1,15 @@
 //
-//  Listeners.m
-//  BitStore
+//  DMListeners.m
+//  Pods
 //
-//  Created by Dylan Marriott on 26.07.14.
-//  Copyright (c) 2014 Dylan Marriott. All rights reserved.
+//  Created by Dylan Marriott on 04/11/14.
+//
 //
 
-#import "Listeners.h"
-#import "WeakRef.h"
+#import "DMListeners.h"
+#import "DMWeakRef.h"
 
-@implementation Listeners {
+@implementation DMListeners {
     NSMutableArray* _listeners;
 }
 
@@ -21,19 +21,21 @@
 }
 
 - (void)addListener:(id)listener {
-    WeakRef* weakRef = [[WeakRef alloc] initWithObject:listener];
+    DMWeakRef* weakRef = [[DMWeakRef alloc] initWithObject:listener];
     [_listeners addObject:weakRef];
 }
 
 - (void)notifyListeners:(NotifyBlock)notifyBlock {
     NSArray* copy = [NSArray arrayWithArray:_listeners];
-	for (WeakRef* ref in copy) {
-        id obj = ref.ref;
-        if (obj == nil) {
-            [_listeners removeObject:ref];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (DMWeakRef* ref in copy) {
+            id obj = ref.ref;
+            if (obj == nil) {
+                [_listeners removeObject:ref];
+            }
+            notifyBlock(obj);
         }
-        notifyBlock(obj);
-	}
+    });
 }
 
 - (NSArray *)listeners {
@@ -43,13 +45,16 @@
 
 - (void)cleanListeners {
     NSMutableArray* discard = [NSMutableArray array];
-    for (WeakRef* ref in _listeners) {
+    for (DMWeakRef* ref in _listeners) {
         if (ref.ref == nil) {
             [discard addObject:ref];
         }
     }
-    
     [_listeners removeObjectsInArray:discard];
+}
+
+- (NSString *)description {
+    return [_listeners description];
 }
 
 @end

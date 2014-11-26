@@ -13,16 +13,16 @@
 #import "Receiver.h"
 #import "MessageHelper.h"
 #import "UserDefaults.h"
-#import "Listeners.h"
+#import <DMListener/DMListener.h>
 
 @implementation Address {
-    Listeners* _listeners;
+    DMListeners* _listeners;
     NSTimer* _timer;
 }
 
 - (id)init {
     if (self = [super init]) {
-        _listeners = [[Listeners alloc] init];
+        _listeners = [[DMListeners alloc] init];
         self.total = -1;
     }
     return self;

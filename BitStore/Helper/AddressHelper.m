@@ -11,13 +11,13 @@
 #import "Address.h"
 #import "AddressHelperListener.h"
 #import "AddressListener.h"
-#import "Listeners.h"
+#import <DMListener/DMListener.h>
 
 @interface AddressHelper () <AddressListener>
 @end
 
 @implementation AddressHelper {
-    Listeners* _listeners;
+    DMListeners* _listeners;
     NSMutableArray* _addresses;
 }
 
@@ -35,7 +35,7 @@ static AddressHelper* sharedHelper;
 - (id)init {
     if (self = [super init]) {
 	    [self loadState];
-		_listeners = [[Listeners alloc] init];
+		_listeners = [[DMListeners alloc] init];
 	}
     return self;
 }

@@ -3,6 +3,8 @@ PODS:
   - BEMSimpleLineGraph (3.2)
   - CoreBitcoin (0.4.0):
     - OpenSSL-Universal (= 1.0.1.h)
+  - DMJobManager (1.0.1)
+  - DMListener (1.0.1)
   - DMPasscode (1.0.5)
   - FXBlurView (1.6.2)
   - iRate (1.10.3)
@@ -17,6 +19,8 @@ PODS:
 DEPENDENCIES:
   - BEMSimpleLineGraph (= 3.2)
   - CoreBitcoin (from `https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec`)
+  - DMJobManager (= 1.0.1)
+  - DMListener (= 1.0.1)
   - DMPasscode (= 1.0.5)
   - FXBlurView (= 1.6.2)
   - iRate (= 1.10.3)
@@ -35,6 +39,8 @@ SPEC CHECKSUMS:
   AFNetworking: 13fd672bb1f6919946d259d97f31000015680dfa
   BEMSimpleLineGraph: 68e349eb22320d1a21a29e390d0f67772f6f6f44
   CoreBitcoin: 0957e9fa7a31867b91f459f943bd9144d397b624
+  DMJobManager: f0ea8d28dfd6ad2d605e005082d00e14174431b3
+  DMListener: 2f259034ec9451a846136b73196ed640c6f2d39b
   DMPasscode: 00a648461fa8d1d6bf0098848e3a4be094fcf012
   FXBlurView: 47496afc9160097fa34af35fc4b310bd85d65dca
   iRate: 40ebea2bb1e88866cef7393bd0abeae232cc5d38
@@ -45,4 +51,4 @@ SPEC CHECKSUMS:
   SimulatorStatusMagic: ea1871b0e7119bc189ec3fb127bd56c54b937eed
   SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0

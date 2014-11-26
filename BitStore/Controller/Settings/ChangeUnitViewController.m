@@ -14,8 +14,7 @@
 #import "ExchangeListener.h"
 #import "Address.h"
 #import "AddressHelper.h"
-#import "Job.h"
-#import "JobHelper.h"
+#import <DMJobManager/DMJobManager.h>
 
 @interface ChangeUnitViewController () <ExchangeListener>
 @end
@@ -83,8 +82,8 @@
     [[PiwikTracker sharedInstance] sendEventWithCategory:@"Events" action:[NSString stringWithFormat:@"ChangedUnit_%@", [unit displayName]] label:@"ChangeUnit"];
     [[ExchangeHelper instance] changeUnit:unit];
     NSString* url = [NSString stringWithFormat:@"%@?a=%@&u=%@", [API changeUnitUrl], [AddressHelper instance].defaultAddress.address, unit.technicalName];
-    Job* job = [[Job alloc] initWithUrl:url];
-    [[JobHelper instance] postJob:job];
+    DMHTTPRequestJob* job = [[DMHTTPRequestJob alloc] initWithUrl:url];
+    [DMJobManager postJob:job];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

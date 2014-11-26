@@ -10,11 +10,11 @@
 #import "ContactListListener.h"
 #import "UserDefaults.h"
 #import "Address.h"
-#import "Listeners.h"
+#import <DMListener/DMListener.h>
 
 @implementation ContactHelper {
     ContactList* _contactList;
-    Listeners* _listeners;
+    DMListeners* _listeners;
 }
 
 static ContactHelper* sharedHelper;
@@ -30,7 +30,7 @@ static ContactHelper* sharedHelper;
 
 - (id)init {
     if (self = [super init]) {
-		_listeners = [[Listeners alloc] init];
+		_listeners = [[DMListeners alloc] init];
 		[self loadState];
 		for (Address* a in _contactList.contacts) {
 			[a refresh];

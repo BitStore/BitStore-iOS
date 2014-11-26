@@ -1,14 +1,14 @@
 //
-//  WeakRef.m
-//  BitStore
+//  DMWeakRef.m
+//  Pods
 //
-//  Created by Dylan Marriott on 25.07.14.
-//  Copyright (c) 2014 Dylan Marriott. All rights reserved.
+//  Created by Dylan Marriott on 04/11/14.
+//
 //
 
-#import "WeakRef.h"
+#import "DMWeakRef.h"
 
-@implementation WeakRef
+@implementation DMWeakRef
 
 - (id)initWithObject:(id)object {
     self.ref = object;

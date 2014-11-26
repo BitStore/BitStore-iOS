@@ -15,6 +15,7 @@
 #import "SendNavigationController.h"
 #import "ReceiveNavigationController.h"
 #import "AppStart.h"
+#import <DMJobManager/DMJobManager.h>
 
 @implementation AppDelegate
 
@@ -22,14 +23,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-	[AppStart start];
+    [DMJobManager startManager];
+    [AppStart start];
     return YES;
 }
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
     NSString* token = [deviceToken description];
-	token = [token stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-	token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    token = [token stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     [PushHelper registerPush:token];
 }
 
@@ -45,7 +47,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     Address* address = [AddressHelper instance].defaultAddress;
     [address refresh];
-	[AppStart loadSettings];
+    [AppStart loadSettings];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -66,7 +68,7 @@
             opened = YES;
         }
     }
-	return opened;
+    return opened;
 }
 
 @end

@@ -7,13 +7,12 @@
 //
 
 #import "PushHelper.h"
-#import "JobHelper.h"
-#import "Job.h"
 #import "UserDefaults.h"
 #import "Address.h"
 #import "AddressHelper.h"
 #import "ExchangeHelper.h"
 #import "Unit.h"
+#import <DMJobManager/DMJobManager.h>
 
 @implementation PushHelper
 
@@ -23,7 +22,8 @@
     NSString* lang = [[NSLocale preferredLanguages] objectAtIndex:0];
     Unit* unit = [[ExchangeHelper instance] currentUnit];
     NSString* url = [NSString stringWithFormat:@"%@?a=%@&t=%@&l=%@&u=%@", [API registerPushUrl], address.address, token, lang, unit.technicalName];
-    [[JobHelper instance] postJob:[[Job alloc] initWithUrl:url]];
+    DMHTTPRequestJob* job = [[DMHTTPRequestJob alloc] initWithUrl:url];
+    [DMJobManager postJob:job];
 }
 
 + (void)unregister {
@@ -34,7 +34,8 @@
 + (void)unregister:(NSString *)address {
     NSLog(@"push unregister: %@", address);
     NSString* url = [NSString stringWithFormat:@"%@?a=%@", [API unregisterPushUrl], address];
-    [[JobHelper instance] postJob:[[Job alloc] initWithUrl:url]];
+    DMHTTPRequestJob* job = [[DMHTTPRequestJob alloc] initWithUrl:url];
+    [DMJobManager postJob:job];
 }
 
 @end

@@ -11,11 +11,11 @@
 #import "UserDefaults.h"
 #import "ExchangeListener.h"
 #import "RequestHelper.h"
-#import "Listeners.h"
+#import <DMListener/DMListener.h>
 #import "SharedUser.h"
 
 @implementation ExchangeHelper {
-	Listeners* _listeners;
+	DMListeners* _listeners;
     Exchange* _exchange;
 	NSTimer* _timer;
 }
@@ -34,7 +34,7 @@ static int DELAY = 300;
 
 - (id)init {
     if (self = [super init]) {
-		_listeners = [[Listeners alloc] init];
+		_listeners = [[DMListeners alloc] init];
 		[self loadState];
 		[self update];
 		_timer = [NSTimer scheduledTimerWithTimeInterval:(DELAY)
