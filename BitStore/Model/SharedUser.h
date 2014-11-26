@@ -12,5 +12,6 @@
 
 @property (nonatomic) NSString* todayCurrency;
 @property (nonatomic) NSNumber* cachedPrice;
+@property (nonatomic) NSString* address;
 
 @end

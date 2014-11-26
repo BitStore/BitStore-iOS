@@ -11,6 +11,7 @@
 #import "SharedUser.h"
 #import "AccountActionButton.h"
 #import "BEMSimpleLineGraphView.h"
+#import "QRHelper.h"
 
 @interface TodayViewController () <NCWidgetProviding, BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
@@ -19,6 +20,7 @@
 @implementation TodayViewController {
     SharedUser* _user;
     UILabel* _priceLabel;
+    UIImageView* _qrImageView;
     BEMSimpleLineGraphView* _chart;
     NSArray* _data;
 }
@@ -62,6 +64,14 @@
     [self.view addSubview:receiveButton];
     
     
+    UIImage* qrImage = [QRHelper qrcode:_user.address withDimension:self.view.bounds.size.width];
+    _qrImageView = [[UIImageView alloc] initWithImage:qrImage];
+    _qrImageView.frame = CGRectMake(0, 64, qrImage.size.width, qrImage.size.height);
+    _qrImageView.backgroundColor = [UIColor yellowColor];
+    _qrImageView.alpha = 0.0;
+    [self.view addSubview:_qrImageView];
+    
+    
     _chart = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - receiveSize.width - 134, 0, 120, 50)];
     _chart.dataSource = self;
     _chart.delegate = self;
@@ -75,10 +85,20 @@
 }
 
 - (void)actionReceive:(UIButton *)receiveButton {
-    receiveButton.selected = !receiveButton.selected;
-    receiveButton.highlighted = !receiveButton.selected;
-    if (receiveButton.selected) {
-        self.preferredContentSize = CGSizeMake(0, 400);
+    BOOL selected = !receiveButton.selected;
+    receiveButton.selected = selected;
+    receiveButton.highlighted = selected;
+    
+    [UIView animateWithDuration:0.3 animations:^() {
+        if (selected) {
+            _qrImageView.alpha = 1.0;
+        } else {
+            _qrImageView.alpha = 0.0;
+        }
+    }];
+    
+    if (selected) {
+        self.preferredContentSize = CGSizeMake(0, self.view.frame.size.width + 64);
     } else {
         self.preferredContentSize = CGSizeMake(0, 64);
     }

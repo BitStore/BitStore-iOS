@@ -112,6 +112,15 @@
 		9ABC07311983191E00EC87A3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABC07301983191E00EC87A3 /* MobileCoreServices.framework */; };
 		9ABC073419831C8900EC87A3 /* ReceiveAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC073319831C8900EC87A3 /* ReceiveAmountViewController.m */; };
 		9ADFAD57194F8116009427DF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADFAD56194F8116009427DF /* AVFoundation.framework */; };
+		9AE335BC1A268FBD00021269 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7311950D70A001FCE32 /* bitstream.c */; };
+		9AE335BD1A268FC200021269 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7341950D70A001FCE32 /* mask.c */; };
+		9AE335BE1A268FC500021269 /* qrenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7361950D70A001FCE32 /* qrenc.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		9AE335BF1A268FC800021269 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7371950D70A001FCE32 /* qrencode.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		9AE335C01A268FCC00021269 /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A73A1950D70A001FCE32 /* qrinput.c */; };
+		9AE335C11A268FCF00021269 /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A73C1950D70A001FCE32 /* qrspec.c */; };
+		9AE335C21A268FD200021269 /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A73E1950D70A001FCE32 /* rscode.c */; };
+		9AE335C31A268FD500021269 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7401950D70A001FCE32 /* split.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		9AE335C41A268FED00021269 /* QRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A67A7181950D70A001FCE32 /* QRHelper.m */; };
 		9AFC4A14197F0F8400EAF46B /* KeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC4A13197F0F8400EAF46B /* KeysViewController.m */; };
 		A423E0B434094809ABF9EF1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA31FE505D94F7097170EA0 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -1201,8 +1210,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE335C31A268FD500021269 /* split.c in Sources */,
 				9A9D588019D1F63200EA940A /* Keys.m in Sources */,
+				9AE335BE1A268FC500021269 /* qrenc.c in Sources */,
+				9AE335BC1A268FBD00021269 /* bitstream.c in Sources */,
+				9AE335C21A268FD200021269 /* rscode.c in Sources */,
+				9AE335C11A268FCF00021269 /* qrspec.c in Sources */,
 				9AAAC42419D092FE00994EB6 /* TodayViewController.m in Sources */,
+				9AE335BF1A268FC800021269 /* qrencode.c in Sources */,
+				9AE335C01A268FCC00021269 /* qrinput.c in Sources */,
+				9AE335C41A268FED00021269 /* QRHelper.m in Sources */,
+				9AE335BD1A268FC200021269 /* mask.c in Sources */,
 				9A9D588419D1F8F200EA940A /* SharedUser.m in Sources */,
 				9A9D588F19D4867700EA940A /* AccountActionButton.m in Sources */,
 			);

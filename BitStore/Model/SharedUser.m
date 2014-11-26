@@ -43,4 +43,13 @@
     [_defaults synchronize];
 }
 
+- (NSString *)address {
+    return [_defaults objectForKey:@"address"];
+}
+
+- (void)setAddress:(NSString *)address {
+    [_defaults setObject:address forKey:@"address"];
+    [_defaults synchronize];
+}
+
 @end

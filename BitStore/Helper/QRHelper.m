@@ -19,6 +19,10 @@ void freeRawData(void *info, const void *data, size_t size) {
 
 + (UIImage *)qrcode:(NSString *)dataString withDimension:(int)imageWidth {
     
+    if (dataString == nil) {
+        return nil;
+    }
+    
     QRcode *resultCode = QRcode_encodeString([dataString UTF8String], 0, QR_ECLEVEL_L, QR_MODE_8, 1);
     
     unsigned char *pixels = (*resultCode).data;

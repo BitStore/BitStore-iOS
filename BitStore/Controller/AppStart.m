@@ -98,6 +98,13 @@
 		address.address = publicKey;
         [[AddressHelper instance] addAddress:address];
 	}
+    
+    
+    // for today widget
+    SharedUser* sharedUser = [[SharedUser alloc] init];
+    if (sharedUser.address == nil) {
+        sharedUser.address = [AddressHelper instance].defaultAddress.address;
+    }
 }
 
 + (void)setupRate {
