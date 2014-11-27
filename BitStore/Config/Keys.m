@@ -11,27 +11,27 @@
 @implementation Keys
 
 + (NSString *)chainKey {
-    return @"fd231d38cbc484a9ca05005d5c9477c2";
+    return @"";
 }
 
 + (NSString *)ringCaptchaAppKey {
-    return @"i1ohi2o3o6uja2iqoqiq";
+    return @"";
 }
 
 + (NSString *)ringCaptchaAPIKey {
-    return @"75dc2a6ce4668f08fbae3482bdf6b9582d7f378d";
+    return @"";
 }
 
 + (NSString *)analyticsKey {
-    return @"6ad579d388160736086a9190cc5ff133";
+    return @"";
 }
 
 + (NSString *)stripeTestKey {
-    return @"pk_test_4SpT6lRqwpbCMhV1nMinAUaC";
+    return @"";
 }
 
 + (NSString *)stripeProductionKey {
-    return @"pk_live_4SpTDVMx4YrqpZKvP8mF6Seq";
+    return @"";
 }
 
 @end
