@@ -96,7 +96,7 @@
     _bigChart.colorYaxisLabel = [UIColor whiteColor];
     _bigChart.alphaBackgroundYaxis = 0.5;
     [_bigChartContainer addSubview:_bigChart];
-    UILabel* chartLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 110, self.view.bounds.size.width - 20, 20)];
+    UILabel* chartLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 115, self.view.bounds.size.width - 20, 20)];
     chartLabel.text = @"24h BTC / USD";
     chartLabel.textAlignment = NSTextAlignmentCenter;
     chartLabel.font = [UIFont systemFontOfSize:12];
