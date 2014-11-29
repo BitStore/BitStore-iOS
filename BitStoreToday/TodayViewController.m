@@ -25,6 +25,7 @@
     BEMSimpleLineGraphView* _bigChart;
     UIView* _bigChartContainer;
     BOOL _chartOpen;
+    AccountActionButton* _receiveButton;
 }
 
 - (void)viewDidLoad {
@@ -56,14 +57,14 @@
     UIColor* buttonSelectedColor = [UIColor colorWithWhite:0.8 alpha:1.0];
     
     NSString* receiveTitle = NSLocalizedString(@"receive", nil);
-    AccountActionButton* receiveButton = [[AccountActionButton alloc] initWithTitle:receiveTitle image:[UIImage imageNamed:@"receive"] selectedImage:[UIImage imageNamed:@"receive_selected"]];
-    receiveButton.padding = 10;
-    [receiveButton setTintColor:buttonTintColor];
-    [receiveButton setSelectedTintColor:buttonSelectedColor];
-    CGSize receiveSize = [receiveTitle sizeWithAttributes:@{NSFontAttributeName:receiveButton.titleLabel.font}];
-    receiveButton.frame = CGRectMake(self.view.bounds.size.width - receiveSize.width, 8, receiveSize.width, 50);
-    [receiveButton addTarget:self action:@selector(actionReceive:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:receiveButton];
+    _receiveButton = [[AccountActionButton alloc] initWithTitle:receiveTitle image:[UIImage imageNamed:@"receive"] selectedImage:[UIImage imageNamed:@"receive_selected"]];
+    _receiveButton.padding = 10;
+    [_receiveButton setTintColor:buttonTintColor];
+    [_receiveButton setSelectedTintColor:buttonSelectedColor];
+    CGSize receiveSize = [receiveTitle sizeWithAttributes:@{NSFontAttributeName:_receiveButton.titleLabel.font}];
+    _receiveButton.frame = CGRectMake(self.view.bounds.size.width - receiveSize.width, 8, receiveSize.width, 50);
+    [_receiveButton addTarget:self action:@selector(actionReceive:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_receiveButton];
     
     
     UIImage* qrImage = [QRHelper qrcode:_user.address withDimension:self.view.bounds.size.width];
@@ -109,9 +110,21 @@
 }
 
 - (void)actionReceive:(UIButton *)receiveButton {
-    BOOL selected = !receiveButton.selected;
-    receiveButton.selected = selected;
-    receiveButton.highlighted = selected;
+    if (_chartOpen) {
+        [self toggleGraph];
+    }
+    [self toggleReceive];
+    if (_receiveButton.selected) {
+        self.preferredContentSize = CGSizeMake(0, self.view.frame.size.width + 64);
+    } else {
+        self.preferredContentSize = CGSizeMake(0, 64);
+    }
+}
+
+- (void)toggleReceive {
+    BOOL selected = !_receiveButton.selected;
+    _receiveButton.selected = selected;
+    _receiveButton.highlighted = selected;
     
     [UIView animateWithDuration:0.3 animations:^() {
         if (selected) {
@@ -120,22 +133,27 @@
             _qrImageView.alpha = 0.0;
         }
     }];
-    
-    if (selected) {
-        self.preferredContentSize = CGSizeMake(0, self.view.frame.size.width + 64);
+}
+
+- (void)actionGraph:(id)sender {
+    if (_receiveButton.selected) {
+        [self toggleReceive];
+    }
+    [self toggleGraph];
+    if (_chartOpen) {
+        self.preferredContentSize = CGSizeMake(0, 150 + 64);
     } else {
         self.preferredContentSize = CGSizeMake(0, 64);
     }
 }
 
-- (void)actionGraph:(id)sender {
+- (void)toggleGraph {
     _chartOpen = !_chartOpen;
+    
     if (_chartOpen) {
         _miniChart.colorBottom = [UIColor colorWithWhite:1.0 alpha:0.45];
-        self.preferredContentSize = CGSizeMake(0, 150 + 64);
     } else {
         _miniChart.colorBottom = [UIColor colorWithWhite:1.0 alpha:0.15];
-        self.preferredContentSize = CGSizeMake(0, 64);
     }
     
     [UIView animateWithDuration:0.3 animations:^() {
