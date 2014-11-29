@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSString* todayCurrency;
 @property (nonatomic) NSNumber* cachedPrice;
+@property (nonatomic) NSArray* cachedHistory;
 @property (nonatomic) NSString* address;
 
 @end

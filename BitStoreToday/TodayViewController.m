@@ -21,8 +21,10 @@
     SharedUser* _user;
     UILabel* _priceLabel;
     UIImageView* _qrImageView;
-    BEMSimpleLineGraphView* _chart;
-    NSArray* _data;
+    BEMSimpleLineGraphView* _miniChart;
+    BEMSimpleLineGraphView* _bigChart;
+    UIView* _bigChartContainer;
+    BOOL _chartOpen;
 }
 
 - (void)viewDidLoad {
@@ -72,13 +74,35 @@
     [self.view addSubview:_qrImageView];
     
     
-    _chart = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - receiveSize.width - 134, 0, 120, 50)];
-    _chart.dataSource = self;
-    _chart.delegate = self;
-    _chart.animationGraphStyle = BEMLineAnimationNone;
-    _chart.colorTop = [UIColor clearColor];
-    _chart.colorBottom = [UIColor colorWithWhite:1.0 alpha:0.15];
-    [self.view addSubview:_chart];
+    _miniChart = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - receiveSize.width - 134, 0, 120, 50)];
+    _miniChart.dataSource = self;
+    _miniChart.delegate = self;
+    _miniChart.animationGraphStyle = BEMLineAnimationNone;
+    _miniChart.colorTop = [UIColor clearColor];
+    _miniChart.colorBottom = [UIColor colorWithWhite:1.0 alpha:0.15];
+    [_miniChart addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionGraph:)]];
+    [self.view addSubview:_miniChart];
+    
+    _bigChartContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 140)];
+    _bigChartContainer.alpha = 0.0;
+    _bigChart = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 140)];
+    _bigChart.dataSource = self;
+    _bigChart.delegate = self;
+    _bigChart.animationGraphStyle = BEMLineAnimationNone;
+    _bigChart.colorTop = [UIColor clearColor];
+    _bigChart.enableReferenceYAxisLines = YES;
+    _bigChart.enableYAxisLabel = YES;
+    _bigChart.colorYaxisLabel = [UIColor whiteColor];
+    _bigChart.alphaBackgroundYaxis = 0.5;
+    [_bigChartContainer addSubview:_bigChart];
+    UILabel* chartLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 110, self.view.bounds.size.width - 20, 20)];
+    chartLabel.text = @"24h BTC / USD";
+    chartLabel.textAlignment = NSTextAlignmentCenter;
+    chartLabel.font = [UIFont systemFontOfSize:12];
+    chartLabel.textColor = [UIColor whiteColor];
+    chartLabel.alpha = 0.6;
+    [_bigChartContainer addSubview:chartLabel];
+    [self.view addSubview:_bigChartContainer];
     
     [self updatePriceLabel];
     [self updateChart];
@@ -104,21 +128,26 @@
     }
 }
 
-- (void)updatePriceLabel {
-    if (_user.cachedPrice) {
-        _priceLabel.text = [NSString stringWithFormat:@"%.0f %@", [_user.cachedPrice floatValue], _user.todayCurrency];
+- (void)actionGraph:(id)sender {
+    _chartOpen = !_chartOpen;
+    if (_chartOpen) {
+        _miniChart.colorBottom = [UIColor colorWithWhite:1.0 alpha:0.45];
+        self.preferredContentSize = CGSizeMake(0, 150 + 64);
     } else {
-        _priceLabel.text = NSLocalizedString(@"loading", nil);
+        _miniChart.colorBottom = [UIColor colorWithWhite:1.0 alpha:0.15];
+        self.preferredContentSize = CGSizeMake(0, 64);
     }
+    
+    [UIView animateWithDuration:0.3 animations:^() {
+        if (_chartOpen) {
+            _bigChartContainer.alpha = 1.0;
+        } else {
+            _bigChartContainer.alpha = 0.0;
+        }
+    }];
 }
 
-- (void)updateChart {
-    _data = @[@3.5, @3.6, @3.2, @2.3, @2.5, @2.8, @2.5, @2.9, @3.4, @3.8];
-    [_chart reloadGraph];
-}
-
-#pragma mark - Widget
-- (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
+- (void)fetchCurrent {
     NSString* url = [NSString stringWithFormat:@"https://api.bitcoinaverage.com/ticker/global/%@", _user.todayCurrency];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
@@ -133,16 +162,64 @@
                                    if (!jsonError) {
                                        _user.cachedPrice = [json objectForKey:@"last"];
                                        [self updatePriceLabel];
-                                       [self updateChart];
-                                       completionHandler(NCUpdateResultNewData);
                                    } else {
-                                       completionHandler(NCUpdateResultFailed);
                                    }
                                }
-                               completionHandler(NCUpdateResultFailed);
                            }];
-    
-    
+}
+
+- (void)fetchHistory {
+    NSString* url = @"https://api.bitcoinaverage.com/history/USD/per_minute_24h_sliding_window.csv";
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data,
+                                               NSError *error) {
+                               
+                               if (!error && data) {
+                                   NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                   NSArray* rows = [result componentsSeparatedByString:@"\r\n"];
+                                   int i = 0;
+                                   NSMutableArray* history = [NSMutableArray array];
+                                   NSNumberFormatter* f = [[NSNumberFormatter alloc] init];
+                                   [f setNumberStyle:NSNumberFormatterDecimalStyle];
+                                   for (NSString* row in rows) {
+                                       if (i > 0 && i % 20 == 0) {
+                                           NSArray* cols = [row componentsSeparatedByString:@","];
+                                           if (cols.count == 2) {
+                                               NSNumber* value = [f numberFromString:cols[1]];
+                                               if (value) {
+                                                   [history addObject:value];
+                                               }
+                
+                                           }
+                                       }
+                                       i++;
+                                   }
+                                   _user.cachedHistory = history;
+                                   [self updateChart];
+                               }
+                           }];
+}
+
+- (void)updatePriceLabel {
+    if (_user.cachedPrice) {
+        _priceLabel.text = [NSString stringWithFormat:@"%.0f %@", [_user.cachedPrice floatValue], _user.todayCurrency];
+    } else {
+        _priceLabel.text = NSLocalizedString(@"loading", nil);
+    }
+}
+
+- (void)updateChart {
+    [_miniChart reloadGraph];
+    [_bigChart reloadGraph];
+}
+
+#pragma mark - Widget
+- (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
+    [self fetchCurrent];
+    [self fetchHistory];
+    completionHandler(NCUpdateResultNewData);
 }
 
 - (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets {
@@ -152,14 +229,16 @@
 
 #pragma mark - BEMSimpleLineGraphDataSource
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return _data.count;
+    return _user.cachedHistory.count;
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [[_data objectAtIndex:index] floatValue];
+    return [[_user.cachedHistory objectAtIndex:index] floatValue];
 }
 
 #pragma mark - BEMSimpleLineGraphDelegate
-
+- (CGFloat)staticPaddingForLineGraph:(BEMSimpleLineGraphView *)graph {
+    return 10;
+}
 
 @end

@@ -43,6 +43,15 @@
     [_defaults synchronize];
 }
 
+- (NSArray *)cachedHistory {
+    return [_defaults objectForKey:@"cachedHistory"];
+}
+
+- (void)setCachedHistory:(NSArray *)cachedHistory {
+    [_defaults setObject:cachedHistory forKey:@"cachedHistory"];
+    [_defaults synchronize];
+}
+
 - (NSString *)address {
     return [_defaults objectForKey:@"address"];
 }
