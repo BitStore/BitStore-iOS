@@ -12,7 +12,14 @@ Private keys are generated on the device and stored securely in the Keychain.
 [![image](http://bitstoreapp.com/bitstore.png)](http://bitstoreapp.com)
 
 ## Installation
-	pod install
+
+API Keys are managed with [cocoapods-keys](https://github.com/orta/cocoapods-keys).  
+You will need to add API keys for Chain.com (required) and Plesk analytics (optional):
+
+	pod keys set "Chain" "key" BitStore
+	pod keys set "Analytics" "key" BitStore
+
+
 Open BitStore.xcworkspace.  
 You will see three schemas:
 
@@ -21,10 +28,6 @@ You will see three schemas:
 - Tests (Unit xctest)
 
 On the test server the stripe test servers will be used and only 0.0001 / 0.0002 / 0.0005 / 0.001 BTC will be transfered. Also the developer profile will be used for the APNs. Phone verification is skipped on the test server.
-
-In the file `Keys.m` you will have to add API keys for certain features to work. To prevent committing this file you might want to run this:
-
-	git update-index --assume-unchanged BitStore/Config/Keys.m
 	
 
 ### Server
