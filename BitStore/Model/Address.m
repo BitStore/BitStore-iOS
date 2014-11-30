@@ -96,8 +96,9 @@
 }
 
 - (void)update:(BOOL)full showError:(BOOL)showError {
-    NSString* addrUrl = [NSString stringWithFormat:@"https://api.chain.com/v1/bitcoin/addresses/%@?key=%@", self.address, [Keys chainKey]];
-    NSString* txUrl = [NSString stringWithFormat:@"https://api.chain.com/v1/bitcoin/addresses/%@/transactions?key=%@&limit=20", self.address, [Keys chainKey]];
+    BitStoreKeys* keys = [[BitStoreKeys alloc] init];
+    NSString* addrUrl = [NSString stringWithFormat:@"https://api.chain.com/v1/bitcoin/addresses/%@?key=%@", self.address, keys.chain];
+    NSString* txUrl = [NSString stringWithFormat:@"https://api.chain.com/v1/bitcoin/addresses/%@/transactions?key=%@&limit=20", self.address, keys.chain];
     
     NSMutableArray* urls = [[NSMutableArray alloc] init];
     [urls addObject:addrUrl];

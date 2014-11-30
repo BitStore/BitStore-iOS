@@ -123,7 +123,7 @@
         [self showVerificationScreen];
     } else {
         [self showHUD];
-        _ringCaptcha = [[RingcaptchaAPI alloc] initWithAppKey:[Keys ringCaptchaAppKey] andAPIKey:[Keys ringCaptchaAPIKey]];
+        _ringCaptcha = [[RingcaptchaAPI alloc] initWithAppKey:nil andAPIKey:nil];
         [_ringCaptcha sendCaptchaCodeToNumber:[self phoneNumber] withService:SMS delegate:self];
     }
 }

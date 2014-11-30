@@ -29,7 +29,6 @@
 		9A073F3F1996EDCD007E0D0F /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F3E1996EDCD007E0D0F /* Order.m */; };
 		9A073F421996F044007E0D0F /* PhoneInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F411996F044007E0D0F /* PhoneInputViewController.m */; };
 		9A073F4819978042007E0D0F /* PhoneVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A073F4719978042007E0D0F /* PhoneVerificationViewController.m */; };
-		9A19022D19A0FAD7008D928B /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A19022C19A0FAD7008D928B /* Keys.m */; };
 		9A1DAEC4197BD95300BB9DF7 /* PushHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DAEC3197BD95300BB9DF7 /* PushHelper.m */; };
 		9A1DAEC8197C2C1C00BB9DF7 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DAEC7197C2C1C00BB9DF7 /* Unit.m */; };
 		9A1DAECB197C305400BB9DF7 /* ChangeUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DAECA197C305400BB9DF7 /* ChangeUnitViewController.m */; };
@@ -88,7 +87,6 @@
 		9A97A0C319D05BBF0023C9AD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A0C219D05BBF0023C9AD /* libicucore.dylib */; };
 		9A97A0C519D05C820023C9AD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A0C419D05C820023C9AD /* CFNetwork.framework */; };
 		9A9D587D19D0D0AF00EA940A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9D587C19D0D0AF00EA940A /* Images.xcassets */; };
-		9A9D588019D1F63200EA940A /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A19022C19A0FAD7008D928B /* Keys.m */; };
 		9A9D588319D1F73800EA940A /* SharedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588219D1F73800EA940A /* SharedUser.m */; };
 		9A9D588419D1F8F200EA940A /* SharedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D588219D1F73800EA940A /* SharedUser.m */; };
 		9A9D588819D484C900EA940A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A9D588A19D484C900EA940A /* Localizable.strings */; };
@@ -197,8 +195,6 @@
 		9A073F411996F044007E0D0F /* PhoneInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneInputViewController.m; sourceTree = "<group>"; };
 		9A073F4619978042007E0D0F /* PhoneVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneVerificationViewController.h; sourceTree = "<group>"; };
 		9A073F4719978042007E0D0F /* PhoneVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneVerificationViewController.m; sourceTree = "<group>"; };
-		9A19022B19A0FAD7008D928B /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
-		9A19022C19A0FAD7008D928B /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
 		9A1DAEC2197BD95300BB9DF7 /* PushHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushHelper.h; sourceTree = "<group>"; };
 		9A1DAEC3197BD95300BB9DF7 /* PushHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushHelper.m; sourceTree = "<group>"; };
 		9A1DAEC6197C2C1C00BB9DF7 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
@@ -820,8 +816,6 @@
 				9AB7EAEF19903DEA00B9A1BA /* API.m */,
 				9AB7EAF119903DFB00B9A1BA /* Environment.h */,
 				9AB7EAF219903DFB00B9A1BA /* Environment.m */,
-				9A19022B19A0FAD7008D928B /* Keys.h */,
-				9A19022C19A0FAD7008D928B /* Keys.m */,
 				9A528CE519A0D6B8007B3DF0 /* Settings.h */,
 				9A528CE619A0D6B8007B3DF0 /* Settings.m */,
 			);
@@ -1164,7 +1158,6 @@
 				9A67A7831950D70A001FCE32 /* Exchange.m in Sources */,
 				9A67A7791950D70A001FCE32 /* qrencode.c in Sources */,
 				9A67A7681950D70A001FCE32 /* ExchangeHelper.m in Sources */,
-				9A19022D19A0FAD7008D928B /* Keys.m in Sources */,
 				9A67A77F1950D70A001FCE32 /* Address.m in Sources */,
 				9A67A7821950D70A001FCE32 /* ContactList.m in Sources */,
 				9A1DAECB197C305400BB9DF7 /* ChangeUnitViewController.m in Sources */,
@@ -1211,7 +1204,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AE335C31A268FD500021269 /* split.c in Sources */,
-				9A9D588019D1F63200EA940A /* Keys.m in Sources */,
 				9AE335BE1A268FC500021269 /* qrenc.c in Sources */,
 				9AE335BC1A268FBD00021269 /* bitstream.c in Sources */,
 				9AE335C21A268FD200021269 /* rscode.c in Sources */,

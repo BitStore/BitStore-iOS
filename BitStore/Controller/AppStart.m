@@ -15,14 +15,12 @@
 #import "AppDelegate.h"
 #import "RequestHelper.h"
 #import "MainViewControllerPhone.h"
-#import "Keys.h"
 #import "SharedUser.h"
 #import "SDStatusBarManager.h"
 
 @implementation AppStart
 
 + (void)start {
-    NSAssert([Keys chainKey].length > 0, @"Missing API keys!");
     [self migrate];
     [self setupStorage];
     [self setupKeychain];
@@ -113,8 +111,9 @@
 }
 
 + (void)setupAnalytics {
+    BitStoreKeys* keys = [[BitStoreKeys alloc] init];
     NSString* url = [API analyticsUrl];
-    [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:url] siteID:@"2" authenticationToken:[Keys analyticsKey]];
+    [PiwikTracker sharedInstanceWithBaseURL:[NSURL URLWithString:url] siteID:@"2" authenticationToken:keys.analytics];
     [PiwikTracker sharedInstance].dispatchInterval = 30;
 }
 
