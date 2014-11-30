@@ -1,7 +1,9 @@
 language: objective-c
 before_install:
-    - gem install cocoapods -v '= 0.34.2'
     - brew update
     - brew install xctool
+    - gem install cocoapods-keys
+    - pod keys set "Chain" ""
+    - pod keys set "Analytics" ""
 script: xctool -workspace BitStore.xcworkspace -scheme Test -sdk iphonesimulator8.1
 script: xctool -workspace BitStore.xcworkspace -scheme BitStore -sdk iphonesimulator8.1
