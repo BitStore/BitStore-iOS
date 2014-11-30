@@ -73,12 +73,6 @@
 #define COCOAPODS_VERSION_MINOR_PiwikTracker 5
 #define COCOAPODS_VERSION_PATCH_PiwikTracker 1
 
-// SimulatorStatusMagic
-#define COCOAPODS_POD_AVAILABLE_SimulatorStatusMagic
-#define COCOAPODS_VERSION_MAJOR_SimulatorStatusMagic 1
-#define COCOAPODS_VERSION_MINOR_SimulatorStatusMagic 2
-#define COCOAPODS_VERSION_PATCH_SimulatorStatusMagic 0
-
 // SocketRocket
 #define COCOAPODS_POD_AVAILABLE_SocketRocket
 #define COCOAPODS_VERSION_MAJOR_SocketRocket 0

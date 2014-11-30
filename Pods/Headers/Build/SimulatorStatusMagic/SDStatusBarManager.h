@@ -1,1 +1,0 @@
-../../../SimulatorStatusMagic/SDStatusBarManager/SDStatusBarManager.h

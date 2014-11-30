@@ -13,7 +13,6 @@ PODS:
   - OpenSSL-Universal (1.0.1.h)
   - PiwikTracker (2.5.1):
     - AFNetworking (= 1.3.2)
-  - SimulatorStatusMagic (1.2)
   - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
@@ -27,7 +26,6 @@ DEPENDENCIES:
   - MBProgressHUD (= 0.9)
   - NSDate+TimeAgo (= 1.0.3)
   - PiwikTracker (= 2.5.1)
-  - SimulatorStatusMagic (= 1.2)
   - SocketRocket (= 0.3.1-beta2)
 
 EXTERNAL SOURCES:
@@ -48,7 +46,6 @@ SPEC CHECKSUMS:
   NSDate+TimeAgo: f3533e0198fab05b716368b19f8c2185d53d6f3b
   OpenSSL-Universal: 9c112508615ed33bb35f730eed820e93175a9dec
   PiwikTracker: fd93aedfb17707ed487f2e69fd6af91723e2374b
-  SimulatorStatusMagic: ea1871b0e7119bc189ec3fb127bd56c54b937eed
   SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
 
 COCOAPODS: 0.35.0

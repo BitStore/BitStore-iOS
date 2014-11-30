@@ -13,7 +13,7 @@ pod 'NSDate+TimeAgo', '1.0.3'
 pod 'PiwikTracker', '2.5.1'
 pod 'SocketRocket', '0.3.1-beta2'
 pod 'iRate', '1.10.3'
-pod 'SimulatorStatusMagic', '1.2', :configurations => ['Debug']
+# pod 'SimulatorStatusMagic', '1.2', :configurations => ['Debug']
 
 target :BitStoreToday do
 	pod 'BEMSimpleLineGraph', '3.2'
