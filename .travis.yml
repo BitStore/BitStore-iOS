@@ -3,7 +3,7 @@ before_install:
     - brew update
     - brew install xctool
     - gem install cocoapods-keys
-    - pod keys set "Chain" ""
-    - pod keys set "Analytics" ""
+    - pod keys set "Chain" "" BitStore
+    - pod keys set "Analytics" "" BitStore
 script: xctool -workspace BitStore.xcworkspace -scheme Test -sdk iphonesimulator8.1
 script: xctool -workspace BitStore.xcworkspace -scheme BitStore -sdk iphonesimulator8.1
